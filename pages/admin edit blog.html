@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <nav>
+        <div class="admin logo"></div>
+        <div class="buttons control">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="dashboard"></div>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="blogs"></div>
+                        Blogs
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="queries"></div>
+                        Queries
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="settings"></div>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="admin photo">
+            
+        </div>
+    </nav>
+    <div class="wrapper">
+        <div class="container edit-blog">
+            <div class="editing">
+                <h1>Editing</h1>
+                <form action="#">
+                    <p class="title">Title</p>
+                    <input type="text"><br>
+                    <p class="title">Cover Photo</p>
+                    <label for="coverph">
+                        <input type="file" id="coverph" placeholder="Cover photo">
+                        <p>smiley face.svg</p>
+                        <img src="/assets/file-upload-svgrepo-com 1.svg" alt="upload file">
+                    </label><br>
+                    <p class="title">Blog</p>
+                    <textarea name="blog" id="blogcontent" cols="30" rows="10"></textarea><br>
+                    <input type="submit" name="update" id="update" value="Update"><br>
+                </form>
+            </div>
+            <div class="coverphoto">
+                <div class="actions">
+                    <div class="cancel">
+                        <img src="/assets/close editing.svg" alt="cancel">
+                        <p>Cancel</p>
+                    </div>
+                    <div class="delete">
+                        <img src="/assets/delete blog.svg" alt="delete">
+                        <p>Delete</p>
+                    </div>
+                </div>
+                <div class="updatephoto">
+                    <img src="/assets/sara-kurfess-6lcT2kRPvnI-unsplash.jpg" alt="cover photo">
+                    <p>Preview of Cover photo</p>
+                </div>
+                <div class="ingraph">
+                    <img src="/assets/Graphic (1).svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

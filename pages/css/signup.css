@@ -1,0 +1,58 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: url(/assets/Tab\ Back\ ground\ \(3\).svg) center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #F6FFF8;
+}
+
+.form {
+  border: 1px solid #CCE3DE;
+  width: 400px;
+  margin: auto;
+  position: relative;
+  background-color: #CCE3DE;
+  border-radius: 0.5em;
+}
+.form p {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2em;
+  color: #6B9080;
+}
+.form .help {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0.5em;
+  right: 0.5em;
+  background-color: aqua;
+  background: url(/assets/help1-svgrepo-com\ 1.svg) center center no-repeat;
+}
+
+form {
+  text-align: center;
+}
+form input {
+  background-color: #CCE3DE;
+  width: 80%;
+  margin: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 0.01em;
+  border-color: black;
+}
+form input[type*=submit] {
+  width: 30%;
+  margin-top: 2em;
+  color: #F0FBF4;
+  background-color: #6B9080;
+}/*# sourceMappingURL=signup.css.map */

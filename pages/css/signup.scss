@@ -1,0 +1,64 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: url(/assets/Tab\ Back\ ground\ \(3\).svg) center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F6FFF8;
+}
+
+.form {
+    border: 1px solid #CCE3DE;
+    width: 400px;
+    margin: auto;
+    position: relative;
+    background-color: #CCE3DE;
+    border-radius: .5em;
+
+    p {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-top: 2em;
+        color: #6B9080;
+    }
+
+    .help {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: .5em;
+        right: 0.5em;
+        background-color: aqua;
+        background: url(/assets/help1-svgrepo-com\ 1.svg)center center no-repeat;
+    }
+}
+
+form {
+    text-align: center;
+
+    input {
+        background-color: #CCE3DE;
+        width: 80%;
+        margin: 1em;
+        padding: .5em;
+        border-radius: .5em;
+        border-style: solid;
+        border-width: .01em;
+        border-color: black;
+    }
+
+    input[type*="submit"] {
+        width: 30%;
+        margin-top: 2em;
+        color: #F0FBF4;
+        background-color: #6B9080;
+    }
+
+
+}
