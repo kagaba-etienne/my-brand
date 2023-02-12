@@ -1,0 +1,629 @@
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: url(/assets/backgrounduni.png) center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+nav {
+  z-index: 1000;
+  display: flex;
+  background-color: #EAF4F4;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+nav li > a {
+  display: flex;
+  gap: 1em;
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: black;
+}
+nav div {
+  width: 20.2em;
+  text-align: center;
+}
+nav .buttons {
+  display: flex;
+  justify-content: center;
+}
+nav .buttons ul {
+  position: relative;
+  top: 4em;
+}
+nav .logo {
+  background: url(/assets/Kagaba\ Logo\ 2.svg) center center no-repeat;
+  width: 16.52em;
+  height: 4.9em;
+  align-self: center;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.7em;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+nav ul .dashboard {
+  background: url(/assets/Dashboard.svg) center center no-repeat;
+  width: 1.88em;
+  height: 1.88em;
+}
+nav ul .blogs {
+  background: url(/assets/blog-writing-svgrepo-com\ 1.svg) center center no-repeat;
+  width: 1.88em;
+  height: 1.88em;
+}
+nav ul .queries {
+  background: url(/assets/messages\ admin.svg) center center no-repeat;
+  background-size: cover;
+  width: 1.88em;
+  height: 1.88em;
+}
+nav ul .settings {
+  background: url(/assets/Settings.svg) center center no-repeat;
+  width: 1.88em;
+  height: 1.88em;
+}
+nav .photo {
+  background: url(/assets/photo.svg) center center no-repeat;
+  width: 13.8em;
+  background-size: cover;
+  height: 13.8em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper {
+  margin-left: 20.2em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container.edit-blog {
+  margin-left: 8em;
+  display: flex;
+  gap: 3em;
+}
+.container.edit-blog .editing h1 {
+  font-size: 4rem;
+  color: #6B9080;
+}
+.container.edit-blog .editing form {
+  border-radius: 1em;
+  width: 51.4em;
+  height: 75.6em;
+  display: flex;
+  flex-direction: column;
+  background-color: #CCE3DE;
+}
+.container.edit-blog .editing form input {
+  height: 61px;
+  width: 90%;
+  background-color: #CCE3DE;
+  border-radius: 0.7em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container.edit-blog .editing form input[type*=submit] {
+  color: #F0FBF4;
+  margin-right: 2em;
+  font-size: 2.4rem;
+  background-color: #6B9080;
+  width: 154px;
+  height: 61px;
+}
+.container.edit-blog .editing form label {
+  width: 90%;
+  height: 61px;
+  border-radius: 1em;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container.edit-blog .editing form label p {
+  font-size: 2.4rem;
+  width: 14.9em;
+  border: 1px red;
+  margin: 0;
+}
+.container.edit-blog .editing form label img {
+  width: 7.6em;
+  background: url(/assets/file-upload-svgrepo-com\ 1.svg) center center no-repeat;
+  border: 1px solid black;
+  height: 4.9em;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 1em;
+  cursor: pointer;
+}
+.container.edit-blog .editing form label input {
+  display: none;
+}
+.container.edit-blog .editing form .title {
+  font-size: 2.4rem;
+  width: 90%;
+  align-self: center;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.container.edit-blog .editing form textarea {
+  width: 90%;
+  height: 327px;
+  background-color: #CCE3DE;
+  border-radius: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container.edit-blog .coverphoto {
+  width: 48em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container.edit-blog .coverphoto .updatephoto {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  top: -3em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container.edit-blog .coverphoto .updatephoto p {
+  font-size: 2.4rem;
+  text-align: center;
+}
+.container.edit-blog .coverphoto .updatephoto img {
+  width: 44.6em;
+  height: 42.7em;
+  border-radius: 1em;
+}
+.container.edit-blog .coverphoto .ingraph {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 159px;
+  align-self: flex-end;
+}
+.container.edit-blog .coverphoto .actions {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 1em;
+}
+.container.edit-blog .coverphoto .actions div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.container.edit-blog .coverphoto .actions div p {
+  font-size: 2.4rem;
+}
+
+.container.profile {
+  margin-left: 8em;
+  height: 73.4em;
+  display: flex;
+  gap: 7em;
+  padding-top: 3em;
+  position: relative;
+  top: 6em;
+}
+.container.profile .editing {
+  position: relative;
+  top: -11em;
+}
+.container.profile .editing h1 {
+  position: relative;
+  top: -1.4em;
+  font-size: 4rem;
+  color: #6B9080;
+}
+.container.profile .editing form {
+  border-radius: 1em;
+  width: 48em;
+  height: 52.5em;
+  gap: 1.8em;
+  display: flex;
+  flex-direction: column;
+  background-color: #CCE3DE;
+}
+.container.profile .editing form .u-title {
+  font-size: 2rem;
+  text-align: center;
+}
+.container.profile .editing form .input {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1em;
+}
+.container.profile .editing form .input p {
+  margin: 0;
+}
+.container.profile .editing form input {
+  height: 2.6em;
+  width: 24em;
+  background-color: #CCE3DE;
+  border-radius: 0.7em;
+}
+.container.profile .editing form input[type*=submit] {
+  color: #F0FBF4;
+  border-radius: 0.5em;
+  align-self: center;
+  font-size: 2rem;
+  background-color: #6B9080;
+  width: 154px;
+  height: 2.3em;
+  position: relative;
+  top: 1.5em;
+}
+.container.profile .editing form .title {
+  font-size: 1.4rem;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.container.profile .coverphoto {
+  width: 48em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container.profile .coverphoto .updatephoto {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.container.profile .coverphoto .updatephoto p {
+  font-size: 3.2rem;
+}
+.container.profile .coverphoto .updatephoto img {
+  width: 40em;
+  height: 32em;
+  border-radius: 1em;
+}
+.container.profile .coverphoto .updatephoto div.edit {
+  background-color: #6B9080;
+  width: 7.1em;
+  height: 5.9em;
+  border-radius: 0.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 29em;
+  right: 8em;
+  cursor: pointer;
+}
+.container.profile .coverphoto .updatephoto img.edit {
+  width: 5em;
+  height: 5em;
+}
+.container.profile .coverphoto .change-credentials {
+  border: 1px solid black;
+  border-radius: 0.8em;
+  background-color: #CCE3DE;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5em;
+  position: relative;
+  top: -4em;
+}
+.container.profile .coverphoto .change-credentials p {
+  font-size: 2rem;
+  margin: 0;
+}
+.container.profile .coverphoto .ingraph {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 159px;
+  align-self: flex-end;
+}
+
+.wrapper.queries {
+  align-items: flex-start;
+}
+
+.container.queries {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10em;
+  margin-left: 18.1em;
+  gap: 6.7em;
+}
+.container.queries h1 {
+  color: #6B9080;
+  font-size: 4rem;
+}
+.container.queries .bar {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #EAF4F4;
+  gap: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  height: 6.8em;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 1em;
+}
+.container.queries .bar .item {
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid black;
+  padding-left: 6em;
+  padding-right: 6em;
+  height: 5.4em;
+  border-radius: 0.9em;
+  background-color: #CCE3DE;
+  display: flex;
+  align-items: center;
+}
+.container.queries .bar .item p {
+  font-size: 2em;
+  margin: 0;
+}
+.container.queries .cards {
+  display: flex;
+  flex-direction: column;
+}
+.container.queries .cards .card {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1.5em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.container.queries .cards .card .visible {
+  display: flex;
+  width: 63.7em;
+  justify-content: space-between;
+  border-radius: 1em;
+  border: 1px solid black;
+  padding: 1em;
+  align-items: center;
+  background-color: #EAF4F4;
+}
+.container.queries .cards .card .visible .photo {
+  background: url(/assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
+  width: 9.2em;
+  height: 9.2em;
+  border-radius: 50%;
+}
+.container.queries .cards .card .visible .data {
+  align-self: flex-start;
+  position: relative;
+  left: -11em;
+}
+.container.queries .cards .card .visible .data .name {
+  font-size: 2rem;
+  margin: 0;
+}
+.container.queries .cards .card .visible .data .date {
+  font-size: 1.4rem;
+  margin: 0;
+  margin-left: 1em;
+}
+.container.queries .cards .card .visible .actions {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 1em;
+}
+.container.queries .cards .card .visible .actions .respond {
+  width: 6em;
+  height: 6em;
+  border-radius: 1em;
+  background-color: #6B9080;
+  background-image: url(/assets/reply.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+}
+.container.queries .cards .card .visible .actions .ignore {
+  width: 6em;
+  height: 6em;
+  border-radius: 1em;
+  background-color: #BD5454;
+  background-image: url(/assets/delete\ blog.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+}
+.container.queries .cards .card .hidden {
+  visibility: hidden;
+  position: absolute;
+  background-color: #EAF4F4;
+  width: 63.7em;
+  border: 1px solid black;
+  border-radius: 1em;
+  padding: 1em;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container.queries .cards .card .hidden p {
+  font-size: 1.5rem;
+  width: 37.4em;
+  margin-left: 1.666em;
+}
+
+.container.dashboard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10em;
+  margin-left: 18.1em;
+  gap: 6.7em;
+}
+.container.dashboard h1 {
+  color: #6B9080;
+  font-size: 4rem;
+}
+.container.dashboard h1 span {
+  color: #CCE3DE;
+}
+.container.dashboard hr {
+  position: relative;
+  left: -12em;
+  top: -4em;
+  width: 100%;
+}
+.container.dashboard h3 {
+  color: #6B9080;
+  font-size: 3.6rem;
+  font-weight: 600;
+  position: relative;
+  top: -4em;
+  left: -2em;
+}
+.container.dashboard .bar {
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 1em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  left: -12em;
+}
+.container.dashboard .bar .item {
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid black;
+  padding: 1em;
+  gap: 1em;
+  border-radius: 0.9em;
+  background-color: #CCE3DE;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.container.dashboard .bar .item p {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+}
+.container.dashboard .bar .item p + div {
+  width: 20em;
+  border-radius: 1em;
+  height: 15.1em;
+}
+.container.dashboard .bar .item .blogs {
+  background: url(/assets/shoe1.jpg) center center no-repeat;
+}
+.container.dashboard .bar .item .queries {
+  background: url(/assets/shoe1.jpg) center center no-repeat;
+}
+.container.dashboard .bar .item .comments {
+  background: url(/assets/shoe1.jpg) center center no-repeat;
+}
+.container.dashboard .bar .item .subscribers {
+  background: url(/assets/shoe1.jpg) center center no-repeat;
+}
+.container.dashboard .cards {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -23em;
+}
+.container.dashboard .cards .card {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1.5em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.container.dashboard .cards .card .visible {
+  display: flex;
+  width: 63.7em;
+  justify-content: space-between;
+  border-radius: 1em;
+  border: 1px solid black;
+  padding: 1em;
+  align-items: center;
+  background-color: #EAF4F4;
+}
+.container.dashboard .cards .card .visible .photo {
+  background: url(/assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
+  width: 9.2em;
+  height: 9.2em;
+  border-radius: 50%;
+}
+.container.dashboard .cards .card .visible .data {
+  align-self: flex-start;
+  position: relative;
+  left: -11em;
+}
+.container.dashboard .cards .card .visible .data .name {
+  font-size: 2rem;
+  margin: 0;
+}
+.container.dashboard .cards .card .visible .data .date {
+  font-size: 1.4rem;
+  margin: 0;
+  margin-left: 1em;
+}
+.container.dashboard .cards .card .visible .actions {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 1em;
+}
+.container.dashboard .cards .card .visible .actions .respond {
+  width: 6em;
+  height: 6em;
+  border-radius: 1em;
+  background-color: #6B9080;
+  background-image: url(/assets/reply.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+}
+.container.dashboard .cards .card .visible .actions .ignore {
+  width: 6em;
+  height: 6em;
+  border-radius: 1em;
+  background-color: #BD5454;
+  background-image: url(/assets/delete\ blog.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+}
+.container.dashboard .cards .card .hidden {
+  visibility: hidden;
+  position: absolute;
+  background-color: #EAF4F4;
+  width: 63.7em;
+  border: 1px solid black;
+  border-radius: 1em;
+  padding: 1em;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container.dashboard .cards .card .hidden p {
+  font-size: 1.5rem;
+  width: 37.4em;
+  margin-left: 1.666em;
+}/*# sourceMappingURL=admin.css.map */
