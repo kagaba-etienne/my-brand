@@ -6,7 +6,7 @@ html {
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: url(./assets/backgrounduni.png) center center no-repeat;
+    background: url(../assets/backgrounduni.png) center center no-repeat;
     background-size: cover;
     background-attachment: fixed;
     height: 100%;
@@ -45,7 +45,7 @@ nav {
     }
 
     .logo {
-        background: url(./assets/Kagaba\ Logo\ 2.svg) center center no-repeat;
+        background: url(../assets/Kagaba\ Logo\ 2.svg) center center no-repeat;
         width: 16.52em;
         height: 4.9em;
         align-self: center;
@@ -61,33 +61,33 @@ nav {
         padding: 0;
 
         .dashboard {
-            background: url(./assets/Dashboard.svg) center center no-repeat;
+            background: url(../assets/Dashboard.svg) center center no-repeat;
             width: 1.88em;
             height: 1.88em;
         }
 
         .blogs {
-            background: url(./assets/blog-writing-svgrepo-com\ 1.svg) center center no-repeat;
+            background: url(../assets/blog-writing-svgrepo-com\ 1.svg) center center no-repeat;
             width: 1.88em;
             height: 1.88em;
         }
 
         .queries {
-            background: url(./assets/messages\ admin.svg) center center no-repeat;
+            background: url(../assets/messages\ admin.svg) center center no-repeat;
             background-size: cover;
             width: 1.88em;
             height: 1.88em;
         }
 
         .settings {
-            background: url(./assets/Settings.svg) center center no-repeat;
+            background: url(../assets/Settings.svg) center center no-repeat;
             width: 1.88em;
             height: 1.88em;
         }
     }
 
     .photo {
-        background: url(./assets/photo.svg) center center no-repeat;
+        background: url(../assets/photo.svg) center center no-repeat;
         width: 13.8em;
         background-size: cover;
         height: 13.8em;
@@ -159,7 +159,7 @@ nav {
             
             img {
                 width: 7.6em;
-                background: url(./assets/file-upload-svgrepo-com\ 1.svg) center center no-repeat;
+                background: url(../assets/file-upload-svgrepo-com\ 1.svg) center center no-repeat;
                 border: 1px solid black;
                 height: 4.9em;
                 margin-top: auto;
@@ -449,7 +449,7 @@ nav {
                 background-color: #EAF4F4;
 
                 .photo {
-                    background: url(./assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
+                    background: url(../assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
                     width: 9.2em;
                     height: 9.2em;
                     border-radius: 50%;
@@ -484,7 +484,7 @@ nav {
                         height: 6em;
                         border-radius: 1em;
                         background-color: #6B9080;
-                        background-image: url(./assets/reply.svg);
+                        background-image: url(../assets/reply.svg);
                         background-position: center center;
                         background-repeat: no-repeat;
                         border: 1px solid black;
@@ -495,7 +495,7 @@ nav {
                         height: 6em;
                         border-radius: 1em;
                         background-color: #BD5454;
-                        background-image: url(./assets/delete\ blog.svg);
+                        background-image: url(../assets/delete\ blog.svg);
                         background-position: center center;
                         background-repeat: no-repeat;
                         border: 1px solid black;
@@ -589,16 +589,16 @@ nav {
             }
 
             .blogs {
-                background: url(./assets/shoe1.jpg) center center no-repeat;
+                background: url(../assets/shoe1.jpg) center center no-repeat;
             }
             .queries {
-                background: url(./assets/shoe1.jpg) center center no-repeat;
+                background: url(../assets/shoe1.jpg) center center no-repeat;
             }
             .comments {
-                background: url(./assets/shoe1.jpg) center center no-repeat;
+                background: url(../assets/shoe1.jpg) center center no-repeat;
             }
             .subscribers {
-                background: url(./assets/shoe1.jpg) center center no-repeat;
+                background: url(../assets/shoe1.jpg) center center no-repeat;
             }
         }
     }
@@ -629,7 +629,7 @@ nav {
                 background-color: #EAF4F4;
 
                 .photo {
-                    background: url(./assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
+                    background: url(../assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
                     width: 9.2em;
                     height: 9.2em;
                     border-radius: 50%;
@@ -664,7 +664,7 @@ nav {
                         height: 6em;
                         border-radius: 1em;
                         background-color: #6B9080;
-                        background-image: url(./assets/reply.svg);
+                        background-image: url(../assets/reply.svg);
                         background-position: center center;
                         background-repeat: no-repeat;
                         border: 1px solid black;
@@ -675,7 +675,7 @@ nav {
                         height: 6em;
                         border-radius: 1em;
                         background-color: #BD5454;
-                        background-image: url(./assets/delete\ blog.svg);
+                        background-image: url(../assets/delete\ blog.svg);
                         background-position: center center;
                         background-repeat: no-repeat;
                         border: 1px solid black;

@@ -10,7 +10,7 @@ html, body {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: url(./assets/backgrounduni.png) center center no-repeat;
+  background: url(../assets/backgrounduni.png) center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
@@ -42,7 +42,7 @@ nav .smedia {
   justify-content: center;
 }
 nav .logo {
-  background: url(./assets/Kagaba\ Logo\ 1.svg) center center no-repeat;
+  background: url(../assets/Kagaba\ Logo\ 1.svg) center center no-repeat;
   width: 5.3em;
   height: 6.1em;
   align-self: center;
@@ -57,57 +57,57 @@ nav ul {
   padding: 0;
 }
 nav ul .home {
-  background: url(./assets/Home\ 1.svg) center center no-repeat;
+  background: url(../assets/Home\ 1.svg) center center no-repeat;
   width: 100%;
   height: 2.5em;
 }
 nav ul .about {
-  background: url(./assets/About\ me\ 1.svg) center center no-repeat;
+  background: url(../assets/About\ me\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .skills {
-  background: url(./assets/Skills\ 1.svg) center center no-repeat;
+  background: url(../assets/Skills\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .projects {
-  background: url(./assets/projects\ 1.svg) center center no-repeat;
+  background: url(../assets/projects\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .intouch {
-  background: url(./assets/Message\ 1.svg) center center no-repeat;
+  background: url(../assets/Message\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .blog {
-  background: url(./assets/blog-svgrepo-com\ 1.svg) center center no-repeat;
+  background: url(../assets/blog-svgrepo-com\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .menu {
-  background: url(./assets/Menu\ button.svg) center center no-repeat;
+  background: url(../assets/Menu\ button.svg) center center no-repeat;
   width: 2.6em;
   height: 2.6em;
 }
 nav ul .twitter {
-  background: url(./assets/twitter\ 1.svg) center center no-repeat;
+  background: url(../assets/twitter\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .linkedin {
-  background: url(./assets/Linked\ in\ 1.svg) center center no-repeat;
+  background: url(../assets/Linked\ in\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .github {
-  background: url(./assets/Whatsapp\ 1.svg) center center no-repeat;
+  background: url(../assets/Whatsapp\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
 nav ul .instagram {
-  background: url(./assets/Insta\ icon\ 1.svg) center center no-repeat;
+  background: url(../assets/Insta\ icon\ 1.svg) center center no-repeat;
   width: 2.5em;
   height: 2.5em;
 }
@@ -339,23 +339,23 @@ nav ul .instagram {
   align-self: flex-end;
 }
 .container.projects .card0 {
-  background: url(./assets/uriel-soberanes-MxVkWPiJALs-unsplash.jpg) center center no-repeat;
+  background: url(../assets/uriel-soberanes-MxVkWPiJALs-unsplash.jpg) center center no-repeat;
   background-size: cover;
 }
 .container.projects .card1 {
-  background: url(./assets/alex-knight-2EJCSULRwC8-unsplash.jpg) center center no-repeat;
+  background: url(../assets/alex-knight-2EJCSULRwC8-unsplash.jpg) center center no-repeat;
   background-size: cover;
 }
 .container.projects .card2 {
-  background: url(./assets/sara-kurfess-6lcT2kRPvnI-unsplash.jpg) center center no-repeat;
+  background: url(../assets/sara-kurfess-6lcT2kRPvnI-unsplash.jpg) center center no-repeat;
   background-size: cover;
 }
 .container.projects .card3 {
-  background: url(./assets/markus-spiske-1LLh8k2_YFk-unsplash.jpg) center center no-repeat;
+  background: url(../assets/markus-spiske-1LLh8k2_YFk-unsplash.jpg) center center no-repeat;
   background-size: cover;
 }
 .container.projects .card4 {
-  background: url(./assets/markus-winkler-Q6uqw_Hjye8-unsplash.jpg) center center no-repeat;
+  background: url(../assets/markus-winkler-Q6uqw_Hjye8-unsplash.jpg) center center no-repeat;
   background-size: cover;
 }
 
@@ -389,7 +389,7 @@ nav ul .instagram {
   align-items: center;
 }
 .container.blogs .blogcard .cover {
-  background: url(./assets/shoe1.jpg) center center no-repeat;
+  background: url(../assets/shoe1.jpg) center center no-repeat;
   background-size: cover;
   width: 42.7em;
   height: 48.9em;
@@ -498,7 +498,7 @@ nav ul .instagram {
   right: -2em;
 }
 .subscribe .close {
-  background: url(./assets/close-circle-svgrepo-com\ 1.svg) center center no-repeat;
+  background: url(../assets/close-circle-svgrepo-com\ 1.svg) center center no-repeat;
   width: 2.5em;
   position: absolute;
   margin: 1em;
@@ -652,7 +652,7 @@ nav ul .instagram {
   height: 9.6em;
   aspect-ratio: 16.9;
   border-radius: 50%;
-  background: url(./assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
+  background: url(../assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
   background-size: cover;
 }
 .container.blogpost .lower .replies .comment .actual .content-comment .name, .container.blogpost .lower .replies .comment .reply .content-comment .name {
@@ -680,7 +680,7 @@ nav ul .instagram {
   right: -5em;
 }
 .container.blogpost .lower .replies .comment .reply .photo {
-  background-image: url(./assets/shoe1.jpg);
+  background-image: url(../assets/shoe1.jpg);
 }
 .container.blogpost .graphic {
   visibility: hidden;
