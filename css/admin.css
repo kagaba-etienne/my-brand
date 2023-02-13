@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: url(/assets/backgrounduni.png) center center no-repeat;
+  background: url(./assets/backgrounduni.png) center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
@@ -41,7 +41,7 @@ nav .buttons ul {
   top: 4em;
 }
 nav .logo {
-  background: url(/assets/Kagaba\ Logo\ 2.svg) center center no-repeat;
+  background: url(./assets/Kagaba\ Logo\ 2.svg) center center no-repeat;
   width: 16.52em;
   height: 4.9em;
   align-self: center;
@@ -56,28 +56,28 @@ nav ul {
   padding: 0;
 }
 nav ul .dashboard {
-  background: url(/assets/Dashboard.svg) center center no-repeat;
+  background: url(./assets/Dashboard.svg) center center no-repeat;
   width: 1.88em;
   height: 1.88em;
 }
 nav ul .blogs {
-  background: url(/assets/blog-writing-svgrepo-com\ 1.svg) center center no-repeat;
+  background: url(./assets/blog-writing-svgrepo-com\ 1.svg) center center no-repeat;
   width: 1.88em;
   height: 1.88em;
 }
 nav ul .queries {
-  background: url(/assets/messages\ admin.svg) center center no-repeat;
+  background: url(./assets/messages\ admin.svg) center center no-repeat;
   background-size: cover;
   width: 1.88em;
   height: 1.88em;
 }
 nav ul .settings {
-  background: url(/assets/Settings.svg) center center no-repeat;
+  background: url(./assets/Settings.svg) center center no-repeat;
   width: 1.88em;
   height: 1.88em;
 }
 nav .photo {
-  background: url(/assets/photo.svg) center center no-repeat;
+  background: url(./assets/photo.svg) center center no-repeat;
   width: 13.8em;
   background-size: cover;
   height: 13.8em;
@@ -144,7 +144,7 @@ nav .photo {
 }
 .container.edit-blog .editing form label img {
   width: 7.6em;
-  background: url(/assets/file-upload-svgrepo-com\ 1.svg) center center no-repeat;
+  background: url(./assets/file-upload-svgrepo-com\ 1.svg) center center no-repeat;
   border: 1px solid black;
   height: 4.9em;
   margin-top: auto;
@@ -402,7 +402,7 @@ nav .photo {
   background-color: #EAF4F4;
 }
 .container.queries .cards .card .visible .photo {
-  background: url(/assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
+  background: url(./assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
   width: 9.2em;
   height: 9.2em;
   border-radius: 50%;
@@ -434,7 +434,7 @@ nav .photo {
   height: 6em;
   border-radius: 1em;
   background-color: #6B9080;
-  background-image: url(/assets/reply.svg);
+  background-image: url(./assets/reply.svg);
   background-position: center center;
   background-repeat: no-repeat;
   border: 1px solid black;
@@ -444,7 +444,7 @@ nav .photo {
   height: 6em;
   border-radius: 1em;
   background-color: #BD5454;
-  background-image: url(/assets/delete\ blog.svg);
+  background-image: url(./assets/delete\ blog.svg);
   background-position: center center;
   background-repeat: no-repeat;
   border: 1px solid black;
@@ -527,16 +527,16 @@ nav .photo {
   height: 15.1em;
 }
 .container.dashboard .bar .item .blogs {
-  background: url(/assets/shoe1.jpg) center center no-repeat;
+  background: url(./assets/shoe1.jpg) center center no-repeat;
 }
 .container.dashboard .bar .item .queries {
-  background: url(/assets/shoe1.jpg) center center no-repeat;
+  background: url(./assets/shoe1.jpg) center center no-repeat;
 }
 .container.dashboard .bar .item .comments {
-  background: url(/assets/shoe1.jpg) center center no-repeat;
+  background: url(./assets/shoe1.jpg) center center no-repeat;
 }
 .container.dashboard .bar .item .subscribers {
-  background: url(/assets/shoe1.jpg) center center no-repeat;
+  background: url(./assets/shoe1.jpg) center center no-repeat;
 }
 .container.dashboard .cards {
   display: flex;
@@ -564,7 +564,7 @@ nav .photo {
   background-color: #EAF4F4;
 }
 .container.dashboard .cards .card .visible .photo {
-  background: url(/assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
+  background: url(./assets/PXL_20221123_153554416.PORTRAIT.jpg) center center no-repeat;
   width: 9.2em;
   height: 9.2em;
   border-radius: 50%;
@@ -596,7 +596,7 @@ nav .photo {
   height: 6em;
   border-radius: 1em;
   background-color: #6B9080;
-  background-image: url(/assets/reply.svg);
+  background-image: url(./assets/reply.svg);
   background-position: center center;
   background-repeat: no-repeat;
   border: 1px solid black;
@@ -606,7 +606,7 @@ nav .photo {
   height: 6em;
   border-radius: 1em;
   background-color: #BD5454;
-  background-image: url(/assets/delete\ blog.svg);
+  background-image: url(./assets/delete\ blog.svg);
   background-position: center center;
   background-repeat: no-repeat;
   border: 1px solid black;
