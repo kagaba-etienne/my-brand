@@ -11,32 +11,52 @@
 
 <body>
     <nav>
-        <div class="admin logo"></div>
-        <div class="buttons control">
+        <div class="logo-container">
+            <a href="./admin dashboard.html">
+                <div class="admin logo"></div>
+            </a>
+        </div>
+        <div class="links">
             <ul>
                 <li>
-                    <a href="./admin dashboard.html">
-                        <div class="dashboard"></div>
-                        Dashboard
+                    <a href="./admin dashboard.html" class="active">
+                        <img src="./assets/Dashboard.svg" alt="Dashboard">
+                        <p>Dashbard</p>
                     </a>
                 </li>
                 <li>
                     <a href="./admin edit blog.html">
-                        <div class="blogs"></div>
-                        Blogs
+                        <img src="./assets/write blog.svg" alt="edit blog">
+                        <p>Blog</p>
                     </a>
                 </li>
                 <li>
                     <a href="./admin queries.html">
-                        <div class="queries"></div>
-                        Queries
+                        <img src="./assets/message.svg" alt="Queries">
+                        <p>Queries</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <div class="settings"></div>
-                        Settings
+                        <img src="./assets/Settings.svg" alt="Settings">
+                        <p>Settings</p>
                     </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div class="menu">
+                        <a href="#">
+                            <img src="./assets/Menu button.svg" alt="home icon">
+                            <p>Menu</p>
+                        </a>
+                    </div>
+                    <div class="close">
+                        <a href="#">
+                            <img src="./assets/close menu.svg" alt="home icon">
+                            <p>Close</p>
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -44,7 +64,7 @@
     </nav>
     <div class="wrapper">
         <div class="container edit-blog">
-            <div class="editing">
+            <div class="editing form">
                 <h1>Editing</h1>
                 <form action="#">
                     <p class="title">Title</p>
@@ -52,8 +72,8 @@
                     <p class="title">Cover Photo</p>
                     <label for="coverph">
                         <input type="file" id="coverph" placeholder="Cover photo">
-                        <p>smiley face.svg</p>
-                        <img src="./assets/file-upload-svgrepo-com 1.svg" alt="upload file">
+                        <p>smileyface.svg</p>
+                        <div class="upload"></div>
                     </label><br>
                     <p class="title">Blog</p>
                     <textarea name="blog" id="blogcontent" cols="30" rows="10"></textarea><br>
@@ -75,9 +95,10 @@
                     <img src="./assets/sara-kurfess-6lcT2kRPvnI-unsplash.jpg" alt="cover photo">
                     <p>Preview of Cover photo</p>
                 </div>
-                <div class="ingraph">
-                    <img src="./assets/Graphic (1).svg" alt="">
-                </div>
+            </div>
+
+            <div class="ingraph">
+                <img src="./assets/Graphic (1).svg" alt="">
             </div>
         </div>
     </div>

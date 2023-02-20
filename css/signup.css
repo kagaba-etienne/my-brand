@@ -3,21 +3,22 @@ html {
 }
 
 body {
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
   background: url(../assets/Tab\ Back\ ground\ \(3\).svg) center center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-color: #F6FFF8;
 }
 
+.wrapper {
+  margin-top: calc(50vh - 20.3em);
+}
+
 .form {
-  border: 1px solid #CCE3DE;
-  width: 400px;
-  margin: auto;
   position: relative;
+  border: 1px solid #CCE3DE;
+  width: min(90%, 50em);
+  margin: auto;
   background-color: #CCE3DE;
   border-radius: 0.5em;
 }
@@ -33,7 +34,6 @@ body {
   height: 50px;
   top: 0.5em;
   right: 0.5em;
-  background-color: aqua;
   background: url(../assets/help1-svgrepo-com\ 1.svg) center center no-repeat;
 }
 
