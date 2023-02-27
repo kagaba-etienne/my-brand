@@ -53,7 +53,7 @@
                 </li>
                 <li>
                     <div class="intouch">
-                        <a href="./Contactme.html">
+                        <a href="./Contactme.html" class="active">
                             <img src="./assets/Message 1.svg" alt="home icon">
                             <p>Contact</p>
                         </a>
@@ -78,7 +78,7 @@
             </ul>
             <ul>
                 <li>
-                    <div class="menu">
+                    <div class="menu active">
                         <a href="#">
                             <img src="./assets/Menu button.svg" alt="home icon">
                             <p>Menu</p>
@@ -127,22 +127,22 @@
         </div>
     </nav>
     
-    <div class="wrapper">
-        <div class="popup">
-            <div class="form subscribe">
-                <div class="close">
-                    <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
-                </div>
-                <p>Join Our Newsletter and Get News You Can Use!</p>
-                <form action="#" class="subscribe-form">
-                    <input type="text" name="name" placeholder="Full Name"><br>
-                    <input type="text" name="email" placeholder="Email"><br>
-                    <input type="text" name="email-conf" placeholder="Confirm Email"><br>
-                    <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
-                    <input type="submit" name="submit" value="Subscribe">
-                </form>
+    <div class="popup">
+        <div class="form subscribe">
+            <div class="close">
+                <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
             </div>
+            <p>Join Our Newsletter and Get News You Can Use!</p>
+            <form action="#" class="subscribe-form">
+                <input type="text" name="name" placeholder="Full Name"><br>
+                <input type="text" name="email" placeholder="Email"><br>
+                <input type="text" name="emailConf" placeholder="Confirm Email"><br>
+                <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
+                <button type="button" class="subscribebtn">Subscribe</button>
+            </form>
         </div>
+    </div>
+    <div class="wrapper">
         <div class="container contact">
             <div class="content">
                 <h1>Get in Touch!</h1>
@@ -151,12 +151,12 @@
                 </p>
             </div>
             <div class="form">
-                <form action="#" class="contact">
-                    <input type="text" name="" placeholder="Full Name *"><br>
-                    <input type="text" name="" placeholder="Email *"><br>
-                    <input type="text" name="" placeholder="Phone"><br>
-                    <textarea name="Message" id="message" placeholder="Leave a message" cols="40" rows="10"></textarea> <br>
-                    <input type="submit" value="Send">
+                <form class="contact">
+                    <input type="text" name="name" placeholder="Full Name *" required><br>
+                    <input type="email" name="email" placeholder="Email *" required><br>
+                    <input type="tel" name="phone" placeholder="Phone"><br>
+                    <textarea name="message" id="message" placeholder="Leave a message" cols="40" rows="10" required></textarea> <br>
+                    <button>Send</button>
                 </form>
             </div>
             <div class="smiley">
@@ -200,6 +200,9 @@
             </ul>
         </footer>
     </div>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/sendQuery.js"></script>
+    <script src="./js/popup.js"></script>
 </body>
 
 </html>

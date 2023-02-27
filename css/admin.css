@@ -2,6 +2,14 @@ html {
   font-size: 62.5%;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -26,11 +34,11 @@ h1, h2, h3 {
 nav a.active {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
-  border: 0.5px solid #6B9080;
+  outline: 0.5px solid #6B9080;
 }
 
 nav .links > ul:first-child a:hover {
-  border: 0.5px solid #6B9080;
+  outline: 0.5px solid #6B9080;
   transition: 0.5s ease;
   position: relative;
   left: 1em;
@@ -106,7 +114,15 @@ nav .links > ul:first-child li a:hover {
   width: calc(100% - 9.2em);
   transition: 0.5s ease;
 }
-nav .links > ul > :last-child .close {
+nav .links > ul:first-child:not(.open) {
+  transform: translateX(-30em);
+  transition: 0.5s ease;
+}
+nav .links > ul:first-child.open {
+  transform: translateX(0em);
+  transition: 0.8s ease;
+}
+nav .links > ul:last-child li > div:not(.active) {
   display: none;
 }
 
@@ -158,7 +174,7 @@ input[type*=submit], button {
   background-color: #CCE3DE;
   width: min(97%, 50em);
 }
-.form form input[type*=text] {
+.form form input[type*=text], .form form input[type*=mail], .form form input[type*=tel] {
   background-color: #CCE3DE;
   height: 1.8em;
   width: min(97%, 50em);
@@ -187,36 +203,6 @@ input[type*=submit], button {
   color: #6B9080;
   font-size: 1.3rem;
 }
-.container.edit-blog .editing form input[type*=submit] {
-  font-size: 1.3rem;
-  margin: 0 calc(50% - 2.7em);
-}
-.container.edit-blog .editing form label {
-  height: 2.5em;
-  border-radius: 0.5em;
-  border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: right;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em;
-}
-.container.edit-blog .editing form label p {
-  justify-self: left;
-}
-.container.edit-blog .editing form label .upload {
-  height: 2.4em;
-  width: 3.4em;
-  background: url(../assets/file-upload-svgrepo-com\ 1.svg) center center no-repeat;
-  background-size: cover;
-  cursor: pointer;
-}
-.container.edit-blog .editing form label input {
-  display: none;
-  z-index: -5;
-}
 .container.edit-blog .ingraph {
   position: absolute;
   bottom: -0.5em;
@@ -227,7 +213,7 @@ input[type*=submit], button {
 }
 .container.edit-blog .coverphoto {
   width: min(90%, 50em);
-  margin: 0 auto;
+  margin: 2em auto;
 }
 .container.edit-blog .coverphoto .updatephoto {
   margin: 0 auto;
@@ -244,20 +230,6 @@ input[type*=submit], button {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 1em;
-}
-.container.edit-blog .coverphoto .actions {
-  margin: 2em 0;
-  display: flex;
-  justify-content: space-around;
-  cursor: pointer;
-}
-.container.edit-blog .coverphoto .actions div {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-}
-.container.edit-blog .coverphoto .actions div p {
-  font-size: 1.5rem;
 }
 
 .container.profile {
@@ -353,6 +325,10 @@ input[type*=submit], button {
   height: 10em;
 }
 
+.wrapper {
+  position: relative;
+}
+
 .container.queries h1 {
   color: #6B9080;
   font-size: 3.2rem;
@@ -375,11 +351,18 @@ input[type*=submit], button {
   background-color: #CCE3DE;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 .container.queries .bar .item p {
   font-size: 2em;
   margin: 0;
+}
+.container.queries .bar .item.active {
+  background-color: #6B9080;
+}
+.container.queries .tabs > div:not(.active) {
+  display: none;
 }
 .container.queries .cards {
   margin-top: 3em;
@@ -397,6 +380,9 @@ input[type*=submit], button {
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+.container.queries .cards .card .name, .container.queries .cards .card .date {
+  cursor: default;
 }
 .container.queries .cards .card .visible {
   display: flex;
@@ -427,25 +413,38 @@ input[type*=submit], button {
 .container.queries .cards .card .visible .actions {
   display: flex;
   gap: 1em;
+  z-index: 5;
 }
-.container.queries .cards .card .visible .actions .respond {
+.container.queries .cards .card .visible .actions .respond img {
   width: 3em;
   height: 3em;
   border-radius: 1em;
-  background: url(../assets/reply.svg) center center no-repeat;
-  background-size: cover;
-  background-color: #6B9080;
+  cursor: pointer;
 }
-.container.queries .cards .card .visible .actions .ignore {
+.container.queries .cards .card .visible .actions .delete {
+  cursor: pointer;
   width: 3em;
   height: 3em;
   border-radius: 1em;
   background: url(../assets/delete\ blog.svg) center center no-repeat;
   background-size: cover;
-  background-color: #BD5454;
+}
+.container.queries .cards .card .visible .actions .ignore {
+  cursor: pointer;
+  width: 3em;
+  height: 3em;
+  border-radius: 1em;
+  background: url(../assets/Eye\ off.svg) center center no-repeat;
+  background-size: cover;
+}
+.container.queries .cards .card .visible .actions .responded {
+  width: 3em;
+  height: 3em;
+  border-radius: 1em;
+  background: url(../assets/verified-svgrepo-com.svg) center center no-repeat;
+  background-size: cover;
 }
 .container.queries .cards .card .hidden {
-  display: none;
   background-color: #EAF4F4;
   width: min(90%, 63.7em);
   margin: 0 auto;
@@ -456,6 +455,19 @@ input[type*=submit], button {
 .container.queries .cards .card .hidden p {
   font-size: 1.5rem;
   margin-left: 1.666em;
+}
+.container.queries .cards .card .hidden {
+  display: none;
+}
+.container.queries .cards .card .hidden.active {
+  display: block;
+}
+.container.queries .form {
+  z-index: 10;
+  display: none;
+}
+.container.queries .form.active {
+  display: block;
 }
 
 .container.dashboard .bar {
@@ -483,25 +495,220 @@ input[type*=submit], button {
   width: 100%;
   border-radius: 1em;
   height: 11em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.container.dashboard .bar .item .blogs {
-  background: url(../assets/shoe1.jpg) center center no-repeat;
-  background-size: cover;
+.container.dashboard .bar .item p + div p {
+  font-size: 4rem;
 }
-.container.dashboard .bar .item .queries {
-  background: url(../assets/shoe1.jpg) center center no-repeat;
-  background-size: cover;
-}
-.container.dashboard .bar .item .comments {
-  background: url(../assets/shoe1.jpg) center center no-repeat;
-  background-size: cover;
-}
-.container.dashboard .bar .item .subscribers {
-  background: url(../assets/shoe1.jpg) center center no-repeat;
-  background-size: cover;
+.container.dashboard .bar .item p + div {
+  background-color: #EAF4F4;
 }
 .container.dashboard .activity span {
   color: #6B9080;
+}
+
+.container.blogs-list {
+  position: relative;
+  padding-bottom: 5em;
+}
+.container.blogs-list .blogcard.publish-false {
+  border: 1px solid #35a7ff;
+}
+.container.blogs-list .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container.blogs-list .heading form {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 30%;
+}
+.container.blogs-list .heading form input {
+  width: 100%;
+  background-color: #CCE3DE;
+  border: 1px solid black;
+  border-radius: 0.3em;
+  padding: 0.5em;
+}
+.container.blogs-list .heading form button {
+  background-color: transparent;
+  width: 2.7em;
+  height: 2.7em;
+  padding: 0;
+  border: none;
+}
+.container.blogs-list .heading form .searchbtn {
+  width: 2.7em;
+}
+.container.blogs-list .blogcards {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.container.blogs-list .blogcards .blogcard {
+  border-radius: 1em;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "one two" "one two" "three three";
+  position: relative;
+  grid-gap: 1em;
+}
+.container.blogs-list .blogcards .blogcard .cover {
+  overflow: hidden;
+  grid-area: one;
+}
+.container.blogs-list .blogcards .blogcard .head {
+  grid-area: two;
+}
+.container.blogs-list .blogcards .blogcard .head .title {
+  overflow-wrap: break-word;
+}
+.container.blogs-list .blogcards .blogcard button {
+  text-decoration: underline;
+  height: 2em;
+}
+.container.blogs-list .blogcards .blogcard .date {
+  color: #6B9080;
+  grid-area: two;
+}
+.container.blogs-list .blogcards .blogcard .cont {
+  display: flex;
+  flex-direction: column;
+}
+.container.blogs-list .blogcards .blogcard .description {
+  grid-area: three;
+}
+.container.blogs-list .blogcards .blogcard .description p {
+  overflow-wrap: break-word;
+}
+.container.blogs-list .blogcards .blogcard .description .blogActions {
+  display: flex;
+  gap: 2em;
+}
+.container.blogs-list .blogcards .blogcard .description .blogActions button {
+  width: 6em;
+  text-decoration: none;
+}
+.container.blogs-list .blogcards .blogcard .description .blogActions .publish {
+  background-color: #35a7ff;
+}
+.container.blogs-list .blogcards .blogcard .description .blogActions .publish.true {
+  background-color: #0b38b4;
+}
+.container.blogs-list .blogcards .blogcard .description .blogActions .delete {
+  background-color: #BD5454;
+}
+.container.blogs-list .blogcards .blogcard .ingraph {
+  position: absolute;
+  bottom: -0.6em;
+  right: 0;
+}
+.container.blogs-list .blogcards .blogcard .ingraph img.false {
+  display: none;
+}
+.container.blogs-list .blogcards .blogcard .ingraph img {
+  margin: 0;
+  width: 5em;
+  border-radius: 1em;
+}
+.container.blogs-list .blogcards .blogcard.publish-true {
+  border: 1px solid #6B9080;
+}
+.container.blogs-list .blogcards .card0 .cover {
+  background: url(../assets/shoe1.jpg) center center no-repeat;
+  background-size: cover;
+  border-radius: 1em;
+}
+.container.blogs-list .actions {
+  display: flex;
+  gap: 2em;
+}
+.container.blogs-list .actions div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.container.blogs-list .actions div p {
+  color: #6B9080;
+}
+.container.blogs-list .actions img {
+  width: 3em;
+}
+.container.blogs-list .blogs {
+  margin-top: 3em;
+  max-width: 90%;
+  height: 65em;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 1em;
+  justify-content: space-evenly;
+  gap: 2em;
+}
+.container.blogs-list .blogs .blog {
+  width: min(50%, 20em);
+  height: 22em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: url(../assets/uriel-soberanes-MxVkWPiJALs-unsplash.jpg) center center no-repeat;
+  background-size: cover;
+  border-radius: 1em;
+  padding-bottom: 1em;
+}
+.container.blogs-list .blogs .blog button {
+  width: 80%;
+  font-size: 2.5rem;
+}
+.container.blogs-list .ingraph {
+  position: absolute;
+  bottom: -0.5em;
+  right: 0;
+}
+.container.blogs-list .ingraph img {
+  width: 9em;
+}
+
+.createBlog.form + .ingraph {
+  position: absolute;
+  bottom: -0.5em;
+  right: 0;
+}
+.createBlog.form + .ingraph img {
+  width: 9em;
+}
+
+.wrapper.blog-update .container .form {
+  margin: 0 auto;
+}
+.wrapper.blog-update .container .form form p {
+  text-align: left;
+  color: #6B9080;
+  font-size: 1.3rem;
+}
+.wrapper.blog-update .container .form form .submit {
+  display: flex;
+  justify-content: space-evenly;
+}
+.wrapper.blog-update .container .form form .submit button {
+  width: 30%;
+  margin: 1em auto;
+}
+.wrapper.blog-update .container .form form .submit .cancel {
+  background-color: #0b38b4;
+}
+.wrapper.blog-update .container .form form .submit .delete {
+  background-color: #BD5454;
+}
+
+.wrapper.blog-update .tabs > div:not(.active) {
+  display: none;
 }
 
 @media screen and (min-width: 992px) {
@@ -539,6 +746,9 @@ input[type*=submit], button {
   nav .links > ul:first-child li a:hover {
     width: 100%;
   }
+  nav .links > ul:first-child:not(.open) {
+    transform: translateX(0);
+  }
   nav ul {
     display: flex;
     flex-direction: column;
@@ -553,10 +763,7 @@ input[type*=submit], button {
   nav .links > ul:first-child {
     display: flex;
   }
-  nav .links > ul .close {
-    display: none;
-  }
-  nav .links > ul .menu {
+  nav .links > ul:last-child {
     display: none;
   }
   .container {
@@ -576,5 +783,16 @@ input[type*=submit], button {
   }
   .container.profile .editing {
     width: min(100%, 70em);
+  }
+}
+@media screen and (max-width: 500px) {
+  nav img, nav .admin.logo {
+    scale: 70%;
+  }
+  .wrapper.blog-update .container.blogs-list .heading form .searchbtn {
+    display: none;
+  }
+  .wrapper.blog-update .container.blogs-list .heading .actions p {
+    display: none;
   }
 }/*# sourceMappingURL=admin.css.map */
