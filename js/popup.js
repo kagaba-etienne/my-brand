@@ -1,3 +1,4 @@
+let clickEvent = new Event('click');
 //poping subscribe form
 const nav = document.querySelector('nav')
 const subscribeFrm = document.querySelector('.popup');
@@ -21,7 +22,6 @@ function popupCls() {
 
 subscribeBtn.addEventListener('click', popup);
 popupClose.addEventListener('click', popupCls);
-
 //submitting subscribers
 
 function dateConverter(numbers) {
@@ -59,9 +59,8 @@ const validateSend = async () => {
             body: JSON.stringify(subscriber),
             headers: {'content-type' : 'application/json'}
         })
+        popupClose.dispatchEvent(clickEvent);
     }
-
-    popupClose.dispatchEvent(popupClose);
 }
 
 subscribe.addEventListener('click', validateSend);

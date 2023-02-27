@@ -1,17 +1,6 @@
 {
   "Blogs": [],
-  "Queries": [
-    {
-      "name": "Etienne Kagaba",
-      "email": "kagabaetienne04@gmail.com",
-      "phone": "0783985300",
-      "message": "jljfljsajfdl;ksjfasdk;fjs;kjfsd;kfj;jsdf;ks",
-      "photo": "",
-      "date": "FEBRUARY 27, 2023",
-      "status": "responded",
-      "id": 1
-    }
-  ],
+  "Queries": [],
   "Comments": [],
   "subscribers": []
 }
