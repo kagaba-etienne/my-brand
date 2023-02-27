@@ -11,32 +11,52 @@
 
 <body>
     <nav>
-        <div class="admin logo"></div>
-        <div class="buttons control">
+        <div class="logo-container">
+            <a href="./admin dashboard.html">
+                <div class="admin logo"></div>
+            </a>
+        </div>
+        <div class="links">
             <ul>
                 <li>
-                    <a href="./admin dashboard.html">
-                        <div class="dashboard"></div>
-                        Dashboard
+                    <a href="./admin dashboard.html" class="active">
+                        <img src="./assets/Dashboard.svg" alt="Dashboard">
+                        <p>Dashbard</p>
                     </a>
                 </li>
                 <li>
                     <a href="./admin edit blog.html">
-                        <div class="blogs"></div>
-                        Blogs
+                        <img src="./assets/write blog.svg" alt="edit blog">
+                        <p>Blog</p>
                     </a>
                 </li>
                 <li>
                     <a href="./admin queries.html">
-                        <div class="queries"></div>
-                        Queries
+                        <img src="./assets/message.svg" alt="Queries">
+                        <p>Queries</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <div class="settings"></div>
-                        Settings
+                        <img src="./assets/Settings.svg" alt="Settings">
+                        <p>Settings</p>
                     </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div class="menu">
+                        <a href="#">
+                            <img src="./assets/Menu button.svg" alt="home icon">
+                            <p>Menu</p>
+                        </a>
+                    </div>
+                    <div class="close">
+                        <a href="#">
+                            <img src="./assets/close menu.svg" alt="home icon">
+                            <p>Close</p>
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -46,8 +66,9 @@
         <div class="container profile">
             <div class="editing">
                 <h1>Profile</h1>
-                <form action="#">
+                <div class="form">
                     <p class="u-title">Contact information</p>
+                <form action="#">
                     <div class="input">
                         <p class="title">Twitter</p>
                         <input type="text">
@@ -70,21 +91,24 @@
                     </div>
                     <input type="submit" name="update" id="update" value="Update"><br>
                 </form>
+                </div>
             </div>
             <div class="coverphoto">
                 <div class="updatephoto">
-                    <div class="edit">
-                        <img class="edit" src="./assets/edit-svgrepo-com 1.svg" alt="edit image">
+                    <div>
+                        <div class="edit">
+                            <img class="edit" src="./assets/edit-svgrepo-com 1.svg" alt="edit image">
+                        </div>
+                        <img src="./assets/sara-kurfess-6lcT2kRPvnI-unsplash.jpg" alt="cover photo">
                     </div>
-                    <img src="./assets/sara-kurfess-6lcT2kRPvnI-unsplash.jpg" alt="cover photo">
                     <p>Etienne S. Kagaba</p>
                 </div>
                 <div class="change-credentials">
                     <p>Change Login Credentials</p>
                 </div>
-                <div class="ingraph">
-                    <img src="./assets/Graphic (1).svg" alt="">
-                </div>
+            </div>
+            <div class="ingraph">
+                <img src="./assets/Graphic (1).svg" alt="">
             </div>
         </div>
     </div>
