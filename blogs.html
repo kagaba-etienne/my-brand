@@ -61,7 +61,7 @@
                 </li>
                 <li>
                     <div class="blogs">
-                        <a href="./blogs.html">
+                        <a href="./blogs.html" class="active">
                             <img src="./assets/blog-svgrepo-com 1.svg" alt="home icon">
                             <p>Blogs</p>
                         </a>
@@ -78,7 +78,7 @@
             </ul>
             <ul>
                 <li>
-                    <div class="menu">
+                    <div class="menu active">
                         <a href="#">
                             <img src="./assets/Menu button.svg" alt="home icon">
                             <p>Menu</p>
@@ -126,22 +126,22 @@
             </ul>
         </div>
     </nav>
-    <div class="wrapper">
-        <div class="popup">
-            <div class="form subscribe">
-                <div class="close">
-                    <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
-                </div>
-                <p>Join Our Newsletter and Get News You Can Use!</p>
-                <form action="#" class="subscribe-form">
-                    <input type="text" name="name" placeholder="Full Name"><br>
-                    <input type="text" name="email" placeholder="Email"><br>
-                    <input type="text" name="email-conf" placeholder="Confirm Email"><br>
-                    <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
-                    <input type="submit" name="submit" value="Subscribe">
-                </form>
+    <div class="popup">
+        <div class="form subscribe">
+            <div class="close">
+                <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
             </div>
+            <p>Join Our Newsletter and Get News You Can Use!</p>
+            <form action="#" class="subscribe-form">
+                <input type="text" name="name" placeholder="Full Name"><br>
+                <input type="text" name="email" placeholder="Email"><br>
+                <input type="text" name="emailConf" placeholder="Confirm Email"><br>
+                <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
+                <button type="button" class="subscribebtn">Subscribe</button>
+            </form>
         </div>
+    </div>
+    <div class="wrapper">
         <div class="container blogs">
             <div class="content">
                 <h1>Welcome to my blog!</h1>
@@ -149,9 +149,8 @@
                     I'm passionate about technology, creativity and exploration. Here you'll find an array of musings and ideas about the ever-changing digital and computing landscape. I'm excited to discuss a variety of topics and spark new conversations about how technology can shape the future of our lives. From coding tips to inspiring stories to geeky gear, I'm looking forward to exploring the exciting intersection between computing and creativity.
                 </p>
                 <div class="blogcards">
-                    <div class="blogcard card0">
+                    <!-- <div class="blogcard card0">
                         <div class="cover">
-                            <!-- <img src="./assets/uriel-soberanes-MxVkWPiJALs-unsplash.jpg" alt=""> -->
                         </div>
                         <div class="head">
                             <h2 class="title">
@@ -168,27 +167,7 @@
                         <div class="ingraph">
                             <img src="./assets/small graphic.svg" alt="stripes graphic">
                         </div>
-                    </div>
-                    <div class="blogcard card0">
-                        <div class="cover">
-                            <!-- <img src="./assets/uriel-soberanes-MxVkWPiJALs-unsplash.jpg" alt=""> -->
-                        </div>
-                        <div class="head">
-                            <h2 class="title">
-                                A Closer Look at the Most Conventional, but Useless Practices in Development
-                            </h2>
-                            <p class="date">UPDATED ON JANUARY 20, 2023 • BY Etienne Kagaba</p>
-                        </div>
-                        <div class="description">
-                            <p>
-                                If you are a software developer, you are likely familiar with the concept of "conventional" practices. These are practices that have been around for years, have been adopted as the industry standard, and . . .
-                            </p>
-                            <button>Continue Reading</button>
-                        </div>
-                        <div class="ingraph">
-                            <img src="./assets/small graphic.svg" alt="stripes graphic">
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="graphic blogs">
@@ -229,6 +208,9 @@
             </ul>
         </footer>
     </div>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./js/clientBlogs.js"></script>
 </body>
 
 </html>

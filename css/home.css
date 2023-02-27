@@ -2,12 +2,17 @@ html {
   font-size: 62.5%;
 }
 
+p {
+  overflow-wrap: break-word;
+}
+
 body {
   margin: 0;
   background: url(../assets/backgrounduni.svg) center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   font-family: "poppins", sans-serif;
+  position: relative;
 }
 
 h1, h2, .form > p {
@@ -26,11 +31,11 @@ nav a {
 nav a.active {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
-  border: 0.5px solid #6B9080;
+  outline: 0.5px solid #6B9080;
 }
 
 nav .links > ul:first-child a:hover {
-  border: 0.5px solid #6B9080;
+  outline: 0.5px solid #6B9080;
   transition: 0.5s ease;
   position: relative;
   left: 1em;
@@ -41,6 +46,66 @@ nav .links > ul:first-child a:hover {
 nav a:hover img {
   filter: blur(1px);
   transition: 0.5s ease;
+}
+
+nav {
+  display: flex;
+  z-index: 1000;
+  justify-content: space-between;
+  padding: 0 10%;
+  position: sticky;
+  top: 0;
+  background-color: #EAF4F4;
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .logo.desktop {
+  display: none;
+}
+nav .network {
+  display: none;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0;
+  list-style: none;
+}
+nav ul li a {
+  display: flex;
+  gap: 1em;
+}
+nav .links > ul:first-child {
+  position: absolute;
+  left: 0em;
+  top: 5em;
+  width: 20em;
+  background-color: #EAF4F4;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+nav .links > ul:first-child li a {
+  padding-left: 7em;
+  overflow: hidden;
+}
+nav .links > ul:first-child li a:hover {
+  width: calc(100% - 9.2em);
+  transition: 0.5s ease;
+}
+nav .links > ul:first-child:not(.open) {
+  transform: translateX(-20em);
+  transition: 0.5s ease;
+}
+nav .links > ul:first-child.open {
+  transform: translateX(0em);
+  transition: 0.8s ease;
+}
+nav .links > ul:last-child div:not(.active) {
+  display: none;
 }
 
 input[type*=submit], button {
@@ -89,63 +154,10 @@ input[type*=submit], button {
   background-color: #CCE3DE;
   width: min(97%, 50em);
 }
-.form form input[type*=text] {
+.form form input[type*=text], .form form input[type*=tel], .form form input[type*=email] {
   background-color: #CCE3DE;
   height: 1.8em;
   width: min(97%, 50em);
-}
-
-nav {
-  display: flex;
-  z-index: 1000;
-  justify-content: space-between;
-  padding: 0 10%;
-  position: sticky;
-  top: 0;
-  background-color: #EAF4F4;
-}
-nav .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-nav .logo.desktop {
-  display: none;
-}
-nav .network {
-  display: none;
-}
-nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 0;
-  list-style: none;
-}
-nav ul li a {
-  display: flex;
-  gap: 1em;
-}
-nav .links > ul:first-child {
-  position: absolute;
-  left: 0;
-  top: 5em;
-  width: 20em;
-  background-color: #EAF4F4;
-  transform: translateX(-20em);
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
-}
-nav .links > ul:first-child li a {
-  padding-left: 7em;
-  overflow: hidden;
-}
-nav .links > ul:first-child li a:hover {
-  width: calc(100% - 9.2em);
-  transition: 0.5s ease;
-}
-nav .links > ul > :last-child .close {
-  display: none;
 }
 
 .footer {
@@ -234,6 +246,9 @@ nav .links > ul > :last-child .close {
   flex-direction: column;
   gap: 2em;
 }
+.container.projects .projectslide .card:hover {
+  background-size: cover;
+}
 .container.projects .projectslide .card {
   margin-left: auto;
   margin-right: auto;
@@ -253,7 +268,10 @@ nav .links > ul > :last-child .close {
   padding: 0.5em;
   background-color: #F6FFF8;
 }
-.container.projects .projectslide .card .inner-content span {
+.container.projects .projectslide .card .inner-content p .more {
+  display: none;
+}
+.container.projects .projectslide .card .inner-content .dots {
   color: #6B9080;
   cursor: pointer;
 }
@@ -320,7 +338,8 @@ nav .links > ul > :last-child .close {
   position: fixed;
   top: 0;
   height: 100%;
-  z-index: 1;
+  width: 100%;
+  z-index: 500;
   background-color: rgba(240, 251, 244, 0.7);
   display: flex;
   align-items: center;
@@ -329,6 +348,13 @@ nav .links > ul > :last-child .close {
 }
 .popup .subscribe {
   width: min(80%, 50em);
+}
+.popup .subscribe .close img {
+  cursor: pointer;
+}
+
+.popup.open {
+  display: flex;
 }
 
 .container.blogpost .upper {
@@ -365,6 +391,9 @@ nav .links > ul > :last-child .close {
   width: min(80%, 40em);
   margin: 0 auto;
 }
+.container.blogpost .lower .comment-container .comment-form #id {
+  display: none;
+}
 .container.blogpost .lower .replies {
   margin: 0 auto;
   width: min(80%, 70em);
@@ -372,6 +401,10 @@ nav .links > ul > :last-child .close {
 }
 .container.blogpost .lower .replies h1 {
   text-align: center;
+}
+.container.blogpost .lower .replies ul {
+  list-style: none;
+  padding: 0;
 }
 .container.blogpost .lower .replies .comment {
   margin-top: 6em;
@@ -455,6 +488,9 @@ nav .links > ul > :last-child .close {
   nav .links > ul:first-child li a:hover {
     width: 100%;
   }
+  nav .links > ul:first-child:not(.open) {
+    transform: translateX(0);
+  }
   nav ul {
     display: flex;
     flex-direction: column;
@@ -469,10 +505,7 @@ nav .links > ul > :last-child .close {
   nav .links > ul:first-child {
     display: flex;
   }
-  nav .links > ul .close {
-    display: none;
-  }
-  nav .links > ul .menu {
+  nav .links > ul:last-child {
     display: none;
   }
   .wrapper {
@@ -566,7 +599,7 @@ nav .links > ul > :last-child .close {
     height: 48em;
     gap: 1em;
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     border: 1px solid #6B9080;
     border-radius: 1em;
   }
@@ -574,7 +607,7 @@ nav .links > ul > :last-child .close {
     min-width: 19.8em;
     margin: 0;
   }
-  .container.projects .projectslide div:nth-child(odd) {
+  .container.projects .projectslide > div:nth-child(odd) {
     align-self: flex-end;
   }
   .container.projects .graphic {

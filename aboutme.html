@@ -18,7 +18,7 @@
             <a href="./index.html"><img src="./assets/Kagaba.svg" alt="Kagaba Logo"></a>
         </div>
         <div class="links">
-            <ul>
+            <ul id="menulst">
                 <li>
                     <div class="home">
                         <a href="./index.html">
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <div class="about">
-                        <a href="./aboutme.html">
+                        <a href="./aboutme.html" class="active">
                             <img src="./assets/About me 1.svg" alt="home icon">
                             <p>About</p>
                         </a>
@@ -76,15 +76,15 @@
                     </div>
                 </li>
             </ul>
-            <ul>
+            <ul id="actionlst">
                 <li>
-                    <div class="menu">
+                    <div class="menu active" id="menubtn">
                         <a href="#">
                             <img src="./assets/Menu button.svg" alt="home icon">
                             <p>Menu</p>
                         </a>
                     </div>
-                    <div class="close">
+                    <div class="close" id="closebtn">
                         <a href="#">
                             <img src="./assets/close menu.svg" alt="home icon">
                             <p>Close</p>
@@ -126,22 +126,22 @@
             </ul>
         </div>
     </nav>
-    <div class="wrapper">
-        <div class="popup">
-            <div class="form subscribe">
-                <div class="close">
-                    <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
-                </div>
-                <p>Join Our Newsletter and Get News You Can Use!</p>
-                <form action="#" class="subscribe-form">
-                    <input type="text" name="name" placeholder="Full Name"><br>
-                    <input type="text" name="email" placeholder="Email"><br>
-                    <input type="text" name="email-conf" placeholder="Confirm Email"><br>
-                    <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
-                    <input type="submit" name="submit" value="Subscribe">
-                </form>
+    <div class="popup">
+        <div class="form subscribe">
+            <div class="close">
+                <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
             </div>
+            <p>Join Our Newsletter and Get News You Can Use!</p>
+            <form action="#" class="subscribe-form">
+                <input type="text" name="name" placeholder="Full Name"><br>
+                <input type="text" name="email" placeholder="Email"><br>
+                <input type="text" name="emailConf" placeholder="Confirm Email"><br>
+                <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
+                <button type="button" class="subscribebtn">Subscribe</button>
+            </form>
         </div>
+    </div>
+    <div class="wrapper">
         <div class="container about">
             <div class="content">
                 <div class="myphoto">
@@ -190,6 +190,8 @@
             </ul>
         </footer>
     </div>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/popup.js"></script>
 </body>
 
 </html>

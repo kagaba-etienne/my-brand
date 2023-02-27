@@ -61,7 +61,7 @@
                 </li>
                 <li>
                     <div class="blogs">
-                        <a href="./blogs.html">
+                        <a href="./blogs.html" class="active">
                             <img src="./assets/blog-svgrepo-com 1.svg" alt="home icon">
                             <p>Blogs</p>
                         </a>
@@ -78,7 +78,7 @@
             </ul>
             <ul>
                 <li>
-                    <div class="menu">
+                    <div class="menu active">
                         <a href="#">
                             <img src="./assets/Menu button.svg" alt="home icon">
                             <p>Menu</p>
@@ -126,24 +126,24 @@
             </ul>
         </div>
     </nav>
-    <div class="wrapper">
-        <div class="popup">
-            <div class="form subscribe">
-                <div class="close">
-                    <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
-                </div>
-                <p>Join Our Newsletter and Get News You Can Use!</p>
-                <form action="#" class="subscribe-form">
-                    <input type="text" name="name" placeholder="Full Name"><br>
-                    <input type="text" name="email" placeholder="Email"><br>
-                    <input type="text" name="email-conf" placeholder="Confirm Email"><br>
-                    <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
-                    <input type="submit" name="submit" value="Subscribe">
-                </form>
+    <div class="popup">
+        <div class="form subscribe">
+            <div class="close">
+                <img src="./assets/close-circle-svgrepo-com 1.svg" alt="">
             </div>
+            <p>Join Our Newsletter and Get News You Can Use!</p>
+            <form action="#" class="subscribe-form">
+                <input type="text" name="name" placeholder="Full Name"><br>
+                <input type="text" name="email" placeholder="Email"><br>
+                <input type="text" name="emailConf" placeholder="Confirm Email"><br>
+                <label for="agreement"><input type="checkbox" name="agreement" id="agreement">By subscribing to this mailing list, I agree to receiving occasional emails and other communication from Etienne Kagaba. I understand that I can opt-out of these communications at any time by following the unsubscribe link included in each email.</label><br>
+                <button type="button" class="subscribebtn">Subscribe</button>
+            </form>
         </div>
+    </div>
+    <div class="wrapper">
         <div class="container blogpost">
-            <div class="upper">
+            <!-- <div class="upper">
                 <div class="content">
                     <div class="heading">
                          <div class="title">
@@ -175,13 +175,13 @@
                     <p class="jump">Jump Into The Conversation</p>
                     <div class="form comment-form">
                         <p>Leave a Reply:</p>
-                        <form action="#" class="subscribe-form">
-                            <input type="text" name="name" placeholder="Name"><br>
-                            <input type="text" name="email" placeholder="Email"><br>
+                        <form action="#">
+                            <input type="text" name="name" placeholder="Name" required><br>
+                            <input type="email" name="email" placeholder="Email" required><br>
                             <input type="text" name="website" placeholder="website"><br>
-                            <textarea name="comment" id="blogcomment" cols="30" rows="10" placeholder="Message"></textarea><br>
+                            <textarea name="comment" cols="30" rows="10" placeholder="Message" required></textarea><br>
                             <label for="agreement"><input type="checkbox" name="agreement">Save my name, email, and website in this browser for the next time I comment.</label><br>
-                            <input type="submit" name="submit" value="Post Comment">
+                            <button>Post Comment</button>
                         </form>
                     </div>
                 </div>
@@ -200,22 +200,26 @@
                         <div class="reply-fresh">
                             <img src="./assets/reply fresh.svg" alt="reply-fresh">
                         </div>
-                        <div class="reply card">
-                            <div class="photo"></div>
-                            <div class="content-comment">
-                                <h3 class="name">Hirwa Arnold</h3>
-                                <h6 class="date">January 29, 2023</h6>
-                                <p>This is an excellent article. It has changed my perspective on software development and I'm looking forward to employing these new principles in the future.</p>
-                                <button class="reply-but">Reply</button>
-                            </div>
-                        </div>
+                        <ul>
+                            <li>
+                                <div class="reply card">
+                                    <div class="photo"></div>
+                                    <div class="content-comment">
+                                        <h3 class="name">Hirwa Arnold</h3>
+                                        <h6 class="date">January 29, 2023</h6>
+                                        <p>This is an excellent article. It has changed my perspective on software development and I'm looking forward to employing these new principles in the future.</p>
+                                        <button class="reply-but">Reply</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                         <hr>
                     </div>
                 </div>
             </div>
             <div class="graphic">
                 <img src="./assets/Graphic (1).svg" alt="stripes graphic">
-            </div>
+            </div> -->
         </div>
 
         <footer class="footer">
@@ -251,6 +255,9 @@
             </ul>
         </footer>
     </div>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./js/blogload.js"></script>
 </body>
 
 </html>
