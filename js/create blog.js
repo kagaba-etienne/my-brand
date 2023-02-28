@@ -47,7 +47,7 @@ const createPost = async (e) => {
         body: JSON.stringify(doc),
         headers: { 'Content-Type': 'application/json' }
     });
-    window.location.replace('../admin edit blog.html');
+    window.location.reload();
 }
 
 // createSubmitBtn.addEventListener('click', () => {

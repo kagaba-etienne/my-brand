@@ -89,7 +89,7 @@ function deleteMethod() {
             await fetch(`http://localhost:3000/Blogs/${btn.id}`, {
                 method: 'DELETE'
             });
-            window.location.replace('../admin edit blog.html');
+            window.location.reload();
         })
     })
 }
@@ -109,7 +109,7 @@ function publishMethod() {
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }
                 });
-                window.location.replace('../admin edit blog.html');
+                window.location.reload();
             })
         }
         else {
@@ -124,7 +124,7 @@ function publishMethod() {
                     headers: { 'Content-Type': 'application/json' }
                 });
     
-                window.location.replace('../admin edit blog.html');
+                window.location.reload();
             })
         }
     })
@@ -165,13 +165,13 @@ function updateMethod(){
             body: JSON.stringify(doc),
             headers: { 'Content-Type': 'application/json' }
         });
-        window.location.replace('../admin edit blog.html');
+        window.location.reload();
     })
     deleteBtn.addEventListener('click', async() => {
         await fetch(`http://localhost:3000/Blogs/${deleteBtn.id}`, {
             method: 'DELETE'
         });
-        window.location.replace('../admin edit blog.html');
+        window.location.reload();
     })
 }
 
