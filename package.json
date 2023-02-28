@@ -8,7 +8,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "json-server --watch ./js/data/db.json",
+    "start": "json-server ./js/data/db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

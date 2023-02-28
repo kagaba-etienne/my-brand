@@ -32,6 +32,8 @@ async function sendQuery() {
         status: "pending"
     }
 
+    contactForm.reset();
+
     await fetch(`https://kagaba-etienne.cyclic.app/Queries`, {
         method: "POST",
         body: JSON.stringify(query),
@@ -39,5 +41,7 @@ async function sendQuery() {
     })
 }
 
-contactForm.addEventListener('submit', sendQuery);
+const querysbmtbtn = document.querySelector('form.contact button');
+
+querysbmtbtn.addEventListener('click', sendQuery);
 
