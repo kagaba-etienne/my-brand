@@ -32,7 +32,7 @@ async function sendQuery() {
         status: "pending"
     }
 
-    await fetch(`http://localhost:3000/Queries`, {
+    await fetch(`https://kagaba-etienne.cyclic.app/Queries`, {
         method: "POST",
         body: JSON.stringify(query),
         headers: { 'Content-Type': 'application/json' }

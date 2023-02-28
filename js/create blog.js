@@ -42,7 +42,7 @@ const createPost = async (e) => {
         comments: 0,
         publish: false
     }
-    await fetch('http://localhost:3000/Blogs', {
+    await fetch('https://kagaba-etienne.cyclic.app/Blogs', {
         method: 'POST',
         body: JSON.stringify(doc),
         headers: { 'Content-Type': 'application/json' }
