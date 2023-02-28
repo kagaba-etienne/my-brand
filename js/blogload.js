@@ -37,7 +37,7 @@ function dateConverter(numbers) {
 }
 
 const renderBlogMethod = async () => {
-    let res = await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${id}`);
+    let res = await fetch(`http://localhost:3000/Blogs/${id}`);
     res = await res.json();
 
     let blog = `<div class="upper">
@@ -87,7 +87,7 @@ const renderBlogMethod = async () => {
 const commentLoadMethod = async () => {
     const commentContainer = document.querySelector('.container.blogpost .replies');
     const commentform = document.querySelector('.comment-form form');
-    let res = await fetch(`https://kagaba-etienne.cyclic.app/Comments?blog=${id}`);
+    let res = await fetch(`http://localhost:3000/Comments?blog=${id}`);
     res = await res.json();
 
     console.log(res)
@@ -131,17 +131,17 @@ window.addEventListener('DOMContentLoaded', async () => {
             replyTo: "blog"
         }
 
-        await fetch('https://kagaba-etienne.cyclic.app/Comments', {
+        await fetch('http://localhost:3000/Comments', {
             method: 'POST',
             body: JSON.stringify(comment),
             headers: {"content-type": "application/json"}
         })
 
         let commentsCount = {
-            comments: (await (await fetch(`https://kagaba-etienne.cyclic.app/Comments?blog=${id}`)).json()).length
+            comments: (await (await fetch(`http://localhost:3000/Comments?blog=${id}`)).json()).length
         }
 
-        await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${id}`, {
+        await fetch(`http://localhost:3000/Blogs/${id}`, {
             method: 'PATCH',
             body: JSON.stringify(commentsCount),
             headers: {"content-type": "application/json"}

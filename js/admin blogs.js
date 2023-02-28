@@ -38,7 +38,7 @@ function publishText(publish) {
 
 // rendering posts
 const renderPosts = async (term) => {
-    let uri = 'https://kagaba-etienne.cyclic.app/Blogs';
+    let uri = 'http://localhost:3000/Blogs';
     if (term) {
         uri += `?q=${term}`;
     }
@@ -86,7 +86,7 @@ function deleteMethod() {
     deleteBtn.forEach(btn =>{
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
-            await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${btn.id}`, {
+            await fetch(`http://localhost:3000/Blogs/${btn.id}`, {
                 method: 'DELETE'
             });
             window.location.replace('../admin edit blog.html');
@@ -104,7 +104,7 @@ function publishMethod() {
                 const res = {
                     publish: true
                 }
-                await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${btn.id}`, {
+                await fetch(`http://localhost:3000/Blogs/${btn.id}`, {
                     method: 'PATCH',
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }
@@ -118,7 +118,7 @@ function publishMethod() {
                 const res = {
                     publish: false
                 }
-                await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${btn.id}`, {
+                await fetch(`http://localhost:3000/Blogs/${btn.id}`, {
                     method: 'PATCH',
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }
@@ -140,7 +140,7 @@ function updateMethod(){
         btn.addEventListener('click', async () => {
             tabs[1].classList.remove('active');
             tabs[2].classList.add('active');
-            let res = await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${btn.id}`);
+            let res = await fetch(`http://localhost:3000/Blogs/${btn.id}`);
             res = await res.json();
             editForm.title.value = res.title;
             editForm.coverPhoto.value = res.coverPhoto;
@@ -160,7 +160,7 @@ function updateMethod(){
             comments: 0
         }
 
-        await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${updateBtn.id}`, {
+        await fetch(`http://localhost:3000/Blogs/${updateBtn.id}`, {
             method: 'PATCH',
             body: JSON.stringify(doc),
             headers: { 'Content-Type': 'application/json' }
@@ -168,7 +168,7 @@ function updateMethod(){
         window.location.replace('../admin edit blog.html');
     })
     deleteBtn.addEventListener('click', async() => {
-        await fetch(`https://kagaba-etienne.cyclic.app/Blogs/${deleteBtn.id}`, {
+        await fetch(`http://localhost:3000/Blogs/${deleteBtn.id}`, {
             method: 'DELETE'
         });
         window.location.replace('../admin edit blog.html');

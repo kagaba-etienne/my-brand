@@ -1,7 +1,7 @@
 const blogContainer = document.querySelector('.blogcards');
 
 const renderBlogs = async () => {
-    let res = await fetch('https://kagaba-etienne.cyclic.app/Blogs?publish=true');
+    let res = await fetch('http://localhost:3000/Blogs?publish=true');
     res = await res.json();
 
     let blogs = '';
