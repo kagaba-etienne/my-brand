@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "json-server": "^0.17.2"
+  },
   "scripts": {
-    "start": "npm run start",
+    "start": "json-server --watch ./js/data/db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/kagaba-etienne/my-brand/issues"
   },
-  "homepage": "https://github.com/kagaba-etienne/my-brand#readme",
-  "dependencies": {
-    "json-server": "^0.17.2"
-  }
+  "homepage": "https://github.com/kagaba-etienne/my-brand#readme"
 }
