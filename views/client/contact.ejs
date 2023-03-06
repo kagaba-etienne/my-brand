@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <%- include('./partials/popup.ejs') %>
+
+        <div class="wrapper">
+            <div class="container contact">
+                <div class="content">
+                    <h1>Get in Touch!</h1>
+                    <p>
+                        Thanks for taking the time to visit my online portfolio. I’m open to answer any questions you might have. I’m always excited to hear from potential clients and partners, so if you’re interested in working together, feel free to reach out to me. <br><br>I'm passionate about what I do, and I look forward to helping you out in any way I can. If you have any queries or just want to chat, don't hesitate to get in touch.
+                    </p>
+                </div>
+                <div class="form">
+                    <form class="contact">
+                        <input type="text" name="name" placeholder="Full Name *" required><br>
+                        <input type="email" name="email" placeholder="Email *" required><br>
+                        <input type="tel" name="phone" placeholder="Phone"><br>
+                        <textarea name="message" id="message" placeholder="Leave a message" cols="40" rows="10" required></textarea> <br>
+                        <button type="button">Send</button>
+                    </form>
+                </div>
+                <div class="smiley">
+                    <img src="/assets/smiley face.svg" alt="k graphic">
+                </div>
+                <div class="graphic contact">
+                    <img src="/assets/Graphic (1).svg" alt="stripes graphic">
+                </div>
+            </div>
+
+            <%- include('./partials/footer.ejs') %>
+        </div>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/sendQuery.js"></script>
+        <script src="/js/popup.js"></script>
+    </body>
+</html>

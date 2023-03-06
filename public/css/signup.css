@@ -1,0 +1,84 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: url(/assets/Tab\ Back\ ground\ \(3\).svg) center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #F6FFF8;
+}
+
+.wrapper {
+  margin-top: calc(50vh - 20.3em);
+}
+
+.form {
+  position: relative;
+  border: 1px solid #CCE3DE;
+  width: min(90%, 50em);
+  margin: auto;
+  background-color: #CCE3DE;
+  border-radius: 0.5em;
+}
+.form p {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2em;
+  color: #6B9080;
+}
+.form .help {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0.5em;
+  right: 0.5em;
+  background: url(/assets/help1-svgrepo-com\ 1.svg) center center no-repeat;
+}
+
+form {
+  text-align: center;
+}
+form input {
+  background-color: #CCE3DE;
+  width: 80%;
+  margin: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-width: 0.01em;
+  border-color: black;
+}
+form input[type*=submit] {
+  width: 30%;
+  margin-top: 2em;
+  color: #F0FBF4;
+  background-color: #6B9080;
+}
+
+.help {
+  cursor: pointer;
+}
+
+.signuplink {
+  position: absolute;
+  background-color: #F6FFF8;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1em;
+  border-radius: 1em;
+  right: 4em;
+  top: 0.5em;
+  font-size: 1.3em;
+  display: none;
+}
+.signuplink a {
+  color: #6B9080;
+  text-decoration: none;
+}
+
+.visible {
+  display: block;
+  transition: 0.5s ease;
+}/*# sourceMappingURL=signup.css.map */

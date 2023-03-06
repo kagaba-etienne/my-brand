@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <%- include('./partials/popup.ejs') %>
+
+        <div class="wrapper">
+            <div class="container blogpost">
+                <div class="upper">
+                    <div class="content">
+                        <div class="heading">
+                             <div class="title">
+                                 <h1><%= blog.title %></h1>
+                             </div>
+                             <div class="cover" data-photoUrl="<%= blog.coverPhoto %>">
+                                 <img src="<%= blog.coverPhoto %>" alt="Cover photo">
+                             </div>
+                             <p class="date">UPDATED ON <%= dateConverter(blog.createdAt) %> • BY <%= blog.author %> • <%= blog.commentsCount ? `${blog.commentsCount} COMMENTS`: '' %></p>
+                        </div> 
+                        <p class="pr1">
+                            <% const intro = blog.body[0].split('\n') %>
+                            <% for (var k=0; k<intro.length; k++) { %>
+                                <p class="pr<%= i+1 %><%= j %>">
+                                    <%= intro[k] %>
+                                </p>
+                            <% } %>
+                        </p>
+                        <% for (var i=1; i<blog.body.length; i++) { %>
+                            <div class="cover" data-photoUrl="<%= blog.coverPhoto %>">
+                                <img src="<%= blog.coverPhoto %>" alt="Cover photo">
+                            </div>
+                            <% const paragraphs = blog.body[i].split('\n') %>
+                            <% for (var j=0; j<paragraphs.length; j++) { %>
+                                <% if(paragraphs[j]) { %>
+                                    <p class="pr<%= i+1 %><%= j %>">
+                                        <%= paragraphs[j] %>
+                                    </p>
+                                <% } else { continue }%>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="lower">
+                    <div class="banner"></div>
+                    <div class="comment-container">
+                        <p class="jump">Jump Into The Conversation</p>
+                        <div class="form comment-form">
+                            <p>Leave a Reply:</p>
+                            <form data-id="<%= blog._id %>">
+                                <input type="text" name="name" placeholder="Name" required><br>
+                                <input type="email" name="email" placeholder="Email" required><br>
+                                <input type="text" name="website" placeholder="website"><br>
+                                <textarea name="comment" cols="30" rows="10" placeholder="Message" required></textarea><br>
+                                <label for="agreement"><input type="checkbox" name="agreement">Save my name, email, and website in this browser for the next time I comment.</label><br>
+                                <button class="commentingbtn">Post Comment</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="replies">
+                        <% if (blog.commentsCount) {%>
+                            <h1><%= blog.commentsCount %> replies to “<%= blog.title %>”</h1>
+                            <% comments.forEach(comment => { %>
+                                <div class="comment" id="<%= comment._id %>">
+                                    <div class="actual card">
+                                        <div class="photo" data-CommentPhoto="<%= comment.photo %>"></div>
+                                        <div class="content-comment">
+                                            <h3 class="name"><%= comment.name %></h3>
+                                            <h6 class="date"><%= dateConverter(comment.createdAt) %></h6>
+                                            <p><%= comment.comment %></p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            <% }) %>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="graphic">
+                    <img src="/assets/Graphic (1).svg" alt="stripes graphic">
+                </div>
+            </div>
+    
+            <%- include('./partials/footer.ejs') %>
+        </div>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/popup.js"></script>
+        <script src="/js/commenting.js"></script>
+        <script src="/js/clientBlogs.js"></script>
+    </body>
+</html>

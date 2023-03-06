@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <%- include('./partials/popup.ejs') %>
+
+        <div class="wrapper">
+            <div class="container blogs">
+                <div class="content">
+                    <h1>Welcome to my blog!</h1>
+                    <p>
+                        I'm passionate about technology, creativity and exploration. Here you'll find an array of musings and ideas about the ever-changing digital and computing landscape. I'm excited to discuss a variety of topics and spark new conversations about how technology can shape the future of our lives. From coding tips to inspiring stories to geeky gear, I'm looking forward to exploring the exciting intersection between computing and creativity.
+                    </p>
+                    <div class="blogcards">
+                        <% if(blogs.length > 0) { %>
+                            <% blogs.forEach(blog => { %>
+                                <div class="blogcard card0" data-id="<%= blog._id %>">
+                                    <div class="cover" data-photoUrl="<%= blog.photo %>">
+                                    </div>
+                                    <div class="head">
+                                        <h2 class="title">
+                                            <%= blog.title %>
+                                        </h2>
+                                        <p class="date">UPDATED ON <%= dateConverter(blog.createdAt) %> • BY <%= blog.author %></p>
+                                    </div>
+                                    <div class="description">
+                                        <p>
+                                            <%= blog.shortDescr %>
+                                        </p>
+                                        <button class="continueReading" id="<%= blog._id%>">Continue Reading</button>
+                                    </div>
+                                    <div class="ingraph">
+                                        <img src="/assets/small graphic.svg" alt="stripes graphic">
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <p class="no-blogs">There are no blogs to display ...</p>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="graphic blogs">
+                    <img src="/assets/Graphic (1).svg" alt="stripes graphic">
+                </div>
+            </div>
+
+            <%- include('./partials/footer.ejs') %>
+        </div>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/popup.js"></script>
+        <script src="/js/clientBlogs.js"></script>
+    </body>
+</html>

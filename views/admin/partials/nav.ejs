@@ -1,0 +1,52 @@
+<nav>
+    <div class="logo-container">
+        <a href="/admin">
+            <div class="admin logo"></div>
+        </a>
+    </div>
+    <div class="links">
+        <ul>
+            <li>
+                <a href="/admin" class="<%= title == 'Dashboard' ? 'active' : ''%>">
+                    <img src="/assets/Dashboard.svg" alt="Dashboard">
+                    <p>Dashbard</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/blogs" class="<%= title == 'Blogs' ? 'active' : ''%>">
+                    <img src="/assets/write blog.svg" alt="edit blog">
+                    <p>Blog</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/queries" class="<%= title == 'Queries' ? 'active' : ''%>">
+                    <img src="/assets/message.svg" alt="Queries">
+                    <p>Queries</p>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/profile" class="<%= title == 'Profile' ? 'active' : ''%>">
+                    <img src="/assets/Settings.svg" alt="Settings">
+                    <p>Settings</p>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="menu active">
+                    <a href="#">
+                        <img src="/assets/Menu button.svg" alt="home icon">
+                        <p>Menu</p>
+                    </a>
+                </div>
+                <div class="close">
+                    <a href="#">
+                        <img src="/assets/close menu.svg" alt="home icon">
+                        <p>Close</p>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="admin photo"></div>
+</nav>

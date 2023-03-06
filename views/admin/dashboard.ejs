@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="wrapper">
+            <div class="container dashboard">
+                <h1>Hi, Kagaba, <span>Welcome Back !</span></h1>
+    
+                <div class="bar">
+                    <div class="item">
+                        <p>Blogs</p>
+                        <div class="blogs">
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>Queries</p>
+                        <div class="queries">
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>Comments</p>
+                        <div class="comments">
+                            <p>0</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>Subscribers</p>
+                        <div class="subscribers">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <hr>
+                <h2>Recents</h2>
+                <div class="cards">
+                    <ul>
+                        <li>
+                            <div class="activity">
+                                <p>
+                                    You edited this title: <span>"A Closer Look at the Most Conventional, but Useless Practices in Development"</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="/js/navbar.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+    </body>
+</html>

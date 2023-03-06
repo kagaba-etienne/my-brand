@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="wrapper blog-update">
+            <div class="tabs">
+                <div class="container">
+                    <div class="createBlog form">
+                        <h1>Create  Blog</h1>
+                        <form action="#">
+                            <p class="title">Title</p>
+                            <input type="text" name="title" placeholder="Title" required><br>
+                            <p class="title">Cover Photo</p>
+                            <input type="text" name="coverPhoto" placeholder="Cover photo URL" required>
+                            <p class="title">Blog</p>
+                            <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your blog here..." required></textarea><br>
+                            <div class="submit"><button class="submitform">Create</button><button type="button" class="cancel">Cancel</button><br></div>
+                        </form>
+                    </div>
+    
+                    <div class="ingraph">
+                        <img src="/assets/Graphic (1).svg" alt="">
+                    </div>
+                </div>
+                <div class="container blogs-list active">
+                    <div class="heading">
+                        <h1>Blogs</h1>
+                        <form class="search"><input type="text" name="term" placeholder="Search..."><button><img class="searchbtn" src="/assets/search-svgrepo-com (1).svg" alt=""></button></form>
+                        <div class="actions">
+                            <div class="add">
+                                <img src="/assets/add blog.svg" alt="add blog">
+                                <p>Add Blog</p>
+                            </div>
+                            <div class="help">
+                                <img src="/assets/help1-svgrepo-com 1.svg" alt="help">
+                                <p>Help</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="blogcards">
+                        <% if(blogs.length > 0) { %>
+                            <% blogs.forEach(blog => { %>
+                                <div class="blogcard card0 publish-<%= blog.publish %>" data-id="<%= blog._id %>">
+                                    <div class="cover" data-photoUrl="<%= blog.photo %>">
+                                    </div>
+                                    <div class="head">
+                                        <h2 class="title">
+                                            <%= blog.title %>
+                                        </h2>
+                                        <p class="date">UPDATED ON <%= dateConverter(blog.createdAt) %> • BY <%= blog.author %></p>
+                                    </div>
+                                    <div class="description">
+                                        <p>
+                                            <%= blog.shortDescr %>
+                                        </p>
+                                        <div class="blogActions">
+                                            <button class="edit" data-id="<%= blog._id %>">Edit</button>
+                                            <button class="publish <%= blog.publish %>" data-id="<%= blog._id %>"><%= publishText(blog.publish) %></button>
+                                            <button class="delete" data-id="<%= blog._id %>">Delete</button>
+                                        </div>
+                
+                                    </div>
+                                    <div class="ingraph">
+                                        <img class="stripes active <%= !(blog.publish) %>" src="/assets/Graphic (1).svg" alt="">
+                                        <img class="verified <%= blog.publish %>" src="/assets/verified-svgrepo-com.svg" alt="">
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <p class="no-blogs">There are no blogs to display ...</p>
+                        <% } %>
+                    </div>
+        
+                    <div class="ingraph">
+                        <img src="/assets/small graphic.svg" alt="stripes graphic">
+                    </div>
+                </div>
+                <div class="container edit-blog">
+                    <div class="editing form">
+                        <h1>Edit  Blog</h1>
+                        <form>
+                            <p class="title">Title</p>
+                            <input type="text" name="title" placeholder="Title" required><br>
+                            <p class="title">Cover Photo</p>
+                            <input type="text" name="coverPhoto" id="coverph" placeholder="Cover photo URL" required>
+                            <p class="title">Blog</p>
+                            <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your blog here..." required></textarea><br>
+                            <div class="submit"><button class="update">Update</button><button class="cancel" type="button">Cancel</button><button class="delete" type="button">Delete</button><br></div>
+                        </form>
+                    </div>    
+                    <div class="ingraph">
+                        <img src="/assets/Graphic (1).svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/updateBlog.js"></script>
+        <script src="/js/adminBlog.js"></script>
+        <script src="/js/addBlog.js"></script>
+    </body>
+</html>

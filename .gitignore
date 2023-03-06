@@ -1,3 +1,5 @@
 css/*.scss
 css/*.css.map
+public/css/*.scss
+public/css/*.css.map
 node_modules
