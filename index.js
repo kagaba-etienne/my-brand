@@ -290,7 +290,7 @@ app.get('/admin/blogs/:id', (req, res) => {
     const id = req.params.id;
     Blog.findById(id)
         .then(result => {
-            res.json(result);
+            res.send(result);
         })
         .catch(err =>  {
             console.log(err);
