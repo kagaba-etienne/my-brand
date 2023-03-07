@@ -1,3 +1,8 @@
+const dotenv = require('dotenv');
+
+//configure environment variables
+dotenv.config();
+
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
@@ -8,7 +13,6 @@ const Mail = require('./modules/smtpserver');
 const Subscriber = require('./modules/subscriber');
 const Project = require('./modules/project');
 const photomap = require('./modules/photomap');
-// const { $where } = require('./modules/blog');
 
 
 //express app
