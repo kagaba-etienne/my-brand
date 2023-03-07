@@ -25,7 +25,7 @@ createbtn.addEventListener('click', async (e) => {
         commentsCount: 0,
         publish: false
     }
-    await fetch('http://localhost:3004/admin/blogs/', {
+    await fetch('https://kagaba-etienne.cyclic.app/admin/blogs/', {
         method: 'POST',
         body: JSON.stringify(blog),
         headers: { 'Content-Type': 'application/json' }

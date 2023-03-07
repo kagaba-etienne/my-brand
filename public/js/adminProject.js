@@ -29,7 +29,7 @@ searchForm.addEventListener('submit', async (e) => {
     const doc = { term };
 
 
-    window.location.replace(`http://localhost:3004/admin/projects${ term ? `?term=${term}`: ''}`);
+    window.location.replace(`https://kagaba-etienne.cyclic.app/admin/projects${ term ? `?term=${term}`: ''}`);
 })
 
 cancelBtn.addEventListener('click', returnToBlogs);

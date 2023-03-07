@@ -12,7 +12,7 @@ const deleteQuery = () => {
             e.preventDefault();
             e.stopPropagation();
         
-            await fetch(`http://localhost:3004/admin/queries/${btn.id}`, {
+            await fetch(`https://kagaba-etienne.cyclic.app/admin/queries/${btn.id}`, {
                 method: 'DELETE',
             })
             
@@ -31,7 +31,7 @@ const ignoreQuery = () => {
                 status: "ignored"
             }
         
-            await fetch(`http://localhost:3004/admin/queries/${btn.id}`, {
+            await fetch(`https://kagaba-etienne.cyclic.app/admin/queries/${btn.id}`, {
                 method: 'PATCH',
                 body: JSON.stringify({ res }),
                 headers: {'content-type' : 'application/json'}
@@ -46,7 +46,7 @@ const respondQuery = async () => {
     const sendResBtn = document.querySelector('.form.responding-frm form button');
     const resFrm = document.querySelector('.form.responding-frm form');
 
-    let res = await (await fetch(`http://localhost:3004/admin/queries/${sendResBtn.id}`)).json();
+    let res = await (await fetch(`https://kagaba-etienne.cyclic.app/admin/queries/${sendResBtn.id}`)).json();
 
     resFrm.to.value = res.email;
     resFrm.response.value = `Dear ${res.name.split(" ")[0]},\n`;
@@ -61,7 +61,7 @@ const respondQuery = async () => {
 
         res.status = 'responded';
 
-        await fetch(`http://localhost:3004/admin/queries/${sendResBtn.id}`, {
+        await fetch(`https://kagaba-etienne.cyclic.app/admin/queries/${sendResBtn.id}`, {
             method: 'PATCH',
             body: JSON.stringify({res, response}),
             headers: {'content-type': 'application/json'}

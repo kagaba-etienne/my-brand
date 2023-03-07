@@ -12,7 +12,7 @@ async function sendQuery() {
 
     contactForm.reset();
 
-    await fetch(`http://localhost:3004/contact`, {
+    await fetch(`https://kagaba-etienne.cyclic.app/contact`, {
         method: "POST",
         body: JSON.stringify(query),
         headers: { 'Content-Type': 'application/json' }
