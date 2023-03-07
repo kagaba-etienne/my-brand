@@ -301,7 +301,7 @@ app.get('/admin/queries/:id', (req, res) => {
     const id = req.params.id;
     Query.findById(id)
         .then(result => {
-            res.json(result);
+            res.send(result);
         })
         .catch(err =>  {
             console.log(err);
@@ -383,7 +383,7 @@ app.get('/admin/projects/:id', (req, res) => {
     const id = req.params.id;
     Project.findById(id)
         .then(result => {
-            res.json(result);
+            res.send(result);
         })
         .catch(err =>  {
             console.log(err);
