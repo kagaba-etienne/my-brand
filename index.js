@@ -15,9 +15,7 @@ const photomap = require('./modules/photomap');
 const app = new express();
 
 //mongo db connect & start listening for requests
-const dbURI = 'mongodb+srv://my-brand-app:jb7a04GnTN1aiagJ@cluster0.eda2cja.mongodb.net/my-brand'
-
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(result => {
         console.log('Started listening on port 3004');
         app.listen(3004);

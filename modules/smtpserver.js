@@ -3,15 +3,15 @@ const nodemailer = require('nodemailer');
 const transporter  = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'kagabaetienne365@gmail.com',
-        pass: 'ogvqinqppsluicum'
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS
     }
 });
 
 const Mail = function (response) {
     const email = {
         to: response.To,
-        from: '"Etienne Kagaba" kagabaetienne365@gmail.com',
+        from: `"Etienne Kagaba" ${process.env.GMAIL_USER}`,
         subject: response.Subject,
         text: response.Body
     }
