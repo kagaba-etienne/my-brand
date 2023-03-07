@@ -10,7 +10,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "json-server /js/data/db.json",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
