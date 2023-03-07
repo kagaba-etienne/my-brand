@@ -185,8 +185,13 @@ app.post('/subscribers', (req, res) => {
     };
     subscriber.save()
     .then(result => {
-        Mail(email);
-        res.send();
+        Mail(email)
+        .then(result => {
+            res.send();
+        })
+        .catch(err => {
+            console.log(err);
+        })
     })
     .catch(err => {
         console.log(err);
