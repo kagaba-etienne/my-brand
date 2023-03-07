@@ -38,7 +38,7 @@ const validateSend = async () => {
             body: JSON.stringify(subscriber),
             headers: {'content-type' : 'application/json'}
         })
-        window.location.reload();
+        popupClose.dispatchEvent(clickEvent);
     }
 }
 
