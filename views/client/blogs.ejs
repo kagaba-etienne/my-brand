@@ -17,7 +17,7 @@
                         <% if(blogs.length > 0) { %>
                             <% blogs.forEach(blog => { %>
                                 <div class="blogcard card0" data-id="<%= blog._id %>">
-                                    <div class="cover" data-photoUrl="<%= blog.photo %>">
+                                    <div class="cover" data-photoUrl="<%= blog.coverPhoto %>">
                                     </div>
                                     <div class="head">
                                         <h2 class="title">
@@ -51,5 +51,6 @@
         <script src="/js/navbar.js"></script>
         <script src="/js/popup.js"></script>
         <script src="/js/clientBlogs.js"></script>
+        <script src="/js/imageSrc.js"></script>
     </body>
 </html>

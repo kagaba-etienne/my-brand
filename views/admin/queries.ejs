@@ -52,7 +52,7 @@
                                 <% queries.pending.forEach(element => { %>
                                     <div class="card card<%= element.id %>">
                                         <div class="visible">
-                                            <div class="photo"></div>
+                                            <div class="photo cover" data-photourl="<%= element.photo %>"></div>
                                             <div class="data">
                                                 <p class="name"><%= element.name %></p>
                                                 <p class="date"><%= dateConverter(element.createdAt) %></p>
@@ -106,7 +106,7 @@
                                 <% queries.responded.forEach(element => { %>
                                     <div class="card card<%= element.id %>">
                                         <div class="visible">
-                                            <div class="photo"></div>
+                                            <div class="photo cover" data-photourl="<%= element.photo %>"></div>
                                             <div class="data">
                                                 <p class="name"><%= element.name %></p>
                                                 <p class="date"><%= dateConverter(element.createdAt) %></p>
@@ -161,7 +161,7 @@
                                 <% queries.ignored.forEach(element => { %>
                                     <div class="card card<%= element.id %>">
                                         <div class="visible">
-                                            <div class="photo"></div>
+                                            <div class="photo cover" data-photourl="<%= element.photo %>"></div>
                                             <div class="data">
                                                 <p class="name"><%= element.name %></p>
                                                 <p class="date"><%= dateConverter(element.createdAt) %></p>
@@ -204,5 +204,6 @@
         </div>
         <script src="/js/navbar.js"></script>
         <script src="/js/queries.js"></script>
+        <script src="/js/imageSrc.js"></script>
     </body>
 </html>

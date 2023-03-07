@@ -15,78 +15,21 @@
                     </p>
                 </div>
                 <div class="projectslide">
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card0 projects">
-                        <div class="inner-content">
-                            <h2>Talk to me!</h2>
-                            <p>
-                                A feature that allows more accurate search results to be generated when searching for music across genres. This would be beneficial to those looking to<span class="more">discover new music, as it would make it easier to find the exact song they are looking for. It would hopefully lead to increased music discovery for users. Additionally, users would be able to easily find similar music to their favorite songs or artists. This would increase user engagement and make it easier for them to discover new songs. Overall, this feature would benefit both users and Spotify.</span>
-                                <span class="dots">. . . Read more</span>
-                            </p>
-                        </div>
-                    </div>
+                    <% if( projects.length ) { %>
+                        <% projects.forEach(project => { %>
+                            <div class="card card0 projects cover" data-photourl="<%= project.coverPhoto %>" id="<%= project._id %>">
+                                <div class="inner-content">
+                                    <h2><%= project.title %></h2>
+                                    <p>
+                                        <%= project.shortDescr %><span class="more"><%= project.rest %></span>
+                                        <span class="dots">. . . Read more</span>
+                                    </p>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <p class="no-blogs">There no projects to display ... </p>
+                    <% } %>
                 </div>
                 <div class="graphic projects">
                     <img src="/assets/Graphic (1).svg" alt="stripes graphic">
@@ -98,5 +41,6 @@
         <script src="/js/navbar.js"></script>
         <script src="/js/projects.js"></script>
         <script src="/js/popup.js"></script>
+        <script src="/js/imageSrc.js"></script>
     </body>
 </html>

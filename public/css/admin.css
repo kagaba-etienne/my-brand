@@ -189,6 +189,53 @@ input[type*=submit], button {
   position: relative;
 }
 
+.container .projectslide {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.container .projectslide .card:hover {
+  background-size: cover;
+}
+.container .projectslide .card {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #6B9080;
+  border-radius: 1em;
+  width: max(70%, 19.6em);
+  height: 45.8em;
+  position: relative;
+}
+.container .projectslide .card .inner-content {
+  border: 1px solid #6B9080;
+  border-radius: 1em;
+  position: absolute;
+  bottom: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0.5em;
+  max-height: 40em;
+  overflow-y: auto;
+  background-color: #F6FFF8;
+}
+.container .projectslide .card .inner-content p .more {
+  display: none;
+}
+.container .projectslide .card .inner-content .dots {
+  color: #6B9080;
+  cursor: pointer;
+}
+.container .projectslide .card .projectActions {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-top: 1em;
+  justify-content: center;
+}
+.container .projectslide .card0 {
+  background: url(/assets/shoe1.jpg) center center no-repeat;
+  background-size: cover;
+}
+
 .container.edit-blog .editing h1 {
   font-size: 3.2rem;
   color: #6B9080;
@@ -514,17 +561,41 @@ input[type*=submit], button {
   color: #6B9080;
 }
 
-.container.blogs-list {
-  position: relative;
-  padding-bottom: 5em;
+.blogActions {
+  display: flex;
+  gap: 2em;
 }
-.container.blogs-list .no-blogs {
+.blogActions button {
+  width: 6em;
+  text-decoration: none;
+}
+.blogActions .publish {
+  background-color: #35a7ff;
+}
+.blogActions .publish.true {
+  background-color: #0b38b4;
+}
+.blogActions .delete {
+  background-color: #BD5454;
+}
+
+.publish-false {
+  border: 1px solid #35a7ff;
+}
+
+.publish-true {
+  border: 1px solid #6B9080;
+}
+
+.no-blogs {
   text-align: center;
   color: #6B9080;
   font-size: 2rem;
 }
-.container.blogs-list .blogcard.publish-false {
-  border: 1px solid #35a7ff;
+
+.container.blogs-list {
+  position: relative;
+  padding-bottom: 5em;
 }
 .container.blogs-list .heading {
   display: flex;
@@ -600,23 +671,6 @@ input[type*=submit], button {
 .container.blogs-list .blogcards .blogcard .description p {
   overflow-wrap: break-word;
 }
-.container.blogs-list .blogcards .blogcard .description .blogActions {
-  display: flex;
-  gap: 2em;
-}
-.container.blogs-list .blogcards .blogcard .description .blogActions button {
-  width: 6em;
-  text-decoration: none;
-}
-.container.blogs-list .blogcards .blogcard .description .blogActions .publish {
-  background-color: #35a7ff;
-}
-.container.blogs-list .blogcards .blogcard .description .blogActions .publish.true {
-  background-color: #0b38b4;
-}
-.container.blogs-list .blogcards .blogcard .description .blogActions .delete {
-  background-color: #BD5454;
-}
 .container.blogs-list .blogcards .blogcard .ingraph {
   position: absolute;
   bottom: -0.6em;
@@ -629,9 +683,6 @@ input[type*=submit], button {
   margin: 0;
   width: 5em;
   border-radius: 1em;
-}
-.container.blogs-list .blogcards .blogcard.publish-true {
-  border: 1px solid #6B9080;
 }
 .container.blogs-list .blogcards .card0 .cover {
   background: url(/assets/shoe1.jpg) center center no-repeat;

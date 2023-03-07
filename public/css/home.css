@@ -266,6 +266,8 @@ input[type*=submit], button {
   margin-left: 0.5em;
   margin-right: 0.5em;
   padding: 0.5em;
+  max-height: 43.6em;
+  overflow-y: auto;
   background-color: #F6FFF8;
 }
 .container.projects .projectslide .card .inner-content p .more {
@@ -445,6 +447,12 @@ input[type*=submit], button {
 }
 .container.blogpost .lower .replies .comment .reply.card {
   margin-left: 3em;
+}
+
+.no-blogs {
+  text-align: center;
+  color: #6B9080;
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 992px) {

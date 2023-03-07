@@ -33,7 +33,7 @@ const ignoreQuery = () => {
         
             await fetch(`http://localhost:3004/admin/queries/${btn.id}`, {
                 method: 'PATCH',
-                body: JSON.stringify(res),
+                body: JSON.stringify({ res }),
                 headers: {'content-type' : 'application/json'}
             })
             
@@ -66,7 +66,7 @@ const respondQuery = async () => {
             body: JSON.stringify({res, response}),
             headers: {'content-type': 'application/json'}
         });
-        window.location.replace('/admin/blog');
+        window.location.replace('/admin/queries');
     })
 }
 

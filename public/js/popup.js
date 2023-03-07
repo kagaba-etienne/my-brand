@@ -22,28 +22,8 @@ function popupCls() {
 
 subscribeBtn.addEventListener('click', popup);
 popupClose.addEventListener('click', popupCls);
+
 //submitting subscribers
-
-function dateConverter(numbers) {
-    numbers = numbers.split("-")
-    mapToMonths = {
-        "01": 'JANUARY',
-        "02": 'FEBRUARY',
-        "03": 'MARCH',
-        "04": 'APRIL',
-        "05": 'MAY',
-        "06": 'JUNE',
-        "07": 'JULY',
-        "08": 'AUGUST',
-        "09": 'SEPTEMBER',
-        "10": 'OCTOBER',
-        "11": 'NOVEMBER',
-        "12": 'DECEMBER',
-    }
-
-    return `${mapToMonths[numbers[1]]} ${numbers[2]}, ${numbers[0]}`
-}
-
 const subscribe = document.querySelector('.popup .subscribe-form .subscribebtn');
 
 const validateSend = async () => {
@@ -51,10 +31,9 @@ const validateSend = async () => {
         let subscriber = {
             name: actualForm.name.value,
             email: actualForm.email.value,
-            date: dateConverter(new Date().toJSON().slice(0, 10))
         }
 
-        await fetch('http://localhost:3000/subscribers', {
+        await fetch('http://localhost:3004/subscribers', {
             method: 'POST',
             body: JSON.stringify(subscriber),
             headers: {'content-type' : 'application/json'}

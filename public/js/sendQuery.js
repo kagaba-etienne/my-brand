@@ -6,7 +6,7 @@ async function sendQuery() {
         email: contactForm.email.value,
         phone: contactForm.phone.value,
         message: contactForm.message.value,
-        photo: "",
+        photo: contactForm.name.value.trim()[0],
         status: "pending"
     }
 

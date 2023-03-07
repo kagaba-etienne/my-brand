@@ -5,6 +5,9 @@ const Blog = require('./modules/blog');
 const Comment = require('./modules/comment');
 const Query = require('./modules/query');
 const Mail = require('./modules/smtpserver');
+const Subscriber = require('./modules/subscriber');
+const Project = require('./modules/project');
+const photomap = require('./modules/photomap');
 // const { $where } = require('./modules/blog');
 
 
@@ -105,9 +108,18 @@ app.get('/skills', (req, res) => {
 });
 
 app.get('/projects', (req, res) => {
-    res.render('client/projects', {
-        title: 'Projects',
-        styles: 'css/home.css'});
+    Project.find({
+        publish: true
+    }).sort({ createdAt: -1 })
+    .then(result => {
+        res.render('client/projects', {
+            title: 'Projects',
+            projects: result,
+            styles: 'css/home.css'});
+    })
+    .catch(err => {
+        console.log(err);
+    })
 });
 
 app.get('/contact', (req, res) => {
@@ -116,7 +128,9 @@ app.get('/contact', (req, res) => {
         styles: 'css/home.css'});
 });
 app.post('/contact', (req, res) => {
-    const query = new Query(req.body);
+    let body = req.body;
+    body.photo = photomap(body.photo);
+    const query = new Query(body);
     query.save()
     .then(result => {
         res.send();
@@ -160,9 +174,37 @@ app.get('/blogs/:id', (req, res) => {
     })
 });
 
+app.post('/subscribers', (req, res) => {
+    const subscriber = new Subscriber(req.body);
+    const email = {
+        To: req.body.email,
+        Subject: 'Subscribed To News Letter',
+        Body: `Dear ${req.body.name.split(' ')[0]},\n\nThank you for subscribing to our newsletter. We at Kagaba are committed to providing you with useful and helpful content that is relevant to your interests. You can expect to receive updates on a regular basis and we'll do our best to make sure they are interesting and informative.\n\nWe understand that your time is valuable and we will strive to provide you with quality updates that you can benefit from. We hope that our updates will be a valuable addition to your life.\n\nWe look forward to hearing your feedback and suggestions on how we can improve our services. Please let us know if there is anything we can do to make your experience with us even better.\n\nThank you again for signing up!`
+    };
+    subscriber.save()
+    .then(result => {
+        Mail(email);
+        res.send();
+    })
+    .catch(err => {
+        console.log(err);
+    })
+});
 
 
 //admin routes
+
+app.get('/admin/acc/login', (req, res) => {
+    res.render('admin/acc/login', {
+        title: 'Login',
+        styles: '/css/signup.css'});
+});
+app.get('/admin/acc/signup', (req, res) => {
+    res.render('admin/acc/signup', {
+        title: 'Signup',
+        styles: '/css/signup.css'});
+});
+
 app.get('/admin', (req, res) => {
     res.render('admin/dashboard', {
         title: 'Dashboard',
@@ -182,19 +224,16 @@ app.get('/admin/blogs', (req, res) => {
         console.log(err);
     })
 });
-
 app.post('/admin/blogs', (req, res) => {
     const blog = new Blog(req.body);
     blog.save()
         .then(result => {
-            console.log('redirecting');
-            res.redirect('/admin');
+            res.send();
         })
         .catch(err => {
             console.log(err);
         });
 });
-
 app.delete('/admin/blogs/:id', (req, res) => {
     const id = req.params.id;
     Blog.findByIdAndDelete(id)
@@ -213,7 +252,6 @@ app.delete('/admin/blogs/:id', (req, res) => {
         console.log(err);
     })
 });
-
 app.post('/admin/blogs/:id', async (req, res) => {
     const id = req.params.id;
     const comment = new Comment(req.body);
@@ -235,7 +273,6 @@ app.post('/admin/blogs/:id', async (req, res) => {
             console.log(err);
         });
 });
-
 app.patch('/admin/blogs/:id', (req, res) => {
     const id = req.params.id;
     const update = req.body;
@@ -247,7 +284,6 @@ app.patch('/admin/blogs/:id', (req, res) => {
         console.log(err);
     })
 });
-
 app.get('/admin/blogs/:id', (req, res) => {
     const id = req.params.id;
     Blog.findById(id)
@@ -258,6 +294,7 @@ app.get('/admin/blogs/:id', (req, res) => {
             console.log(err);
         })
 });
+
 app.get('/admin/queries/:id', (req, res) => {
     const id = req.params.id;
     Query.findById(id)
@@ -268,7 +305,6 @@ app.get('/admin/queries/:id', (req, res) => {
             console.log(err);
         });
 });
-
 app.delete('/admin/queries/:id', (req, res) => {
     const id = req.params.id;
     Query.findByIdAndDelete(id)
@@ -281,7 +317,7 @@ app.delete('/admin/queries/:id', (req, res) => {
 });
 app.patch('/admin/queries/:id', (req, res) => {
     const id = req.params.id;
-    Mail(req.body.response);
+    const trash = req.body.response ? Mail(req.body.response): console.log('ignoring a query');
     const update = req.body.res;
     Query.findByIdAndUpdate(id, update, { new: true })
     .then(result => {
@@ -301,8 +337,60 @@ app.get('/admin/queries', (req, res) => {
         });
 });
 
+app.get('/admin/projects', (req, res) => {
+    Project.find().sort({ createdAt: -1})
+        .then(result => {
+            res.render('admin/projects', { title: 'Projects', projects: result, styles: '/css/admin.css'}); 
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+app.post('/admin/projects', (req, res) => {
+    const project = new Project(req.body);
+    project.save()
+        .then(result => {
+            res.send();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+app.delete('/admin/projects/:id', (req, res) => {
+    const id = req.params.id;
+    Project.findByIdAndDelete(id)
+    .then(result => {
+        res.send();
+    })
+    .catch(err => {
+        console.log(err);
+    })
+});
+app.patch('/admin/projects/:id', (req, res) => {
+    const id = req.params.id;
+    const update = req.body;
+    Project.findByIdAndUpdate(id, update, { new: true})
+    .then(result => {
+        res.send();
+    })
+    .catch(err => {
+        console.log(err);
+    })
+});
+app.get('/admin/projects/:id', (req, res) => {
+    const id = req.params.id;
+    Project.findById(id)
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err =>  {
+            console.log(err);
+        })
+});
+
 app.get('/admin/profile', (req, res) => {
     res.render('admin/profile', {
         title: 'Profile',
         styles: '/css/admin.css'});
 });
+

@@ -9,14 +9,14 @@
             <div class="tabs">
                 <div class="container">
                     <div class="createBlog form">
-                        <h1>Create  Blog</h1>
+                        <h1>Create  Project</h1>
                         <form action="#">
                             <p class="title">Title</p>
                             <input type="text" name="title" placeholder="Title" required><br>
                             <p class="title">Cover Photo</p>
                             <input type="text" name="coverPhoto" placeholder="Cover photo URL" required>
-                            <p class="title">Blog</p>
-                            <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your blog here..." required></textarea><br>
+                            <p class="title">Project Description</p>
+                            <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your project description here..." required></textarea><br>
                             <div class="submit"><button class="submitform">Create</button><button type="button" class="cancel">Cancel</button><br></div>
                         </form>
                     </div>
@@ -27,12 +27,12 @@
                 </div>
                 <div class="container blogs-list active">
                     <div class="heading">
-                        <h1>Blogs</h1>
+                        <h1>Projects</h1>
                         <form class="search"><input type="text" name="term" placeholder="Search..."><button><img class="searchbtn" src="/assets/search-svgrepo-com (1).svg" alt=""></button></form>
                         <div class="actions">
                             <div class="add">
                                 <img src="/assets/add blog.svg" alt="add blog">
-                                <p>Add Blog</p>
+                                <p>Add Project</p>
                             </div>
                             <div class="help">
                                 <img src="/assets/help1-svgrepo-com 1.svg" alt="help">
@@ -42,37 +42,28 @@
                     </div>
         
                     <div class="blogcards">
-                        <% if(blogs.length > 0) { %>
-                            <% blogs.forEach(blog => { %>
-                                <div class="blogcard card0 publish-<%= blog.publish %>" data-id="<%= blog._id %>">
-                                    <div class="cover" data-photoUrl="<%= blog.coverPhoto %>">
-                                    </div>
-                                    <div class="head">
-                                        <h2 class="title">
-                                            <%= blog.title %>
-                                        </h2>
-                                        <p class="date">UPDATED ON <%= dateConverter(blog.createdAt) %> • BY <%= blog.author %></p>
-                                    </div>
-                                    <div class="description">
-                                        <p>
-                                            <%= blog.shortDescr %>
-                                        </p>
-                                        <div class="blogActions">
-                                            <button class="edit" data-id="<%= blog._id %>">Edit</button>
-                                            <button class="publish <%= blog.publish %>" data-id="<%= blog._id %>"><%= publishText(blog.publish) %></button>
-                                            <button class="delete" data-id="<%= blog._id %>">Delete</button>
+                        <div class="projectslide">
+                            <% if(projects.length) { %>
+                                <% projects.forEach(project => { %>
+                                    <div class="card card0 projects publish-<%= project.publish %> cover" data-photourl="<%= project.coverPhoto %>" id="<%= project._id %>">
+                                        <div class="inner-content">
+                                            <h2><%= project.title %></h2>
+                                            <p>
+                                                <%= project.shortDescr %><span class="more"><%= project.rest %></span>
+                                                <span class="dots">. . . Read more</span>
+                                            </p>
                                         </div>
-                
+                                        <div class="blogActions projectActions">
+                                            <button class="edit" data-id="<%= project._id %>">Edit</button>
+                                            <button class="publish <%= project.publish %>" data-id="<%= project._id %>"><%= publishText(project.publish) %></button>
+                                            <button class="delete" data-id="<%= project._id %>">Delete</button>
+                                        </div>
                                     </div>
-                                    <div class="ingraph">
-                                        <img class="stripes active <%= !(blog.publish) %>" src="/assets/Graphic (1).svg" alt="">
-                                        <img class="verified <%= blog.publish %>" src="/assets/verified-svgrepo-com.svg" alt="">
-                                    </div>
-                                </div>
-                            <% }) %>
-                        <% } else { %>
-                            <p class="no-blogs">There are no blogs to display ...</p>
-                        <% } %>
+                                <% }) %>
+                            <% } else {%>
+                                <p class="no-blogs">There are no projects to display ...</p>
+                            <% } %>
+                        </div>
                     </div>
         
                     <div class="ingraph">
@@ -81,14 +72,14 @@
                 </div>
                 <div class="container edit-blog">
                     <div class="editing form">
-                        <h1>Edit  Blog</h1>
+                        <h1>Edit  Project</h1>
                         <form>
                             <p class="title">Title</p>
                             <input type="text" name="title" placeholder="Title" required><br>
                             <p class="title">Cover Photo</p>
                             <input type="text" name="coverPhoto" id="coverph" placeholder="Cover photo URL" required>
-                            <p class="title">Blog</p>
-                            <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your blog here..." required></textarea><br>
+                            <p class="title">Project Description</p>
+                            <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your project description here..." required></textarea><br>
                             <div class="submit"><button class="update">Update</button><button class="cancel" type="button">Cancel</button><button class="delete" type="button">Delete</button><br></div>
                         </form>
                     </div>    
@@ -99,9 +90,10 @@
             </div>
         </div>
         <script src="/js/navbar.js"></script>
-        <script src="/js/updateBlog.js"></script>
-        <script src="/js/adminBlog.js"></script>
-        <script src="/js/addBlog.js"></script>
+        <script src="/js/updateProject.js"></script>
+        <script src="/js/adminProject.js"></script>
+        <script src="/js/addProject.js"></script>
         <script src="/js/imageSrc.js"></script>
+        <script src="/js/projects.js"></script>
     </body>
 </html>
