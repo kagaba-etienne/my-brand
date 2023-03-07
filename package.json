@@ -1,14 +1,16 @@
 {
   "dependencies": {
-    "json-server": "^0.17.2"
+    "ejs": "^3.1.8",
+    "json-server": "^0.17.2",
+    "mongoose": "^7.0.0",
+    "nodemailer": "^6.9.1"
   },
   "name": "my-brand",
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
-    "start": "json-server ./js/data/db.json",
+    "start": "json-server /js/data/db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="wrapper">
+            <div class="container profile">
+                <div class="editing">
+                    <h1>Profile</h1>
+                    <div class="form">
+                        <p class="u-title">Contact information</p>
+                    <form action="#">
+                        <div class="input">
+                            <p class="title">Twitter</p>
+                            <input type="text">
+                        </div>
+                        <div class="input">
+                            <p class="title">Linkedin</p>
+                            <input type="text">
+                        </div>
+                        <div class="input">
+                            <p class="title">Whatsapp</p>
+                            <input type="text">
+                        </div>
+                        <div class="input">
+                            <p class="title">Instagram</p>
+                            <input type="text">
+                        </div>
+                        <div class="input">
+                            <p class="title">Email</p>
+                            <input type="text">
+                        </div>
+                        <input type="submit" name="update" id="update" value="Update"><br>
+                    </form>
+                    </div>
+                </div>
+                <div class="coverphoto">
+                    <div class="updatephoto">
+                        <div>
+                            <div class="edit">
+                                <img class="edit" src="/assets/edit-svgrepo-com 1.svg" alt="edit image">
+                            </div>
+                            <img src="/assets/sara-kurfess-6lcT2kRPvnI-unsplash.jpg" alt="cover photo">
+                        </div>
+                        <p>Etienne S. Kagaba</p>
+                    </div>
+                    <div class="change-credentials">
+                        <p>Change Login Credentials</p>
+                    </div>
+                </div>
+                <div class="ingraph">
+                    <img src="/assets/Graphic (1).svg" alt="">
+                </div>
+            </div>
+        </div>
+        <script src="/js/navbar.js"></script>
+    </body>
+</html>

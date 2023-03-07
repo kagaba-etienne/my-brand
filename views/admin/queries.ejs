@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <% queries = querySplitter(queries) %>
+
+        <div class="wrapper queries">
+            <div class="container queries">
+                <h1>Queries</h1>
+    
+                <div class="bar">
+                    <div id="pending" class="item active">
+                        <p>Pending</p>
+                    </div>
+                    <div id="responded" class="item">
+                        <p>Responded</p>
+                    </div>
+                    <div id="ignored" class="item">
+                        <p>Ignored</p>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <div id="pending" class="active">
+                        <div class="cards">
+                            <!-- <div class="card">
+                                <div class="visible">
+                                    <div class="photo"></div>
+                                    <div class="data">
+                                        <p class="name">Opal Ehret</p>
+                                        <p class="date">JANUARY 23, 2023</p>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="respond">
+                                            <img src="/assets/Reply.svg" alt="">
+                                        </div>
+                                        <div class="ignore"></div>
+                                    </div>
+                                </div>
+                                <div class="hidden">
+                                    <div class="text">
+                                        <p>Hi there,<br>
+                                            I am in need of a fullstack developer to help me with my project. From looking at your portfolio, I think that you may be a great fit for this role. Could you please provide me with more information about your experience and any projects you have worked on that are similar to mine?
+                                            Thank you,
+                                            Opal</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <% if (queries.pending.length) { %>
+                                <% queries.pending.forEach(element => { %>
+                                    <div class="card card<%= element.id %>">
+                                        <div class="visible">
+                                            <div class="photo cover" data-photourl="<%= element.photo %>"></div>
+                                            <div class="data">
+                                                <p class="name"><%= element.name %></p>
+                                                <p class="date"><%= dateConverter(element.createdAt) %></p>
+                                            </div>
+                                            <div class="actions">
+                                                <div class="respond" id="<%= element.id %>">
+                                                    <img src="/assets/Reply.svg" alt="">
+                                                </div>
+                                                <div class="ignore" id="<%= element.id %>"></div>
+                                            </div>
+                                        </div>
+                                        <div class="hidden">
+                                            <div class="text">
+                                                <% const paragraphs = element.message.split('\n') %>
+                                                <% paragraphs.forEach(p => { %>
+                                                    <p><%= p %></p>
+                                                <% }) %>
+                                            </div>
+                                        </div>
+                                    </div>'
+                                <% }) %>
+                            <% } else {%>
+                                <p class="no-queries">There are no pending queries</p>
+                            <% } %>
+                        </div>
+                    </div>
+    
+                    <div id="responded">
+                        <div class="cards">
+                            <!-- <div class="card">
+                                <div class="visible">
+                                    <div class="photo"></div>
+                                    <div class="data">
+                                        <p class="name">Opal Ehret</p>
+                                        <p class="date">JANUARY 23, 2023</p>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="responded"></div>
+                                    </div>
+                                </div>
+                                <div class="hidden">
+                                    <div class="text">
+                                        <p>Hi there,<br>
+                                            I am in need of a fullstack developer to help me with my project. From looking at your portfolio, I think that you may be a great fit for this role. Could you please provide me with more information about your experience and any projects you have worked on that are similar to mine?
+                                            Thank you,
+                                            Opal</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <% if (queries.responded.length) { %>
+                                <% queries.responded.forEach(element => { %>
+                                    <div class="card card<%= element.id %>">
+                                        <div class="visible">
+                                            <div class="photo cover" data-photourl="<%= element.photo %>"></div>
+                                            <div class="data">
+                                                <p class="name"><%= element.name %></p>
+                                                <p class="date"><%= dateConverter(element.createdAt) %></p>
+                                            </div>
+                                            <div class="actions">
+                                                <div class="responded"></div>
+                                                <div class="delete" id="<%= element.id %>"></div>
+                                            </div>
+                                        </div>
+                                        <div class="hidden">
+                                            <div class="text">
+                                                <% const paragraphs = element.message.split('\n') %>
+                                                <% paragraphs.forEach(p => { %>
+                                                    <p><%= p %></p>
+                                                <% }) %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            <% } else {%>
+                                <p class="no-queries">There are no responded queries</p>
+                            <% } %>
+                        </div>
+                    </div>
+    
+                    <div id="ignored">
+                        <div class="cards">
+                            <!-- <div class="card">
+                                <div class="visible">
+                                    <div class="photo"></div>
+                                    <div class="data">
+                                        <p class="name">Opal Ehret</p>
+                                        <p class="date">JANUARY 23, 2023</p>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="respond">
+                                            <img src="/assets/Reply.svg" alt="">
+                                        </div>
+                                        <div class="delete"></div>
+                                    </div>
+                                </div>
+                                <div class="hidden">
+                                    <div class="text">
+                                        <p>Hi there,<br>
+                                            I am in need of a fullstack developer to help me with my project. From looking at your portfolio, I think that you may be a great fit for this role. Could you please provide me with more information about your experience and any projects you have worked on that are similar to mine?
+                                            Thank you,
+                                            Opal</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <% if (queries.ignored.length) { %>
+                                <% queries.ignored.forEach(element => { %>
+                                    <div class="card card<%= element.id %>">
+                                        <div class="visible">
+                                            <div class="photo cover" data-photourl="<%= element.photo %>"></div>
+                                            <div class="data">
+                                                <p class="name"><%= element.name %></p>
+                                                <p class="date"><%= dateConverter(element.createdAt) %></p>
+                                            </div>
+                                            <div class="actions">
+                                                <div class="respond" id="<%= element.id %>">
+                                                    <img src="/assets/Reply.svg" alt="">
+                                                </div>
+                                                <div class="delete" id="<%= element.id %>"></div>
+                                            </div>
+                                        </div>
+                                        <div class="hidden">
+                                            <div class="text">
+                                                <% const paragraphs = element.message.split('\n') %>
+                                                <% paragraphs.forEach(p => { %>
+                                                    <p><%= p %></p>
+                                                <% }) %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            <% } else {%>
+                                <p class="no-queries">There are no ignored queries</p>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div id="responding" class="form responding-frm">
+                        <div class="close">
+                            <img src="/assets/close-circle-svgrepo-com 1.svg" alt="">
+                        </div>
+                        <form class="responding-form">
+                            <input type="email" name="to" placeholder="Email Receiver" required><br>
+                            <input type="text" name="subject" placeholder="Subject" required><br>
+                            <textarea name="message" id="response" placeholder="Give a response" cols="40" rows="10" required></textarea> <br>
+                            <button type="button">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/navbar.js"></script>
+        <script src="/js/queries.js"></script>
+        <script src="/js/imageSrc.js"></script>
+    </body>
+</html>
