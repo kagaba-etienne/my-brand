@@ -160,6 +160,14 @@ input[type*=submit], button {
   width: min(97%, 50em);
 }
 
+form .error {
+  text-align: left;
+  font-size: 1.2rem;
+  width: 80%;
+  padding-top: 0.5em;
+  color: red;
+}
+
 .footer {
   margin: 3em;
 }
@@ -257,6 +265,8 @@ input[type*=submit], button {
   width: max(70%, 19.6em);
   height: 45.8em;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 .container.projects .projectslide .card .inner-content {
   border: 1px solid #6B9080;

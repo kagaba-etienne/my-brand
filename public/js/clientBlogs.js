@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     contRdBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            window.location.replace(`./blogs/${btn.id}`);
+            location.assign(`./blogs/${btn.id}`);
         })
     })
 });

@@ -16,7 +16,7 @@ const deleteQuery = () => {
                 method: 'DELETE',
             })
             
-            window.location.replace('/admin/queries');
+            location.assign('/admin/queries');
         });
     })
 }
@@ -37,7 +37,7 @@ const ignoreQuery = () => {
                 headers: {'content-type' : 'application/json'}
             })
             
-            window.location.replace('/admin/queries');
+            location.assign('/admin/queries');
         });
     })
 }
@@ -66,7 +66,7 @@ const respondQuery = async () => {
             body: JSON.stringify({res, response}),
             headers: {'content-type': 'application/json'}
         });
-        window.location.replace('/admin/queries');
+        location.assign('/admin/queries');
     })
 }
 

@@ -11,10 +11,13 @@
                     <div class="createBlog form">
                         <h1>Create  Blog</h1>
                         <form action="#">
+                            <div class="title error"></div>
                             <p class="title">Title</p>
                             <input type="text" name="title" placeholder="Title" required><br>
+                            <div class="cover error"></div>
                             <p class="title">Cover Photo</p>
                             <input type="text" name="coverPhoto" placeholder="Cover photo URL" required>
+                            <div class="body error"></div>
                             <p class="title">Blog</p>
                             <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your blog here..." required></textarea><br>
                             <div class="submit"><button class="submitform">Create</button><button type="button" class="cancel">Cancel</button><br></div>
@@ -83,10 +86,13 @@
                     <div class="editing form">
                         <h1>Edit  Blog</h1>
                         <form>
+                            <div class="title error"></div>
                             <p class="title">Title</p>
                             <input type="text" name="title" placeholder="Title" required><br>
+                            <div class="cover error"></div>
                             <p class="title">Cover Photo</p>
-                            <input type="text" name="coverPhoto" id="coverph" placeholder="Cover photo URL" required>
+                            <input type="text" name="coverPhoto" placeholder="Cover photo URL" required>
+                            <div class="body error"></div>
                             <p class="title">Blog</p>
                             <textarea name="body" id="blogcontent" cols="30" rows="10" placeholder="Your blog here..." required></textarea><br>
                             <div class="submit"><button class="update">Update</button><button class="cancel" type="button">Cancel</button><button class="delete" type="button">Delete</button><br></div>

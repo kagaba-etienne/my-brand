@@ -180,6 +180,14 @@ input[type*=submit], button {
   width: min(97%, 50em);
 }
 
+form .error {
+  text-align: left;
+  font-size: 1.2rem;
+  width: 80%;
+  padding-top: 0.5em;
+  color: red;
+}
+
 .container {
   background-color: rgba(204, 227, 222, 0.25);
   padding: 2em;
@@ -205,6 +213,8 @@ input[type*=submit], button {
   width: max(70%, 19.6em);
   height: 45.8em;
   position: relative;
+  justify-content: center;
+  display: flex;
 }
 .container .projectslide .card .inner-content {
   border: 1px solid #6B9080;
@@ -229,6 +239,7 @@ input[type*=submit], button {
   padding-left: 0.5em;
   padding-right: 0.5em;
   margin-top: 1em;
+  height: 2em;
   justify-content: center;
 }
 .container .projectslide .card0 {

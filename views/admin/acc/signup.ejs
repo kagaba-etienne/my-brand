@@ -6,13 +6,16 @@
         <div class="wrapper">
             <div class="form signup">
                 <div class="help"></div>
-                <div class="signuplink">Already have an account? <a href="/admin/acc/login">Login</a></div>
+                <div class="signuplink">Already have an account? <a href="/login">Login</a></div>
                 <p>Admin Signup</p>
-                <form action="#" class="signup-form">
-                    <input type="text" name="" placeholder="Full Name"><br>
-                    <input type="text" name="" placeholder="Email"><br>
-                    <input type="text" name="" placeholder="Password"><br>
-                    <input type="text" name="" placeholder="Confirm Password"><br>
+                <form class="signup-form">
+                    <div class="name error"></div>
+                    <input type="text" name="name" placeholder="Full Name"><br>
+                    <div class="email error"></div>
+                    <input type="email" name="email" placeholder="Email"><br>
+                    <div class="password error"></div>
+                    <input type="password" name="password" placeholder="Password"><br>
+                    <input type="text" name="confPass" placeholder="Confirm Password"><br>
                     <input type="submit" value="Signup">
                 </form>
                 <div class="logo"></div>

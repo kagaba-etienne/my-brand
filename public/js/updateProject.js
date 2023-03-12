@@ -21,6 +21,14 @@ function updateMethod(){
     })
     editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const titleError = document.querySelector('.editing.form > form .title.error');
+        const descrError = document.querySelector('.editing.form > form .description.error');
+        const photoError = document.querySelector('.editing.form > form .cover.error');
+
+        titleError.textContent = '';
+        descrError.textContent = '';
+        photoError.textContent = '';
+
         const shortDescription = getShort(editForm.body.value);
         let doc = {
             title: editForm.title.value,
@@ -30,18 +38,26 @@ function updateMethod(){
             coverPhoto: editForm.coverPhoto.value,
         }
 
-        await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${updateBtn.dataset.id}`, {
+        const res = await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${updateBtn.dataset.id}`, {
             method: 'PATCH',
             body: JSON.stringify(doc),
             headers: { 'Content-Type': 'application/json' }
         });
-        window.location.replace('/admin/projects');
+        const data = await res.json();
+        if (data.errors) {
+            titleError.textContent = data.errors.title;
+            descrError.textContent = data.errors.body;
+            photoError.textContent = data.errors.coverPhoto;
+        }
+        if (data.id){
+            location.assign('/admin/projects');
+        }
     })
     deleteBtn.addEventListener('click', async() => {
         await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${deleteBtn.dataset.id}`, {
             method: 'DELETE'
         });
-        window.location.replace('/admin/blogs');
+        location.assign('/admin/projects');
     })
 }
 
@@ -55,7 +71,7 @@ function deleteMethod() {
             await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${btn.dataset.id}`, {
                 method: 'DELETE'
             });
-            window.location.replace('/admin/projects');
+            location.assign('/admin/projects');
         })
     })
 }
@@ -76,7 +92,7 @@ function publishMethod() {
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }
                 });
-                window.location.replace('/admin/projects');
+                location.assign('/admin/projects');
             })
         }
         else {
@@ -90,7 +106,7 @@ function publishMethod() {
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }
                 });
-                window.location.replace('/admin/projects');
+                location.assign('/admin/projects');
             })
         }
     })

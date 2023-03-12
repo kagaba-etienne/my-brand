@@ -2,6 +2,9 @@ const isAlpha = function (chr) {
     return (/[a-zA-Z]/).test(chr);
 };
 const photomap = function (firstLetter) {
+    if(!firstLetter){
+        return ''
+    }
     const map = {
         a : '/assets/letters/a.svg',
         b : '/assets/letters/b.svg',

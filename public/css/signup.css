@@ -56,6 +56,14 @@ form input[type*=submit] {
   color: #F0FBF4;
   background-color: #6B9080;
 }
+form .error {
+  text-align: left;
+  font-size: 1.2rem;
+  width: 80%;
+  margin: 0 3em;
+  padding-left: 0.5em;
+  color: red;
+}
 
 .help {
   cursor: pointer;

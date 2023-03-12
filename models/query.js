@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
+const { isEmail } = require('validator');
 const Schema = mongoose.Schema;
 
 const querySchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: [true, 'Please enter your name']
     },
     email: {
         type: String,
-        required: true
+        required: [true, 'Please enter an email'],
+        validate: [isEmail, 'Please enter a valid email']
     },
     phone: {
         type: String,
@@ -16,7 +18,7 @@ const querySchema = new Schema({
     },
     message: {
         type: String,
-        required: true
+        required: [true, 'Can not send blank message']
     },
     photo: {
         type: String,

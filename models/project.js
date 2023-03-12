@@ -1,10 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const isValid = async function (link) {
+    try {
+        const res = await fetch(`${link}`);
+        if (res.status == 200 ) {
+            return true
+        } else {
+            return false
+        }
+    }
+    catch {
+        return false
+    }
+}
+
 const projectSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: [true, 'Please enter a title'],
+        unique: true
     },
     publish: {
         type: Boolean,
@@ -12,7 +27,7 @@ const projectSchema = new Schema({
     },
     body: {
         type: String,
-        required: true
+        required: [true, 'Description of the project required']
     },
     rest: {
         type: String,
@@ -24,7 +39,8 @@ const projectSchema = new Schema({
     },
     coverPhoto: {
         type: String,
-        required: true
+        required: true,
+        validate: [isValid, 'Please enter a valid link']
     }
 }, { timestamps: true });
 

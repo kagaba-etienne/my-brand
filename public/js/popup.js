@@ -27,7 +27,15 @@ popupClose.addEventListener('click', popupCls);
 const subscribe = document.querySelector('.popup .subscribe-form .subscribebtn');
 
 const validateSend = async () => {
-    if (actualForm.email.value == actualForm.emailConf.value && actualForm.agreement.checked == true) {
+    const confirmError = document.querySelector('.popup .subscribe-form .confirm.error');
+    const agreementError = document.querySelector('.popup .subscribe-form .agreement.error');
+    const nameError = document.querySelector('.popup .subscribe-form .name.error');
+
+    confirmError.textContent = '';
+    nameError.textContent = '';
+    agreementError.textContent = '';
+
+    if (actualForm.email.value == actualForm.emailConf.value && actualForm.agreement.checked == true && actualForm.name.value) {
         let subscriber = {
             name: actualForm.name.value,
             email: actualForm.email.value,
@@ -39,6 +47,12 @@ const validateSend = async () => {
             headers: {'content-type' : 'application/json'}
         })
         popupClose.dispatchEvent(clickEvent);
+    } else if ( actualForm.email.value != actualForm.emailConf.value) {
+        confirmError.textContent = 'Emails do not match!';
+    } else if ( actualForm.agreement.checked == false) {
+        agreementError.textContent = 'Please confirm with the agreements';
+    } else {
+        nameError.textContent = 'Please enter your name';
     }
 }
 
