@@ -14,8 +14,8 @@
                         Welcome again! Here, you can find out more about the projects I have worked on and the unique insights I have gained during the development process. Check out my featured projects aside this text, including a feature to allow more accurate search results on Spotify, a program to enhance the Oculus VR experience, an AI robot that can hold a conversation, an open-source OS, an earthquake detection and warning system, and a software to create custom QR codes. I'm excited to share my work with you.
                     </p>
                 </div>
-                <div class="projectslide">
-                    <% if( projects.length ) { %>
+                <% if( projects.length ) { %>
+                    <div class="projectslide">
                         <% projects.forEach(project => { %>
                             <div class="card card0 projects cover" data-photourl="<%= project.coverPhoto %>" id="<%= project._id %>">
                                 <div class="inner-content">
@@ -27,10 +27,10 @@
                                 </div>
                             </div>
                         <% }) %>
-                    <% } else { %>
-                        <p class="no-blogs">There no projects to display ... </p>
-                    <% } %>
-                </div>
+                    </div>
+                <% } else { %>
+                    <p class="no-blogs">There no projects to display ... </p>
+                <% } %>
                 <div class="graphic projects">
                     <img src="/assets/Graphic (1).svg" alt="stripes graphic">
                 </div>
