@@ -7,6 +7,11 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const swaggerUI = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
+
+
 
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
@@ -23,8 +28,27 @@ const aboutController = require('./controllers/user/aboutController');
 const skillController = require('./controllers/user/skillController');
 const subscriberController = require('./controllers/user/subscriberController');
 
+const options = {
+    definition: {
+        openapi: '3.0.0',
+        title: 'Library API',
+        version: '1.0.0',
+        description: 'A simple Express Library API'
+    },
+    servers: [
+        {
+            url: 'https://kagaba-etienne.cyclic.app'
+        }
+    ],
+    apis: ['./routes/*.js']
+}
+
+const specs = swaggerJsDoc(options)
+
 //express app
 const app = new express();
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
 
 //mongo db connect & start listening for requests
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
@@ -93,6 +117,7 @@ app.locals.querySplitter = function (queries) {
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 app.use(morgan('dev'));
 app.use(cookieParser());
 
