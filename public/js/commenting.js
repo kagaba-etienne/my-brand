@@ -10,8 +10,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             website: commentForm.website.value,
             comment: commentForm.comment.value,
             saveCookie: commentForm.agreement.checked,
-            photo: 'URL',
-            replyTo: "blog"
+            photo: 'URL'
         }
 
         await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${id}`, {

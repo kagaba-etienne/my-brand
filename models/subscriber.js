@@ -16,8 +16,8 @@ const subscriberSchema = new Schema({
     }
 }, { timestamps: true });
 
-subscriberSchema.static.send = (email) => {
-    Mail(email);
+subscriberSchema.statics.send = async (email) => {
+    await Mail(email);
 };
 const Subscriber = mongoose.model('Subscriber', subscriberSchema);
 module.exports = Subscriber;
