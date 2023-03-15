@@ -1,6 +1,16 @@
 const Blog = require('../models/blog');
 const Comment = require('../models/comment');
 
+//Getting short descriptions
+const getShort = function (body) {
+    if (body.length > 203) {
+        return `${body.slice(0, 202)} ...`;
+    }
+    else {
+        return body;
+    }
+}
+
 //handle errors
 const handleErrors = (err) => {
     
@@ -41,6 +51,10 @@ const blog_index = (req, res) => {
 };
 
 const blog_create = (req, res) => {
+    req.body.body = req.body.body.split('\n[COVER]\n');
+    req.body.shortDescr = getShort(req.body.body);
+    req.body.publish = false;
+    req.body.commentsCount = 0;
     const blog = new Blog(req.body);
     blog.save()
         .then(result => {
@@ -95,6 +109,10 @@ const blog_comment = async (req, res) => {
 
 const blog_update = (req, res) => {
     const id = req.params.id;
+    req.body.body? req.body.body = req.body.body.split('\n[COVER]\n') : {};
+    req.body.shortDescr? req.body.shortDescr = getShort(req.body.body) : {};
+    req.body.publish? req.body.publish = false : {};
+    req.body.commentsCount? req.body.commentsCount = 0 : {};
     const update = req.body;
     Blog.findById(id)
     .then(blog => {

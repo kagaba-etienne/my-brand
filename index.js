@@ -20,6 +20,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const blogRoutes = require('./routes/user/blogRoutes');
 const contactRoutes = require('./routes/user/contactRoutes');
 const authRoutes = require('./routes/authRoutes');
+const swaggerSchemas = require('./models/swaggerSchemas');
 
 //controllers
 const projectController = require('./controllers/user/projectController');
@@ -31,19 +32,20 @@ const subscriberController = require('./controllers/user/subscriberController');
 const options = {
     definition: {
         openapi: '3.0.0',
-        title: 'Library API',
-        version: '1.0.0',
-        description: 'A simple Express Library API'
+        info: {
+            title: 'Library API',
+            version: '1.0.0',
+            description: 'A simple Express Library API'
+        },
+        servers: [
+            {
+                url: 'https://kagaba-etienne.cyclic.app'
+            }
+        ]
     },
-    servers: [
-        {
-            url: 'https://kagaba-etienne.cyclic.app'
-        }
-    ],
     apis: ['./routes/*.js']
-}
-
-const specs = swaggerJsDoc(options)
+};
+const specs = swaggerJsDoc(options);
 
 //express app
 const app = new express();
@@ -53,7 +55,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
 //mongo db connect & start listening for requests
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(result => {
-        app.listen(3004);
+        app.listen(3000);
     })
     .catch(err => {
         console.log(err);

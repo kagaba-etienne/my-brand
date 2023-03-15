@@ -29,7 +29,7 @@ function updateMethod(){
     editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const titleError = document.querySelector('.editing.form > form .title.error');
-        const descrError = document.querySelector('.editing.form > form .description.error');
+        const descrError = document.querySelector('.editing.form > form .body.error');
         const photoError = document.querySelector('.editing.form > form .cover.error');
 
         titleError.textContent = '';
@@ -38,8 +38,7 @@ function updateMethod(){
 
         let doc = {
             title: editForm.title.value,
-            body: editForm.body.value.split('\n[COVER]\n'),
-            shortDescr: getShort(editForm.body.value),
+            body: editForm.body.value,
             author: "Etienne Kagaba",
             coverPhoto: editForm.coverPhoto.value,
         }
