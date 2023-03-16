@@ -39,12 +39,12 @@ const options = {
             termsOfService: 'https://kagaba-etienne.cyclic.app/terms-of-service',
             contact: {
                 name: 'Kagaba',
-                url: 'kagaba-etienne.cyclic.app',
+                url: 'https://kagaba-etienne.cyclic.app',
                 email: 'kagabaetienne365@gmail.com'
             },
             license:{
                 name: 'Kagaba License',
-                url: 'kagaba-etienne.cyclic.app'
+                url: 'https://kagaba-etienne.cyclic.app'
             }
         },
         servers: [
