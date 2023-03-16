@@ -14,8 +14,7 @@ async function sendQuery() {
         email: contactForm.email.value,
         phone: contactForm.phone.value,
         message: contactForm.message.value,
-        photo: contactForm.name.value.trim()[0],
-        status: "pending"
+        photo: contactForm.name.value.trim()[0]
     }
 
     const res = await fetch(`https://kagaba-etienne.cyclic.app/contact`, {

@@ -30,6 +30,7 @@ const get_page = (req, res) => {
 
 const send_query = (req, res) => {
     let body = req.body;
+    body.status = 'pending';
     const query = new Query(body);
     query.photo = photomap(query.photo);
     query.save()
