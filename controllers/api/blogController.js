@@ -1,6 +1,6 @@
-const Blog = require('../models/blog');
-const Comment = require('../models/comment');
-const photomap = require('../models/photomap');
+const Blog = require('../../models/blog');
+const Comment = require('../../models/comment');
+const photomap = require('../../models/photomap');
 
 //Getting short descriptions
 const getShort = function (body) {
@@ -42,12 +42,13 @@ const blog_index = (req, res) => {
     console.log(term);
     Blog.find({
         title: { $regex: req.query.term? req.query.term : '[a-z]*', $options:'i' }
-    }).sort({ createdAt: -1 }).select({ body: 0, comments: 0, updatedAt: 0})
+    }).sort({ createdAt: -1 }).select({ updatedAt: 0 })
     .then(result => {
-        res.render('admin/blogs', { title: 'Blogs', styles: '/css/admin.css', blogs: result});
+        res.status(200).send(result);
     })
     .catch(err => {
         console.log(err);
+        res.status(400).send();
     })
 };
 
@@ -59,7 +60,7 @@ const blog_create = (req, res) => {
     const blog = new Blog(req.body);
     blog.save()
         .then(result => {
-            res.send({ id: result._id});
+            res.status(200).send({ id: result._id});
         })
         .catch(err => {
             const errors = handleErrors(err);
@@ -74,8 +75,8 @@ const blog_delete = (req, res) => {
         Comment.deleteMany({
             blog: id
         })
-        .then(result => {
-            res.send();
+        .then(result1 => {
+            res.status(200).send({ id: result._id });
         })
         .catch(err => {
             console.log(err);
@@ -98,7 +99,7 @@ const blog_comment = async (req, res) => {
         .then(result => {
             Blog.findByIdAndUpdate(id, update, { new: true})
             .then(result1 => {
-                res.send();
+                res.status(200).send({ id: result1._id});
             })
             .catch(err1 => {
                 console.log(err1);
@@ -123,7 +124,7 @@ const blog_update = (req, res) => {
         }
         blog.save()
         .then(result => {
-            res.send({ id: result._id});
+            res.status(200).send({ id: result._id});
         })
         .catch(err => {
             const errors = handleErrors(err);
@@ -140,7 +141,7 @@ const blog_get_one = (req, res) => {
     const id = req.params.id;
     Blog.findById(id)
         .then(result => {
-            res.send(result);
+            res.status(200).send(result);
         })
         .catch(err =>  {
             console.log(err);
