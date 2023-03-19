@@ -1,7 +1,9 @@
-const dotenv = require('dotenv');
-
 //configure environment variables
+const dotenv = require('dotenv');
 dotenv.config();
+
+process.env.NODE_ENV = 'dev';
+const config = require('config');
 
 const express = require('express');
 const morgan = require('morgan');
@@ -36,21 +38,18 @@ const options = {
             title: 'Kagaba | API',
             version: '1.0.0',
             description: 'An API that allows users to obtain existing information of blogs and projects',
-            termsOfService: 'https://kagaba-etienne.cyclic.app/terms-of-service',
+            termsOfService: 'http://localhost:3000/terms-of-service',
             contact: {
                 name: 'Kagaba',
-                url: 'https://kagaba-etienne.cyclic.app',
+                url: 'http://localhost:3000',
                 email: 'kagabaetienne365@gmail.com'
             },
             license:{
                 name: 'Kagaba License',
-                url: 'https://kagaba-etienne.cyclic.app'
+                url: 'http://localhost:3000'
             }
         },
         servers: [
-            {
-                url: 'https://kagaba-etienne.cyclic.app'
-            },
             {
                 url: 'http://localhost:3000'
             }
@@ -66,7 +65,7 @@ const app = new express();
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs));
 
 //mongo db connect & start listening for requests
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(result => {
         app.listen(3000);
     })
@@ -133,7 +132,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-app.use(morgan('dev'));
+//don't show the log when it is test
+if(config.util.getEnv('NODE_ENV') !== 'test') {
+    //use morgan to log at command line
+    app.use(morgan('dev'));
+}
 app.use(cookieParser());
 
 //register view engine
@@ -161,3 +164,5 @@ app.post('/subscribers', subscriberController.subscriber_mail_save);
 //admin routes
 app.get('/admin*', checkUser);
 app.use('/admin', requireAuth, adminRoutes);
+
+module.exports = app; // For testing

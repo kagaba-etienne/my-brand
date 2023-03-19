@@ -39,7 +39,6 @@ const handleErrors = (err) => {
 
 const blog_index = (req, res) => {
     const term = req.query.term? req.query.term : '[a-z]*';
-    console.log(term);
     Blog.find({
         title: { $regex: req.query.term? req.query.term : '[a-z]*', $options:'i' }
     }).sort({ createdAt: -1 }).select({ body: 0, comments: 0, updatedAt: 0})
@@ -98,14 +97,16 @@ const blog_comment = async (req, res) => {
         .then(result => {
             Blog.findByIdAndUpdate(id, update, { new: true})
             .then(result1 => {
-                res.send();
+                res.status(200).send({ success: true });
             })
             .catch(err1 => {
                 console.log(err1);
+                res.status(400).send({ success: false });
             })
         })
         .catch(err => {
             console.log(err);
+            res.status(400).send({ success: false });
         });
 };
 

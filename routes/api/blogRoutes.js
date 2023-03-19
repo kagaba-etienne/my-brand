@@ -13,5 +13,5 @@ blogs.post('/:id', requireAuth, blogController.blog_comment);
 
 blogs.patch('/:id', requireAuth, blogController.blog_update);
 
-blogs.get('/:id', requireAuth, blogController.blog_get_one);
+blogs.get('/:id', blogController.blog_get_one);
 module.exports = blogs;

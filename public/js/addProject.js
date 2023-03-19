@@ -1,13 +1,3 @@
-//Getting short descriptions
-const getShort = function (body) {
-    if (body.length > 203) {
-        return `${body.slice(0, 202)} ...`;
-    }
-    else {
-        return body;
-    }
-}
-
 //create project form
 const form = document.querySelector('.createBlog.form > form');
 
@@ -24,16 +14,12 @@ createbtn.addEventListener('click', async (e) => {
     descrError.textContent = '';
     photoError.textContent = '';
     
-    const shortDescription = getShort(form.body.value);
     const project = {
         title: form.title.value,
         body: form.body.value,
-        shortDescr: shortDescription,
-        rest: form.body.value.replace(shortDescription, ''),
-        coverPhoto: form.coverPhoto.value,
-        publish: false
+        coverPhoto: form.coverPhoto.value
     }
-    const res = await fetch('https://kagaba-etienne.cyclic.app/admin/projects/', {
+    const res = await fetch('http://localhost:3000/admin/projects/', {
         method: 'POST',
         body: JSON.stringify(project),
         headers: { 'Content-Type': 'application/json' }

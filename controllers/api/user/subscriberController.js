@@ -37,7 +37,7 @@ const subscriber_mail_save = (req, res) => {
         Subscriber.send(email)
         .then( result => {
             res.cookie('subscribed', true, { maxAge: 10 * 365 * 24 * 60 * 60 * 1000});
-            res.status(200).send({ Sucess: 'Successfully subscribed on our news letter'});
+            res.status(200).send({ success: 'Successfully subscribed on our news letter'});
         })
         .catch(err => {
             console.log(err);

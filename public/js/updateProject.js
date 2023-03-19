@@ -9,7 +9,7 @@ function updateMethod(){
         btn.addEventListener('click', async () => {
             tabs[1].classList.remove('active');
             tabs[2].classList.add('active');
-            let res = await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${btn.dataset.id}`);
+            let res = await fetch(`http://localhost:3000/admin/projects/${btn.dataset.id}`);
             res = await res.json();
 
             editForm.title.value = res.title;
@@ -29,16 +29,13 @@ function updateMethod(){
         descrError.textContent = '';
         photoError.textContent = '';
 
-        const shortDescription = getShort(editForm.body.value);
         let doc = {
             title: editForm.title.value,
             body: editForm.body.value,
-            shortDescr: shortDescription,
-            rest: editForm.body.value.replace(shortDescription, ''),
-            coverPhoto: editForm.coverPhoto.value,
+            coverPhoto: editForm.coverPhoto.value
         }
 
-        const res = await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${updateBtn.dataset.id}`, {
+        const res = await fetch(`http://localhost:3000/admin/projects/${updateBtn.dataset.id}`, {
             method: 'PATCH',
             body: JSON.stringify(doc),
             headers: { 'Content-Type': 'application/json' }
@@ -54,7 +51,7 @@ function updateMethod(){
         }
     })
     deleteBtn.addEventListener('click', async() => {
-        await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${deleteBtn.dataset.id}`, {
+        await fetch(`http://localhost:3000/admin/blogs/${deleteBtn.dataset.id}`, {
             method: 'DELETE'
         });
         location.assign('/admin/projects');
@@ -68,7 +65,7 @@ function deleteMethod() {
     deleteBtn.forEach(btn =>{
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
-            await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${btn.dataset.id}`, {
+            await fetch(`http://localhost:3000/admin/projects/${btn.dataset.id}`, {
                 method: 'DELETE'
             });
             location.assign('/admin/projects');
@@ -87,7 +84,7 @@ function publishMethod() {
                 const res = {
                     publish: true
                 }
-                await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${btn.dataset.id}`, {
+                await fetch(`http://localhost:3000/admin/projects/${btn.dataset.id}`, {
                     method: 'PATCH',
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }
@@ -101,7 +98,7 @@ function publishMethod() {
                 const res = {
                     publish: false
                 }
-                await fetch(`https://kagaba-etienne.cyclic.app/admin/projects/${btn.dataset.id}`, {
+                await fetch(`http://localhost:3000/admin/projects/${btn.dataset.id}`, {
                     method: 'PATCH',
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }

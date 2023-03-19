@@ -1,14 +1,15 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+
 const requireAuth = (req, res, next) => {
     const token = req.cookies.jwt;
 
     //check json web token exist & is verified
-
     if (token) {
         jwt.verify(token, process.env.SECRET, (err, decodedToken) => {
             if (err) {
                 console.log(err.message)
+                console.log('hiii');
                 res.redirect('/login');
             } else {
                 next();

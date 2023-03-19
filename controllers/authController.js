@@ -55,7 +55,7 @@ const post_signup = (req, res) => {
     .then(result => {
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
-        res.status(201).send({ user: result._id });
+        res.status(200).send({ user: result._id });
     })
     .catch(err => {
         const errors = handleErrors(err);

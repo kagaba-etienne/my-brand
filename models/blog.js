@@ -28,7 +28,7 @@ const blogSchema = new Schema({
         description: 'The body paragraphs'
     },
     shortDescr: {
-        type: String,
+        type: [String, "Body, must be of type string"],
         required: [true, 'Please enter body of the blog'],
         description: 'The short description of a blog post usually taken from the first 200 characters of the first paragraph'
     },

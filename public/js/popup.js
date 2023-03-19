@@ -41,7 +41,7 @@ const validateSend = async () => {
             email: actualForm.email.value,
         }
 
-        await fetch('https://kagaba-etienne.cyclic.app/subscribers', {
+        await fetch('http://localhost:3000/subscribers', {
             method: 'POST',
             body: JSON.stringify(subscriber),
             headers: {'content-type' : 'application/json'}

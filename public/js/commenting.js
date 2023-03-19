@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             photo: 'URL'
         }
 
-        await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${id}`, {
+        await fetch(`http://localhost:3000/admin/blogs/${id}`, {
             method: 'POST',
             body: JSON.stringify(comment),
             headers: {"content-type": "application/json"}

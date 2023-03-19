@@ -28,7 +28,7 @@ const handleErrors = (err) => {
 
     //validating errors
     if (err.message.includes('Blog validation failed')){
-        Object.values(err.errors).forEach(({ properties }) => {
+        Object.values(err.errors).forEach((properties) => {
             errors[properties.path] = properties.message
         });
     }
@@ -39,7 +39,6 @@ const handleErrors = (err) => {
 
 const blog_index = (req, res) => {
     const term = req.query.term? req.query.term : '[a-z]*';
-    console.log(term);
     Blog.find({
         title: { $regex: req.query.term? req.query.term : '[a-z]*', $options:'i' }
     }).sort({ createdAt: -1 }).select({ updatedAt: 0 })
@@ -53,8 +52,8 @@ const blog_index = (req, res) => {
 };
 
 const blog_create = (req, res) => {
-    req.body.body = req.body.body.split('\n[COVER]\n');
     req.body.shortDescr = getShort(req.body.body);
+    req.body.body = req.body.body.split('\n[COVER]\n');
     req.body.publish = false;
     req.body.commentsCount = 0;
     const blog = new Blog(req.body);
@@ -63,6 +62,7 @@ const blog_create = (req, res) => {
             res.status(200).send({ id: result._id});
         })
         .catch(err => {
+            console.log(err);
             const errors = handleErrors(err);
             res.status(400).send({ errors });
         });
@@ -99,14 +99,16 @@ const blog_comment = async (req, res) => {
         .then(result => {
             Blog.findByIdAndUpdate(id, update, { new: true})
             .then(result1 => {
-                res.status(200).send({ id: result1._id});
+                res.status(200).send({ success: true });
             })
             .catch(err1 => {
                 console.log(err1);
+                res.status(400).send({ success: false });
             })
         })
         .catch(err => {
             console.log(err);
+            res.status(400).send({ success: false });
         });
 };
 
@@ -114,8 +116,6 @@ const blog_update = (req, res) => {
     const id = req.params.id;
     req.body.body? req.body.body = req.body.body.split('\n[COVER]\n') : {};
     req.body.shortDescr? req.body.shortDescr = getShort(req.body.body) : {};
-    req.body.publish? req.body.publish = false : {};
-    req.body.commentsCount? req.body.commentsCount = 0 : {};
     const update = req.body;
     Blog.findById(id)
     .then(blog => {

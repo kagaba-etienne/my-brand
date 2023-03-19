@@ -22,6 +22,16 @@ const handleErrors = (err) => {
         });
     }
     return errors;
+};
+
+//Getting short descriptions
+const getShort = function (body) {
+    if (body.length > 203) {
+        return `${body.slice(0, 202)} ...`;
+    }
+    else {
+        return body;
+    }
 }
 
 // project_delete, project_update, project_get_one, project_index, project_create
@@ -37,6 +47,9 @@ const project_index = (req, res) => {
 };
 
 const project_create = (req, res) => {
+    req.body.shortDescr = getShort(req.body.body);
+    req.body.res = req.body.body.replace(req.body.shortDescr, '')
+    req.body.publish = false;
     const project = new Project(req.body);
     project.save()
     .then(result => {
