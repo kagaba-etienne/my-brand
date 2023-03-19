@@ -2,8 +2,8 @@ html {
   font-size: 62.5%;
 }
 
-p {
-  overflow-wrap: break-word;
+* {
+  word-break: break-all;
 }
 
 body {

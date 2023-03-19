@@ -6,8 +6,8 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-p {
-  overflow-wrap: break-word;
+* {
+  word-break: break-all;
 }
 
 body {
