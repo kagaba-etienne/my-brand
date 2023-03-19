@@ -48,9 +48,9 @@ describe("Project", () => {
     describe("Post projectpost", () => {
         it("Should be able to post a project", (done) => {
             const projectpost = {
-                title: "A closer look at the most conventional but useless practices in delelopment",
-                body: "llksajdf ldsfjalkdsfjasdf safdkjflasjdfklsa fsklfjsdlfjs dflkdsjfls fd…",
-                coverPhoto: "https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+                "title": "A closer look at the most conventional but useless practices in delelopment",
+                "body": "llksajdf ldsfjalkdsfjasdf safdkjflasjdfklsa fsklfjsdlfjs dflkdsjfls fd…",
+                "coverPhoto": "https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
               };
             
             chai.request(app)
@@ -109,8 +109,7 @@ describe("Project", () => {
                 title: "A closer look at the most conventional but useless practices in delelopment",
                 body: "llksajdf ldsfjalkdsfjasdf safdkjflasjdfklsa fsklfjsdlfjs dflkdsjfls fd…",
                 coverPhoto: "https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
-                author: "Etienne kagaba",
-                commentsCount: 0,
+                rest: "Etienne kagaba",
                 shortDescr: 'flksdjflkjsdlkfjsdlf',
                 publish: false
               };

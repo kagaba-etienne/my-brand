@@ -48,7 +48,7 @@ const project_index = (req, res) => {
 
 const project_create = (req, res) => {
     req.body.shortDescr = getShort(req.body.body);
-    req.body.res = req.body.body.replace(req.body.shortDescr, '')
+    req.body.rest = req.body.body.replace(req.body.shortDescr, '')
     req.body.publish = false;
     const project = new Project(req.body);
     project.save()
