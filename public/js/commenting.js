@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             website: commentForm.website.value,
             comment: commentForm.comment.value,
             saveCookie: commentForm.agreement.checked,
+            replyTo: 'blog',
             photo: 'URL'
         }
 
