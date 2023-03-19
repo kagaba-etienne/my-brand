@@ -20,7 +20,7 @@ createbtn.addEventListener('click', async (e) => {
         author: "Etienne Kagaba",
         coverPhoto: form.coverPhoto.value,
     }
-    const res = await fetch('http://localhost:3000/admin/blogs/', {
+    const res = await fetch('https://kagaba-etienne.cyclic.app/admin/blogs/', {
         method: 'POST',
         body: JSON.stringify(blog),
         headers: { 'Content-Type': 'application/json' }

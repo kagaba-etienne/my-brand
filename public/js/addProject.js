@@ -19,7 +19,7 @@ createbtn.addEventListener('click', async (e) => {
         body: form.body.value,
         coverPhoto: form.coverPhoto.value
     }
-    const res = await fetch('http://localhost:3000/admin/projects/', {
+    const res = await fetch('https://kagaba-etienne.cyclic.app/admin/projects/', {
         method: 'POST',
         body: JSON.stringify(project),
         headers: { 'Content-Type': 'application/json' }

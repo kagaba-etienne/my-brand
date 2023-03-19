@@ -38,20 +38,20 @@ const options = {
             title: 'Kagaba | API',
             version: '1.0.0',
             description: 'An API that allows users to obtain existing information of blogs and projects',
-            termsOfService: 'http://localhost:3000/terms-of-service',
+            termsOfService: 'https://kagaba-etienne.cyclic.app/terms-of-service',
             contact: {
                 name: 'Kagaba',
-                url: 'http://localhost:3000',
+                url: 'https://kagaba-etienne.cyclic.app',
                 email: 'kagabaetienne365@gmail.com'
             },
             license:{
                 name: 'Kagaba License',
-                url: 'http://localhost:3000'
+                url: 'https://kagaba-etienne.cyclic.app'
             }
         },
         servers: [
             {
-                url: 'http://localhost:3000'
+                url: 'https://kagaba-etienne.cyclic.app'
             }
         ]
     },

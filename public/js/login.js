@@ -21,7 +21,7 @@ if (loginForm) {
             password: loginForm.password.value
         };
     
-        const res = await fetch('http://localhost:3000/login', {
+        const res = await fetch('https://kagaba-etienne.cyclic.app/login', {
             method: 'POST',
             body: JSON.stringify(credentials),
             headers: { 'content-type' : 'application/json'}
@@ -53,7 +53,7 @@ if (loginForm) {
             password: signupForm.password.value
         };
 
-        const res = await fetch('http://localhost:3000/signup', {
+        const res = await fetch('https://kagaba-etienne.cyclic.app/signup', {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'content-type' : 'application/json'}

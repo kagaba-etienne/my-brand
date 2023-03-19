@@ -9,7 +9,7 @@ function updateMethod(){
         btn.addEventListener('click', async () => {
             tabs[1].classList.remove('active');
             tabs[2].classList.add('active');
-            let res = await fetch(`http://localhost:3000/admin/blogs/${btn.dataset.id}`);
+            let res = await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${btn.dataset.id}`);
             res = await res.json();
             let resbody = '';
             for(var j=0; j<res.body.length; j++) {
@@ -43,7 +43,7 @@ function updateMethod(){
             coverPhoto: editForm.coverPhoto.value,
         }
 
-        const res = await fetch(`http://localhost:3000/admin/blogs/${updateBtn.dataset.id}`, {
+        const res = await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${updateBtn.dataset.id}`, {
             method: 'PATCH',
             body: JSON.stringify(doc),
             headers: { 'Content-Type': 'application/json' }
@@ -59,7 +59,7 @@ function updateMethod(){
         }
     })
     deleteBtn.addEventListener('click', async() => {
-        await fetch(`http://localhost:3000/admin/blogs/${deleteBtn.dataset.id}`, {
+        await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${deleteBtn.dataset.id}`, {
             method: 'DELETE'
         });
         location.assign('/admin/blogs');
@@ -73,7 +73,7 @@ function deleteMethod() {
     deleteBtn.forEach(btn =>{
         btn.addEventListener('click', async (e) => {
             e.preventDefault();
-            await fetch(`http://localhost:3000/admin/blogs/${btn.dataset.id}`, {
+            await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${btn.dataset.id}`, {
                 method: 'DELETE'
             });
             location.assign('/admin/blogs');
@@ -92,7 +92,7 @@ function publishMethod() {
                 const res = {
                     publish: true
                 }
-                await fetch(`http://localhost:3000/admin/blogs/${btn.dataset.id}`, {
+                await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${btn.dataset.id}`, {
                     method: 'PATCH',
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }
@@ -106,7 +106,7 @@ function publishMethod() {
                 const res = {
                     publish: false
                 }
-                await fetch(`http://localhost:3000/admin/blogs/${btn.dataset.id}`, {
+                await fetch(`https://kagaba-etienne.cyclic.app/admin/blogs/${btn.dataset.id}`, {
                     method: 'PATCH',
                     body: JSON.stringify(res),
                     headers: { 'Content-Type': 'application/json' }

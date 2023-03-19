@@ -17,7 +17,7 @@ async function sendQuery() {
         photo: contactForm.name.value.trim()[0]
     }
 
-    const res = await fetch(`http://localhost:3000/contact`, {
+    const res = await fetch(`https://kagaba-etienne.cyclic.app/contact`, {
         method: "POST",
         body: JSON.stringify(query),
         headers: { 'Content-Type': 'application/json' }
