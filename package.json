@@ -27,7 +27,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "SET NODE_ENV=dev && node index",
+    "start": "node index",
     "test": "mocha --config ./test/.mocharc.js",
     "coverage": "nyc npm run test"
   },
