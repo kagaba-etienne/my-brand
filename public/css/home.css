@@ -252,6 +252,7 @@ form .error {
 .container.projects .projectslide {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2em;
 }
 .container.projects .projectslide .card:hover {
