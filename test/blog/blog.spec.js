@@ -1,14 +1,12 @@
-// Setting the NODE_ENV variable to test
-process.env.NODE_ENV = 'test';
-const config = require("config");
+// Setting the NODE_ENV_CUSTOM variable to test
+process.env.NODE_ENV_CUSTOM = 'test';
 
 // Importing blog model
 const Blog = require("../../models/blog");
 const Comment = require("../../models/comment");
 
-
 // Importing necessary packages
-const chai = require("chai")
+const chai = require("chai");
 const should = chai.should();
 const chaiHttp = require("chai-http");
 const app = require("../../index");

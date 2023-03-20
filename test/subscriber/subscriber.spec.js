@@ -1,6 +1,5 @@
-// Setting the NODE_ENV variable to test
-process.env.NODE_ENV = 'test';
-const config = require("config");
+// Setting the NODE_ENV_CUSTOM variable to test
+process.env.NODE_ENV_CUSTOM = 'test';
 
 // Importing subscriber model
 const Subscriber = require("../../models/subscriber");

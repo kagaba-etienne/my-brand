@@ -2,8 +2,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-process.env.NODE_ENV = 'dev';
-const config = require('config');
+process.env.NODE_ENV_CUSTOM = process.env.NODE_ENV_CUSTOM || 'dev';
 
 const express = require('express');
 const morgan = require('morgan');
@@ -65,7 +64,7 @@ const app = new express();
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs));
 
 //mongo db connect & start listening for requests
-mongoose.connect(config.util.getEnv('NODE_ENV') == 'dev' ? process.env.DB_URI : process.env.DB_URI_TEST, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.NODE_ENV_CUSTOM == 'dev' ? process.env.DB_URI : process.env.DB_URI_TEST, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(result => {
         app.listen(3000);
     })
@@ -133,7 +132,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 //don't show the log when it is test
-if(config.util.getEnv('NODE_ENV') !== 'test') {
+if(process.env.NODE_ENV_CUSTOM !== 'test') {
     //use morgan to log at command line
     app.use(morgan('dev'));
 }
