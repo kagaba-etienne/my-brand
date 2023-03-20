@@ -44,5 +44,6 @@ jobs:
         cache: 'npm'
       env:
         TOKEN: ${{ secrets.TOKEN }}
+        SECRET: ${{ secrets.SECRET }}
     - run: npm i
     - run: npm run test
