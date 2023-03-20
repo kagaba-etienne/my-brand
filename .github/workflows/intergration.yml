@@ -43,9 +43,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
       env:
-        TOKEN: ${{ secrets.TOKEN }}
-        SECRET: ${{ secrets.SECRET }}
-    - run: |
-        echo "$TOKEN"
+        TOKEN: ${{ vars.TOKEN }}
+        SECRET: ${{ vars.SECRET }}
     - run: npm i
     - run: npm run test
