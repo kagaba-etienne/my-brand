@@ -35,6 +35,12 @@ const handleErrors = (err) => {
     return errors;
 }
 
+//set expiration time
+const duration = (n) => {
+    const now = new Date();
+    return (new Date(now.getTime() + n)).toUTCString();
+}
+
 const maxAge = 2 * 24 * 60 * 60;
 
 const createToken = (id) => {
@@ -54,10 +60,12 @@ const post_signup = (req, res) => {
     user.save()
     .then(result => {
         const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+        res.setHeader('jwt', token);
+        res.setHeader('Expires', duration(maxAge * 1000));
         res.status(200).send({ user: result._id, token: token });
     })
     .catch(err => {
+        console.log(err);
         const errors = handleErrors(err);
         res.status(400).send({errors});
     })
@@ -73,7 +81,8 @@ const post_login = (req, res) => {
     User.login(email, password)
     .then(user => {
         const token = createToken(user._id)
-        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+        res.setHeader('jwt', token);
+        res.setHeader('Expires', duration(maxAge * 1000));
         res.status(200).send({ user: user._id, token: token })
     })
     .catch (err => {
@@ -82,7 +91,7 @@ const post_login = (req, res) => {
     })
 }
 const get_logout = (req, res) => {
-    res.cookie('jwt', '', { maxAge: 1 });
+    res.removeHeader('jwt');
     res.status(200).send( { message: 'Successfully Logged out' } );
 }
 

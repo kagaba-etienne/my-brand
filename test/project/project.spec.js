@@ -54,7 +54,7 @@ describe("Project", () => {
             
             chai.request(app)
               .post('/api/projects')
-              .set("Cookie",`jwt=${process.env.TOKEN}`)
+              .set("jwt",`${process.env.TOKEN}`)
               .send(projectpost)
               .end((err, res) => {
                     res.should.have.status(200);
@@ -119,7 +119,7 @@ describe("Project", () => {
                 const id = result._id;
                 chai.request(app)
                     .delete('/api/projects/' + id)
-                    .set("Cookie",`jwt=${process.env.TOKEN}`)
+                    .set("jwt",`${process.env.TOKEN}`)
                     .end((err, res) => {
                             res.should.have.status(200);
                             res.body.should.be.a('object');
@@ -157,7 +157,7 @@ describe("Project", () => {
                     };
                     chai.request(app)
                         .patch('/api/projects/' + id)
-                        .set("Cookie",`jwt=${process.env.TOKEN}`)
+                        .set("jwt",`${process.env.TOKEN}`)
                         .send(update)
                         .end((err, res) => {
                             res.should.have.status(200);

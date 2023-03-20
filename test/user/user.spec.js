@@ -39,7 +39,7 @@ describe("User", () => {
             
             chai.request(app)
               .post('/api/user/signup')
-              .set("Cookie",`jwt=${process.env.TOKEN}`)
+              .set("jwt",`${process.env.TOKEN}`)
               .send(userpost)
               .end((err, res) => {
                     res.should.have.status(200);

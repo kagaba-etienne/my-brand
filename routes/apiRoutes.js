@@ -23,7 +23,7 @@ const api = require('express').Router();
  *   securitySchemes:
  *     ApiKeyAuth:
  *       type: apiKey
- *       in: cookie
+ *       in: header
  *       name: jwt
  *   schemas:
  *     User:
