@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const fetch = require('node-fetch');
 
 const isValid = async function (link) {
     try {

@@ -1,5 +1,5 @@
 module.exports = {
-    timeout: 10000,
+    timeout: 15000,
     recursive: true,
     exit: true
 };

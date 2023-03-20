@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const fetch = require('node-fetch');
 
 const isValid = async function (link) {
     try {
@@ -7,6 +8,7 @@ const isValid = async function (link) {
         if (res.status == 200 ) {
             return true
         } else {
+
             return false
         }
     }
@@ -28,7 +30,7 @@ const blogSchema = new Schema({
         description: 'The body paragraphs'
     },
     shortDescr: {
-        type: [String, "Body, must be of type string"],
+        type: String,
         required: [true, 'Please enter body of the blog'],
         description: 'The short description of a blog post usually taken from the first 200 characters of the first paragraph'
     },
