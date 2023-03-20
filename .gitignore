@@ -4,3 +4,4 @@ public/css/*.scss
 public/css/*.css.map
 node_modules
 .env
+config
