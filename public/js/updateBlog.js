@@ -55,7 +55,7 @@ function updateMethod(){
             photoError.textContent = data.errors.coverPhoto;
         }
         if (data.id){
-            location.assign('/admin/projects');
+            location.assign('/admin/blogs');
         }
     })
     deleteBtn.addEventListener('click', async() => {
