@@ -45,5 +45,7 @@ jobs:
       env:
         TOKEN: ${{ secrets.TOKEN }}
         SECRET: ${{ secrets.SECRET }}
+    - run: |
+        echo "$TOKEN"
     - run: npm i
     - run: npm run test
