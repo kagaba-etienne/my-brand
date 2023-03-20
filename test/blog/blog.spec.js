@@ -15,6 +15,8 @@ const app = require("../../index");
 
 chai.use(chaiHttp);
 
+console.log(process.env.TOKEN);
+
 describe("Blog", () => {
     beforeEach((done) => {
         Blog.deleteMany({
