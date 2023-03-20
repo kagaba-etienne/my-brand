@@ -112,8 +112,8 @@ const blog_comment = async (req, res) => {
 
 const blog_update = (req, res) => {
     const id = req.params.id;
-    req.body.body? req.body.body = req.body.body.split('\n[COVER]\n') : {};
     req.body.body? req.body.shortDescr = getShort(req.body.body) : {};
+    req.body.body? req.body.body = req.body.body.split('\n[COVER]\n') : {};
     const update = req.body;
     Blog.findById(id)
     .then(blog => {
