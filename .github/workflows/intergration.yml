@@ -33,6 +33,9 @@ jobs:
     env:
       TOKEN: ${{ secrets.TOKEN }}
       SECRET: ${{ secrets.SECRET }}
+      SUPPRESS_NO_CONFIG_WARNING: ${{ secrets.SUPPRESS_NO_CONFIG_WARNING }}
+      GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
+      GMAIL_USER: ${{ secrets.GMAIL_USER }}
 
     strategy:
       matrix:

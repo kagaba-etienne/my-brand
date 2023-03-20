@@ -65,7 +65,7 @@ const app = new express();
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs));
 
 //mongo db connect & start listening for requests
-mongoose.connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(config.util.getEnv('NODE_ENV') == 'dev' ? process.env.DB_URI : process.env.DB_URI_TEST, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(result => {
         app.listen(3000);
     })
