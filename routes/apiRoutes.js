@@ -745,7 +745,6 @@ const subscriberController = require('../controllers/api/user/subscriberControll
 
 //routes
 const adminRoutes = require('./api/adminRoutes');
-// const blogRoutes = require('./api/user/blogRoutes');
 const contactRoutes = require('./api/user/contactRoutes');
 const authRoutes = require('./api/authRoutes');
 
