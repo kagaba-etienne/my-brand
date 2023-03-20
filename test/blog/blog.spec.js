@@ -14,6 +14,7 @@ const chaiHttp = require("chai-http");
 const app = require("../../index");
 
 chai.use(chaiHttp);
+console.log(process.env.TOKEN.slice(0, 5));
 
 describe("Blog", () => {
     beforeEach((done) => {
