@@ -58,7 +58,7 @@ describe("Blog", () => {
             
             chai.request(app)
               .post('/api/blogs')
-              .set("Cookie",`jwt=${config.TOKEN}`)
+              .set("Cookie",`jwt=${process.env.TOKEN}`)
               .send(blogpost)
               .end((err, res) => {
                     res.should.have.status(200);
@@ -125,7 +125,7 @@ describe("Blog", () => {
                 const id = result._id;
                 chai.request(app)
                     .delete('/api/blogs/' + id)
-                    .set("Cookie",`jwt=${config.TOKEN}`)
+                    .set("Cookie",`jwt=${process.env.TOKEN}`)
                     .end((err, res) => {
                             res.should.have.status(200);
                             res.body.should.be.a('object');
@@ -170,7 +170,7 @@ describe("Blog", () => {
                     
                     chai.request(app)
                         .post('/api/blogs/' + id)
-                        .set("Cookie",`jwt=${config.TOKEN}`)
+                        .set("Cookie",`jwt=${process.env.TOKEN}`)
                         .send(comment)
                         .end((err, res) => {
                             res.should.have.status(200);
@@ -209,7 +209,7 @@ describe("Blog", () => {
                     };
                     chai.request(app)
                         .patch('/api/blogs/' + id)
-                        .set("Cookie",`jwt=${config.TOKEN}`)
+                        .set("Cookie",`jwt=${process.env.TOKEN}`)
                         .send(update)
                         .end((err, res) => {
                             res.should.have.status(200);

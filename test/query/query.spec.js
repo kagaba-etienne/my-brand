@@ -33,7 +33,7 @@ describe("Query", () => {
         it("Should return all queries", (done) => {
             chai.request(app)
                 .get('/api/queries')
-                .set("Cookie",`jwt=${config.TOKEN}`)
+                .set("Cookie",`jwt=${process.env.TOKEN}`)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
@@ -87,7 +87,7 @@ describe("Query", () => {
                 const id = result._id;
                 chai.request(app)
                     .get('/api/queries/' + id)
-                    .set("Cookie",`jwt=${config.TOKEN}`)
+                    .set("Cookie",`jwt=${process.env.TOKEN}`)
                     .end((err, res) => {
                             res.should.have.status(200);
                             res.body.should.be.a('object');
@@ -121,7 +121,7 @@ describe("Query", () => {
                 const id = result._id;
                 chai.request(app)
                     .delete('/api/queries/' + id)
-                    .set("Cookie",`jwt=${config.TOKEN}`)
+                    .set("Cookie",`jwt=${process.env.TOKEN}`)
                     .end((err, res) => {
                             res.should.have.status(200);
                             res.body.should.be.a('object');
@@ -156,7 +156,7 @@ describe("Query", () => {
                       };
                     chai.request(app)
                         .patch('/api/queries/' + id)
-                        .set("Cookie",`jwt=${config.TOKEN}`)
+                        .set("Cookie",`jwt=${process.env.TOKEN}`)
                         .send({ res: update })
                         .end((err, res) => {
                             res.should.have.status(200);
