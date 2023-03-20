@@ -14,12 +14,20 @@ const app = require("../../index");
 chai.use(chaiHttp);
 
 describe("Blog", () => {
-    beforeEach((done) => {
+    afterEach((done) => {
         Blog.deleteMany({
             title: { $regex:'.*', $options:'i' }
         })
         .then(result => {
-            done();
+            Comment.deleteMany({
+                name: { $regex:'.*', $options:'i' }
+            })
+            .then(result2 => {
+                done();
+            })
+            .catch(err => {
+                console.log(err);
+            });
         })
         .catch(err => {
             console.log(err);

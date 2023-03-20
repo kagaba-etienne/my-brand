@@ -14,7 +14,7 @@ const app = require("../../index");
 chai.use(chaiHttp);
 
 describe("Subscriber", () => {
-    beforeEach((done) => {
+    afterEach((done) => {
         Subscriber.deleteMany({
             email: { $regex:'.*', $options:'i' }
         })

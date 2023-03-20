@@ -14,7 +14,7 @@ const app = require("../../index");
 chai.use(chaiHttp);
 
 describe("Project", () => {
-    beforeEach((done) => {
+    afterEach((done) => {
         Project.deleteMany({
             title: { $regex:'.*', $options:'i' }
         })
