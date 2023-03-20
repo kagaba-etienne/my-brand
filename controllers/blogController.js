@@ -51,8 +51,8 @@ const blog_index = (req, res) => {
 };
 
 const blog_create = (req, res) => {
-    req.body.body = req.body.body.split('\n[COVER]\n');
     req.body.shortDescr = getShort(req.body.body);
+    req.body.body = req.body.body.split('\n[COVER]\n');
     req.body.publish = false;
     req.body.commentsCount = 0;
     const blog = new Blog(req.body);
