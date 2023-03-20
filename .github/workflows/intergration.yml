@@ -33,10 +33,9 @@ jobs:
     env:
       TOKEN: ${{ secrets.TOKEN }}
       SECRET: ${{ secrets.SECRET }}
-      SUPPRESS_NO_CONFIG_WARNING: ${{ secrets.SUPPRESS_NO_CONFIG_WARNING }}
+      DB_URI_TEST: ${{ secrets.DB_URI }}
       GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
       GMAIL_USER: ${{ secrets.GMAIL_USER }}
-      NODE_ENV_CUSTOM: "test"
 
     strategy:
       matrix:
