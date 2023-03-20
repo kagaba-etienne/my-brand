@@ -8,7 +8,7 @@ const blog_get_all = (req, res) => {
     const term = req.query.term? req.query.term : '[a-z]*';
     console.log(term);
     Blog.find({
-        title: { $regex: req.query.term? req.query.term : '[a-z]*', $options:'i' }
+        title: { $regex: req.query.term? req.query.term : '.*', $options:'i' }
     }).sort({ createdAt: -1 }).select({ updatedAt: 0, body: 0, commentsCount: 0 })
     .then(result => {
         res.status(200).send(result);

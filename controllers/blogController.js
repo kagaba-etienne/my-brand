@@ -40,7 +40,7 @@ const handleErrors = (err) => {
 const blog_index = (req, res) => {
     const term = req.query.term? req.query.term : '[a-z]*';
     Blog.find({
-        title: { $regex: req.query.term? req.query.term : '[a-z]*', $options:'i' }
+        title: { $regex: req.query.term? req.query.term : '.*', $options:'i' }
     }).sort({ createdAt: -1 }).select({ body: 0, comments: 0, updatedAt: 0})
     .then(result => {
         res.render('admin/blogs', { title: 'Blogs', styles: '/css/admin.css', blogs: result});

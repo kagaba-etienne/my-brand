@@ -40,7 +40,7 @@ const handleErrors = (err) => {
 const blog_index = (req, res) => {
     const term = req.query.term? req.query.term : '[a-z]*';
     Blog.find({
-        title: { $regex: req.query.term? req.query.term : '[a-z]*', $options:'i' }
+        title: { $regex: req.query.term? req.query.term : '.*', $options:'i' }
     }).sort({ createdAt: -1 }).select({ updatedAt: 0 })
     .then(result => {
         res.status(200).send(result);

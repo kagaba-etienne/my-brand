@@ -16,7 +16,7 @@ chai.use(chaiHttp);
 describe("User", () => {
     beforeEach((done) => {
         User.deleteMany({
-            email: { $regex:'[a-z]*', $options:'i' }
+            email: { $regex:'.*', $options:'i' }
         })
         .then(result => {
             done();

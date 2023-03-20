@@ -16,7 +16,7 @@ chai.use(chaiHttp);
 describe("Blog", () => {
     beforeEach((done) => {
         Blog.deleteMany({
-            title: { $regex:'[a-z]*', $options:'i' }
+            title: { $regex:'.*', $options:'i' }
         })
         .then(result => {
             done();
