@@ -1,4 +1,3 @@
-require('dotenv').config();
 // Setting the NODE_ENV variable to test
 process.env.NODE_ENV = 'test';
 const config = require("config");
@@ -15,7 +14,6 @@ const chaiHttp = require("chai-http");
 const app = require("../../index");
 
 chai.use(chaiHttp);
-console.log(process.env.TOKEN);
 
 describe("Blog", () => {
     beforeEach((done) => {

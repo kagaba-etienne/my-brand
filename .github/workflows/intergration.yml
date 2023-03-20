@@ -30,6 +30,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      TOKEN: ${{ secrets.TOKEN }}
+      SECRET: ${{ secrets.SECRET }}
+
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
@@ -42,8 +46,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      env:
-        TOKEN: ${{ vars.TOKEN }}
-        SECRET: ${{ vars.SECRET }}
     - run: npm i
     - run: npm run test
