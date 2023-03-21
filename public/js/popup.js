@@ -41,12 +41,15 @@ const validateSend = async () => {
             email: actualForm.email.value,
         }
 
-        await fetch('https://kagaba-etienne.cyclic.app/subscribers', {
+        const response = await (await fetch('https://kagaba-etienne.cyclic.app/subscribers', {
             method: 'POST',
             body: JSON.stringify(subscriber),
             headers: {'content-type' : 'application/json'}
-        })
-        popupClose.dispatchEvent(clickEvent);
+        })).json();
+        
+        if (response.status == 200 || response.status == 304 ) {
+            popupClose.dispatchEvent(clickEvent);
+        }
     } else if ( actualForm.email.value != actualForm.emailConf.value) {
         confirmError.textContent = 'Emails do not match!';
     } else if ( actualForm.agreement.checked == false) {

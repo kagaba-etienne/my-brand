@@ -36,7 +36,7 @@ const subscriber_mail_save = (req, res) => {
     subscriber.save()
     .then(result => {
         Subscriber.send(email)
-        .then( result => {
+        .then( result1 => {
             const logBody = {
                 action: 'New subcriber',
                 subject: `${result.name} <${result.email}>`
@@ -57,7 +57,11 @@ const subscriber_mail_save = (req, res) => {
     })
     .catch(err => {
         const errors = handleErrors(err);
-        res.status(400).send({errors});
+        if (err.code == 11000) {
+            res.status(304).send({ success: 'Already subscribed on our news letter'});   
+        } else {
+            res.status(400).send({errors});
+        }
     })
 };
 
