@@ -54,7 +54,7 @@ const post_signup = (req, res) => {
     user.save()
     .then(result => {
         const token = createToken(user._id);
-        res.cookies('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
         res.status(200).send({ user: result._id });
     })
     .catch(err => {
@@ -73,7 +73,7 @@ const post_login = (req, res) => {
     User.login(email, password)
     .then(user => {
         const token = createToken(user._id)
-        res.cookies('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
         res.status(200).send({user: user._id})
     })
     .catch (err => {
@@ -82,7 +82,7 @@ const post_login = (req, res) => {
     })
 }
 const get_logout = (req, res) => {
-    res.cookies('jwt', '', { maxAge: 1 });
+    res.cookie('jwt', '', { maxAge: 1 });
     res.redirect('/');
 }
 
