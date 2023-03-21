@@ -26,7 +26,6 @@ const searchForm = document.querySelector('.heading > .search');
 searchForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const term = searchForm.term.value;
-    const doc = { term };
 
 
     location.assign(`https://kagaba-etienne.cyclic.app/admin/projects${ term ? `?term=${term}`: ''}`);

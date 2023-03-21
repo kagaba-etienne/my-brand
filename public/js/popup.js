@@ -41,13 +41,14 @@ const validateSend = async () => {
             email: actualForm.email.value,
         }
 
-        const response = await (await fetch('https://kagaba-etienne.cyclic.app/subscribers', {
+        const response = await fetch('https://kagaba-etienne.cyclic.app/subscribers', {
             method: 'POST',
             body: JSON.stringify(subscriber),
             headers: {'content-type' : 'application/json'}
-        })).json();
+        });
+        const data = await response.json();
         
-        if (response.status == 200 || response.status == 304 ) {
+        if (data.status == 200 || data.status == 304 ) {
             popupClose.dispatchEvent(clickEvent);
         }
     } else if ( actualForm.email.value != actualForm.emailConf.value) {
