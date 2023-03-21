@@ -2,13 +2,10 @@ const express = require('express');
 const blogs = require('./blogRoutes');
 const projects = require('./projectRoutes');
 const queries = require('./queryRoutes');
+const dashboardController = require('../controllers/dashboardController');
 const admin = express.Router();
 
-admin.get('/', (req, res) => {
-    res.render('admin/dashboard', {
-        title: 'Dashboard',
-        styles: '/css/admin.css'});
-});
+admin.get('/', dashboardController.get_index);
 
 //blog routes
 admin.use('/blogs', blogs);

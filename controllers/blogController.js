@@ -1,6 +1,7 @@
 const Blog = require('../models/blog');
 const Comment = require('../models/comment');
 const photomap = require('../models/photomap');
+const Log = require('../models/log');
 
 //Getting short descriptions
 const getShort = function (body) {
@@ -38,9 +39,9 @@ const handleErrors = (err) => {
 // blog_delete, blog_update, blog_get_one, blog_index, blog_create, blog_comment
 
 const blog_index = (req, res) => {
-    const term = req.query.term? req.query.term : '[a-z]*';
+    const term = req.query.term? req.query.term : '.*';
     Blog.find({
-        title: { $regex: req.query.term? req.query.term : '.*', $options:'i' }
+        title: { $regex: term, $options:'i' }
     }).sort({ createdAt: -1 }).select({ body: 0, comments: 0, updatedAt: 0})
     .then(result => {
         res.render('admin/blogs', { title: 'Blogs', styles: '/css/admin.css', blogs: result});
@@ -58,7 +59,18 @@ const blog_create = (req, res) => {
     const blog = new Blog(req.body);
     blog.save()
         .then(result => {
-            res.send({ id: result._id});
+            const logBody = {
+                action: "You created this blogpost title",
+                subject: result.title
+            }
+            const log = new Log(logBody);
+            log.save()
+                .then(result1 => {
+                    res.send({ id: result._id});
+                })
+                .catch(err1 => {
+                    res.status(500).send({ message: "Encountered server error" } );
+                });
         })
         .catch(err => {
             const errors = handleErrors(err);
@@ -73,11 +85,22 @@ const blog_delete = (req, res) => {
         Comment.deleteMany({
             blog: id
         })
-        .then(result => {
-            res.send();
+        .then(result1 => {
+            const logBody = {
+                action: "You deleted this blogpost title",
+                subject: result.title
+            }
+            const log = new Log(logBody);
+            log.save()
+                .then(result3 => {
+                    res.status(200).send({ id: result._id });
+                })
+                .catch(err3 => {
+                    res.status(500).send({ message: "Encountered server error" } );
+                });
         })
-        .catch(err => {
-            console.log(err);
+        .catch(err1 => {
+            console.log(err1);
         })
     })
     .catch(err => {
@@ -97,7 +120,18 @@ const blog_comment = async (req, res) => {
         .then(result => {
             Blog.findByIdAndUpdate(id, update, { new: true})
             .then(result1 => {
-                res.status(200).send({ success: true });
+                const logBody = {
+                    action: "New comment on this blogpost title",
+                    subject: result1.title
+                }
+                const log = new Log(logBody);
+                log.save()
+                    .then(result2 => {
+                        res.status(200).send({ success: true });
+                    })
+                    .catch(err2 => {
+                        res.status(500).send({ message: "Encountered server error" } );
+                    });
             })
             .catch(err1 => {
                 console.log(err1);
@@ -122,7 +156,18 @@ const blog_update = (req, res) => {
         }
         blog.save()
         .then(result => {
-            res.send({ id: result._id});
+            const logBody = {
+                action: "You updated this blogpost title",
+                subject: result.title
+            }
+            const log = new Log(logBody);
+            log.save()
+                .then(result1 => {
+                    res.send({ id: result._id});
+                })
+                .catch(err1 => {
+                    res.status(500).send({ message: "Encountered server error" } );
+                });
         })
         .catch(err => {
             const errors = handleErrors(err);

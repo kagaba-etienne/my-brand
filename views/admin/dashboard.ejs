@@ -13,25 +13,25 @@
                     <div class="item">
                         <p>Blogs</p>
                         <div class="blogs">
-                            <p>0</p>
+                            <p><%= blogs %></p>
                         </div>
                     </div>
                     <div class="item">
                         <p>Queries</p>
                         <div class="queries">
-                            <p>0</p>
+                            <p><%= queries %></p>
                         </div>
                     </div>
                     <div class="item">
                         <p>Comments</p>
                         <div class="comments">
-                            <p>0</p>
+                            <p><%= comments %></p>
                         </div>
                     </div>
                     <div class="item">
                         <p>Subscribers</p>
                         <div class="subscribers">
-                            <p>0</p>
+                            <p><%= subscribers %></p>
                         </div>
                     </div>
                 </div>
@@ -40,13 +40,25 @@
                 <h2>Recents</h2>
                 <div class="cards">
                     <ul>
-                        <li>
-                            <div class="activity">
-                                <p>
-                                    You edited this title: <span>"A Closer Look at the Most Conventional, but Useless Practices in Development"</span>
-                                </p>
-                            </div>
-                        </li>
+                        <% if(logs.length) { %>
+                            <% logs.forEach(log => { %>
+                                <li>
+                                    <div class="activity">
+                                        <p>
+                                            <%= log.action %> : <span>"<%= log.subject %>"</span>
+                                        </p>
+                                    </div>
+                                </li>
+                            <% }) %>
+                            <% } else { %>
+                                <li>
+                                    <div class="activity">
+                                        <p>
+                                            There are no recent activities!
+                                        </p>
+                                    </div>
+                                </li>
+                            <% } %>
                     </ul>
                 </div>
             </div>
