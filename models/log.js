@@ -10,7 +10,7 @@ const logSchema = new Schema({
         type: String,
         required: true
     }
-}, { timeStamps: true });
+}, { timestamps: true });
 
 const Log = mongoose.model('Log', logSchema);
 module.exports = Log;
