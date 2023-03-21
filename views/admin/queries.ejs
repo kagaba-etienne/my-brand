@@ -8,7 +8,7 @@
 
         <div class="wrapper queries">
             <div class="container queries">
-                <h1>Queries</h1>
+                <h1>Messages</h1>
     
                 <div class="bar">
                     <div id="pending" class="item active">
@@ -25,29 +25,6 @@
                 <div class="tabs">
                     <div id="pending" class="active">
                         <div class="cards">
-                            <!-- <div class="card">
-                                <div class="visible">
-                                    <div class="photo"></div>
-                                    <div class="data">
-                                        <p class="name">Opal Ehret</p>
-                                        <p class="date">JANUARY 23, 2023</p>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="respond">
-                                            <img src="/assets/Reply.svg" alt="">
-                                        </div>
-                                        <div class="ignore"></div>
-                                    </div>
-                                </div>
-                                <div class="hidden">
-                                    <div class="text">
-                                        <p>Hi there,<br>
-                                            I am in need of a fullstack developer to help me with my project. From looking at your portfolio, I think that you may be a great fit for this role. Could you please provide me with more information about your experience and any projects you have worked on that are similar to mine?
-                                            Thank you,
-                                            Opal</p>
-                                    </div>
-                                </div>
-                            </div> -->
                             <% if (queries.pending.length) { %>
                                 <% queries.pending.forEach(element => { %>
                                     <div class="card card<%= element.id %>">
@@ -75,33 +52,13 @@
                                     </div>'
                                 <% }) %>
                             <% } else {%>
-                                <p class="no-queries">There are no pending queries</p>
+                                <p class="no-queries">There are no pending messages</p>
                             <% } %>
                         </div>
                     </div>
     
                     <div id="responded">
                         <div class="cards">
-                            <!-- <div class="card">
-                                <div class="visible">
-                                    <div class="photo"></div>
-                                    <div class="data">
-                                        <p class="name">Opal Ehret</p>
-                                        <p class="date">JANUARY 23, 2023</p>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="responded"></div>
-                                    </div>
-                                </div>
-                                <div class="hidden">
-                                    <div class="text">
-                                        <p>Hi there,<br>
-                                            I am in need of a fullstack developer to help me with my project. From looking at your portfolio, I think that you may be a great fit for this role. Could you please provide me with more information about your experience and any projects you have worked on that are similar to mine?
-                                            Thank you,
-                                            Opal</p>
-                                    </div>
-                                </div>
-                            </div> -->
                             <% if (queries.responded.length) { %>
                                 <% queries.responded.forEach(element => { %>
                                     <div class="card card<%= element.id %>">
@@ -127,36 +84,13 @@
                                     </div>
                                 <% }) %>
                             <% } else {%>
-                                <p class="no-queries">There are no responded queries</p>
+                                <p class="no-queries">There are no responded messages</p>
                             <% } %>
                         </div>
                     </div>
     
                     <div id="ignored">
                         <div class="cards">
-                            <!-- <div class="card">
-                                <div class="visible">
-                                    <div class="photo"></div>
-                                    <div class="data">
-                                        <p class="name">Opal Ehret</p>
-                                        <p class="date">JANUARY 23, 2023</p>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="respond">
-                                            <img src="/assets/Reply.svg" alt="">
-                                        </div>
-                                        <div class="delete"></div>
-                                    </div>
-                                </div>
-                                <div class="hidden">
-                                    <div class="text">
-                                        <p>Hi there,<br>
-                                            I am in need of a fullstack developer to help me with my project. From looking at your portfolio, I think that you may be a great fit for this role. Could you please provide me with more information about your experience and any projects you have worked on that are similar to mine?
-                                            Thank you,
-                                            Opal</p>
-                                    </div>
-                                </div>
-                            </div> -->
                             <% if (queries.ignored.length) { %>
                                 <% queries.ignored.forEach(element => { %>
                                     <div class="card card<%= element.id %>">
@@ -184,7 +118,7 @@
                                     </div>
                                 <% }) %>
                             <% } else {%>
-                                <p class="no-queries">There are no ignored queries</p>
+                                <p class="no-queries">There are no ignored messages</p>
                             <% } %>
                         </div>
                     </div>

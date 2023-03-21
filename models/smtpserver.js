@@ -19,7 +19,6 @@ const Mail = function (response) {
     }
     transporter.sendMail(email)
         .then( result => {
-            console.log('Email Sent');
         })
         .catch(err => {
             console.log(err);

@@ -3,7 +3,7 @@ process.env.NODE_ENV_CUSTOM = 'test';
 
 // Importing user model
 const User = require("../../models/user");
-
+const Log = require('../../models/log');
 
 // Importing necessary packages
 const chai = require("chai")
@@ -19,7 +19,13 @@ describe("User", () => {
             email: { $regex:'.*', $options:'i' }
         })
         .then(result => {
-            done();
+            Log.deleteMany({ action: { $regex:'.*', $options:'i' } })
+                .then(result3 => {
+                    done();
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         })
         .catch(err => {
             console.log(err);

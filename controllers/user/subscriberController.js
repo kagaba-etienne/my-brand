@@ -1,4 +1,5 @@
 const Subscriber = require('../../models/subscriber');
+const Log = require('../../models/log');
 
 
 //handle errors
@@ -36,8 +37,19 @@ const subscriber_mail_save = (req, res) => {
     .then(result => {
         Subscriber.send(email)
         .then( result => {
-            res.cookie('subscribed', true, { maxAge: 10 * 365 * 24 * 60 * 60 * 1000});
-            res.status(201).send();
+            const logBody = {
+                action: 'New subcriber',
+                subject: `${result.name} <${result.email}>`
+            }
+            const log = new Log(logBody);
+            log.save()
+                .then(result1 => {
+                    res.cookie('subscribed', true, { maxAge: 10 * 365 * 24 * 60 * 60 * 1000});
+                    res.status(200).send({ success: 'Successfully subscribed on our news letter'});
+                })
+                .catch(err1 => {
+                    res.status(500).send({ message: "Encountered server error" } );
+                });
         })
         .catch(err => {
             console.log(err);

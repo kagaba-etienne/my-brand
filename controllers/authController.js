@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const Log = require('../models/log');
 
 //handle errors
 const handleErrors = (err) => {
@@ -53,9 +54,20 @@ const post_signup = (req, res) => {
     const user = new User(req.body);
     user.save()
     .then(result => {
-        const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
-        res.status(200).send({ user: result._id });
+        const logBody = {
+            action: 'New admin user signed up',
+            subject: `${result.name} <${result.email}>`
+        }
+        const log = new Log(logBody);
+        log.save()
+            .then(result1 => {
+                const token = createToken(user._id);
+                res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+                res.status(200).send({ user: result._id });
+            })
+            .catch(err1 => {
+                res.status(500).send({ message: "Encountered server error" } );
+            });
     })
     .catch(err => {
         const errors = handleErrors(err);

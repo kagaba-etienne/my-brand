@@ -11,7 +11,7 @@ const get_index = async (req, res) => {
     const subscribers = await Subscriber.count();
     const projects = await Project.count();
     const queries = await Query.count();
-    Log.find()
+    Log.find().sort({ createdAt: -1 })
         .then(result => {
             res.render('admin/dashboard', {
                 title: 'Dashboard',

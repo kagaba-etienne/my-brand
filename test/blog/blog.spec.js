@@ -4,6 +4,7 @@ process.env.NODE_ENV_CUSTOM = 'test';
 // Importing blog model
 const Blog = require("../../models/blog");
 const Comment = require("../../models/comment");
+const Log = require('../../models/log');
 
 // Importing necessary packages
 const chai = require("chai");
@@ -23,7 +24,13 @@ describe("Blog", () => {
                 name: { $regex:'.*', $options:'i' }
             })
             .then(result2 => {
-                done();
+                Log.deleteMany({ action: { $regex:'.*', $options:'i' } })
+                .then(result3 => {
+                    done();
+                })
+                .catch(err => {
+                    console.log(err);
+                })
             })
             .catch(err => {
                 console.log(err);

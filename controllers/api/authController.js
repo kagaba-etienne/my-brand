@@ -1,5 +1,6 @@
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
+const Log = require('../../models/log');
 
 //handle errors
 const handleErrors = (err) => {
@@ -49,31 +50,30 @@ const createToken = (id) => {
     });
 }
 
-const get_signup = (req, res) => {
-    res.render('admin/acc/signup', {
-        title: 'Signup',
-        styles: 'css/signup.css'
-    })
-}
 const post_signup = (req, res) => {
     const user = new User(req.body);
     user.save()
     .then(result => {
-        const token = createToken(user._id);
-        res.setHeader('jwt', token);
-        res.setHeader('Expires', duration(maxAge * 1000));
-        res.status(200).send({ user: result._id, token: token });
+        const logBody = {
+            action: 'New admin user signed up',
+            subject: `${result.name} <${result.email}>`
+        }
+        const log = new Log(logBody);
+        log.save()
+            .then(result1 => {
+                const token = createToken(user._id);
+                res.setHeader('jwt', token);
+                res.setHeader('Expires', duration(maxAge * 1000));
+                res.status(200).send({ user: result._id, token: token });
+            })
+            .catch(err1 => {
+                res.status(500).send({ message: "Encountered server error" } );
+            });
     })
     .catch(err => {
         console.log(err);
         const errors = handleErrors(err);
         res.status(400).send({errors});
-    })
-}
-const get_login = (req, res) => {
-    res.render('admin/acc/login', {
-        title: 'Login',
-        styles: 'css/signup.css'
     })
 }
 const post_login = (req, res) => {
@@ -96,9 +96,7 @@ const get_logout = (req, res) => {
 }
 
 module.exports = {
-    get_signup,
     post_signup,
-    get_login,
     post_login,
     get_logout
 }

@@ -3,7 +3,7 @@ process.env.NODE_ENV_CUSTOM = 'test';
 
 // Importing project model
 const Project = require("../../models/project");
-
+const Log = require('../../models/log');
 
 // Importing necessary packages
 const chai = require("chai")
@@ -19,7 +19,13 @@ describe("Project", () => {
             title: { $regex:'.*', $options:'i' }
         })
         .then(result => {
-            done();
+            Log.deleteMany({ action: { $regex:'.*', $options:'i' } })
+                .then(result3 => {
+                    done();
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         })
         .catch(err => {
             console.log(err);

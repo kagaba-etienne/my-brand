@@ -1,5 +1,6 @@
 const photomap = require('../../../models/photomap');
 const Query = require('../../../models/query');
+const Log = require('../../../models/log');
 
 
 //handle errors
@@ -28,7 +29,18 @@ const send_query = (req, res) => {
     query.photo = photomap(query.photo);
     query.save()
     .then(result => {
-        res.status(200).send({ success: true });
+        const logBody = {
+            action: 'New message from',
+            subject: `${result.name} <${result.email}>`
+        }
+        const log = new Log(logBody);
+        log.save()
+            .then(result1 => {
+                res.status(200).send({ success: true });
+            })
+            .catch(err1 => {
+                res.status(500).send({ message: "Encountered server error" } );
+            });
     })
     .catch(err => {
         const errors = handleErrors(err);

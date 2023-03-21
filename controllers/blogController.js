@@ -149,6 +149,7 @@ const blog_update = (req, res) => {
     req.body.body? req.body.shortDescr = getShort(req.body.body) : {};
     req.body.body? req.body.body = req.body.body.split('\n[COVER]\n') : {};
     const update = req.body;
+    const ifpublish = update.publish? update.publish: 'not';
     Blog.findById(id)
     .then(blog => {
         for (var key in update) {
@@ -157,7 +158,7 @@ const blog_update = (req, res) => {
         blog.save()
         .then(result => {
             const logBody = {
-                action: "You updated this blogpost title",
+                action: `You ${ifpublish !== "not"? (ifpublish? "published" : "unpublished") : "updated"} this blogpost title`,
                 subject: result.title
             }
             const log = new Log(logBody);
